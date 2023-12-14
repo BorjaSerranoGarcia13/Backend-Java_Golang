@@ -5,15 +5,15 @@ Requisitos: Java.
 Tecnologías: Spring Boot, Hibernate, MySQL, Thymeleaf, Spring Security, JUnit y Maven.
 
 Instalación: La aplicación se conecta a una base de datos MySQL que se ejecuta en tu máquina local (localhost) en el puerto 3307. El nombre de la base de datos debe ser ‘ecommerce’.
-![connect BBDD](images/ecommerce/connectBBDD.jpg)
+![connect BBDD](https://github.com/BorjaSerranoGarcia13/backend-java-go/tree/main/images/ecommerce/connectBBDD.jpg)
 
 
 Para crear la base de datos de forma sencilla y acceder a ella se recomienda utilizar ‘MySQL Workbench’.
-![mysqlconnection](images/ecommerce/mysqlconnection.jpg)  ![connect BBDD](images/ecommerce/mysqlschema.jpg)
+![mysqlconnection](https://github.com/BorjaSerranoGarcia13/backend-java-go/tree/main/images/ecommerce/mysqlconnection.jpg)  ![connect BBDD](https://github.com/BorjaSerranoGarcia13/backend-java-go/tree/main/images/ecommerce/mysqlschema.jpg)
 
 Para tener permisos de ‘admin’ dentro de la aplicación, realizar cambio manual en la base de datos. Modificar con b'1' en el campo admin. Valor 1 para ‘admin’, valor 0 para ‘user’.
 
-![admin](images/ecommerce/admin1.jpg) → ![updateadmin](images/ecommerce/updateadmin.jpg) → ![admin](images/ecommerce/admin2.jpg)
+![admin](https://github.com/BorjaSerranoGarcia13/backend-java-go/tree/main/images/ecommerce/admin1.jpg) → ![updateadmin](https://github.com/BorjaSerranoGarcia13/backend-java-go/tree/main/images/ecommerce/updateadmin.jpg) → ![admin](https://github.com/BorjaSerranoGarcia13/backend-java-go/tree/main/images/ecommerce/admin2.jpg)
 
 
 Funcionamiento: La aplicación es un sistema de comercio electrónico que permite a los usuarios ver productos y realizar pedidos y a los administradores gestionar productos, pedidos y usuarios. Utiliza un sistema de login para poder acceder y realizar las tareas. 
