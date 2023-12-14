@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Spring eCommerce</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+    <script>
+        window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+    </script>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<div th:insert="~{user/template_user.html::header}">
+</div>
+
+<!-- Page Content -->
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Cart</small>
+    </h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item active">Cart</li>
+    </ol>
+
+    <!-- Blog Post -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-9">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="orderDetails:${orderDetails}">
+                            <td th:text="${orderDetails.product.name}"></td>
+                            <td th:text="${orderDetails.price}"></td>
+                            <td th:text="${orderDetails.quantity}"></td>
+                            <td th:text="${orderDetails.total}"></td>
+                            <td><a th:href="@{/delete/cart/{id}   (id=${orderDetails.product.id}) }"
+                                   class="btn btn-danger">Remove</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-lg-3">
+                    <h2 class="card-title" style="text-align: center;">Subtotal</h2>
+
+                    <ul class="list-group">
+                        <li class="list-group-item"><h5 style="text-align: center;" th:text="${totalPrice}"></h5></li>
+                        <a th:href="@{/order}" class="btn btn-success">View Order</a>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<div th:insert="~{user/template_user.html::footer}"></div>
+
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Spring eCommerce</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<div data-th-insert="~{admin/template_admin.html::header}"></div>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+        Spring eCommerce <small>Products</small>
+    </h1>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{/admin}">Home</a></li>
+        <li class="breadcrumb-item active">View Products</li>
+    </ol>
+
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-9">
+                <h2>Products</h2>
+            </div>
+            <div class="col-3 text-right">
+                <a class="btn btn-primary" th:href="@{/products/create}">Create Product</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Inventory</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Reference</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="product:${products}">
+                            <td th:text="${product.name}"></td>
+                            <td th:text="${product.description}"></td>
+                            <td th:text="${product.quantity}"></td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.reference}"></td>
+                            <td><a class="btn btn-warning"
+                                   th:href="@{products/edit/{reference} (reference=${product.reference}) }">Edit</a>
+                            </td>
+                            <td><a class="btn btn-danger"
+                                   th:href="@{products/delete/{id} (id=${product.id}) }">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+<div th:insert="~{admin/template_admin.html::footer}"></div>
+
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
