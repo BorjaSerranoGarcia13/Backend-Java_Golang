@@ -1,11 +1,11 @@
 # Ecommerce
 Spring Ecommerce
 
-Requisitos: Java.
+**Requisitos:** Java.
 
-Tecnologías: Spring Boot, Hibernate, MySQL, Thymeleaf, Spring Security, JUnit y Maven.
+**Tecnologías:** Spring Boot, Hibernate, MySQL, Thymeleaf, Spring Security, JUnit y Maven.
 
-Instalación: La aplicación se conecta a una base de datos MySQL que se ejecuta en tu máquina local (localhost) en el puerto 3307. El nombre de la base de datos debe ser ‘ecommerce’.
+**Instalación:** La aplicación se conecta a una base de datos MySQL que se ejecuta en tu máquina local (localhost) en el puerto 3307. El nombre de la base de datos debe ser ‘ecommerce’.
 
 ![](../images/ecommerce/connectBBDD.jpg) 
 
@@ -19,7 +19,8 @@ Para tener permisos de ‘admin’ dentro de la aplicación, realizar cambio man
 ![](../images/ecommerce/admin1.jpg)   →   ![](../images/ecommerce/updateadmin.jpg)   →   ![](../images/ecommerce/admin2.jpg)
 
 
-Funcionamiento: La aplicación es un sistema de comercio electrónico que permite a los usuarios ver productos y realizar pedidos y a los administradores gestionar productos, pedidos y usuarios. Utiliza un sistema de login para poder acceder y realizar las tareas. 
+
+**Funcionamiento:** La aplicación es un sistema de comercio electrónico que permite a los usuarios ver productos y realizar pedidos y a los administradores gestionar productos, pedidos y usuarios. Utiliza un sistema de login para poder acceder y realizar las tareas. 
 
 -	Gestión de productos: La aplicación permite a los administradores gestionar productos. Los administradores pueden agregar, editar y eliminar productos. Los productos pueden ser visualizados por todos los usuarios.  
 
