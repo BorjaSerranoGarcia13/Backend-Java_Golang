@@ -57,16 +57,13 @@
                                     <th scope="col">Product</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Total</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="orderDetails:${orderDetails}">
-                                    <td th:text="${orderDetails.product.name}"></td>
-                                    <td th:text="${orderDetails.quantity}"></td>
-                                    <td th:text="${orderDetails.price}"></td>
-                                    <td th:text="${orderDetails.total}"></td>
-
+                                <tr th:each="product:${products}">
+                                    <td th:text="${product.name}"></td>
+                                    <td th:text="${product.quantity}"></td>
+                                    <td th:text="${product.price}"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -79,10 +76,14 @@
                 <div class="col-lg-3">
                     <h2 class="card-title">Order summary</h2>
 
-                    <ul class="list-group">
-                        <li class="list-group-item"><h5 th:text=" 'Total Order: '+ ${total} "></h5></li>
-                        <a th:href="@{/purchase/confirm}" class="btn btn-dark">Generate</a>
-                    </ul>
+                    <form th:action="@{/home/purchase/confirm}" method="post">
+                        <ul class="list-group">
+                            <li class="list-group-item"><h5 th:text=" 'Total Order: '+ ${totalPrice} "></h5></li>
+                        </ul>
+                        <div>
+                            <button type="submit" class="btn btn-dark">Generate</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

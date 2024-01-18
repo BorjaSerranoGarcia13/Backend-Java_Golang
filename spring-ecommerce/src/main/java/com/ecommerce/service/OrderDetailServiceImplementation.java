@@ -1,94 +1,69 @@
 package com.ecommerce.service;
 
-import com.ecommerce.constants.messages.OrderDetailsErrorMessages;
-import com.ecommerce.exception.*;
+import com.ecommerce.constants.messages.OrderDetailsExceptionMessages;
+import com.ecommerce.dto.OrderDetailsDto;
+import com.ecommerce.exception.AuthenticationException;
+import com.ecommerce.exception.OrderDetailsException;
 import com.ecommerce.model.Order;
 import com.ecommerce.model.OrderDetails;
 import com.ecommerce.model.Product;
-import com.ecommerce.model.User;
-import com.ecommerce.repository.IOrderDetailRepository;
-import com.ecommerce.utils.UserSessionUtils;
-import com.ecommerce.utils.ReferenceGeneratorUtils;
-import com.ecommerce.utils.Validator;
-import jakarta.servlet.http.HttpSession;
+import com.ecommerce.repository.IOrderDetailsRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.*;
+import java.util.stream.Collectors;
 
-import static com.ecommerce.constants.messages.OrderDetailsErrorMessages.*;
-import static com.ecommerce.utils.ReferenceGeneratorUtils.generateUniqueReference;
+import static com.ecommerce.constants.messages.OrderDetailsExceptionMessages.*;
+import static com.ecommerce.constants.messages.UserExceptionMessages.ERROR_NOT_ADMIN_USER_LOGGED_IN;
 
 @Service
-public class OrderDetailServiceImplementation implements IOrderDetailService {
-    private final IOrderDetailRepository iOrderDetailRepository;
+public class OrderDetailServiceImplementation implements IOrderDetailsService {
+    private final IOrderDetailsRepository iOrderDetailsRepository;
     private final IProductService iProductService;
     private final IOrderService iOrderService;
-    private final UserSessionUtils userSessionUtils;
+    private final IUserService iUserService;
+    private final List<Product> productList = new ArrayList<>();
+    private final Map<Integer, Product> productMap = new HashMap<>();
+    private final ModelMapper modelMapper;
 
-    private List<OrderDetails> orderDetailsList = new ArrayList<>();
-    private final Map<String, OrderDetails> orderDetailsMap = new HashMap<>();
-
-    public OrderDetailServiceImplementation(IOrderDetailRepository iOrderDetailRepository, IProductService iProductService, IOrderService iOrderService, UserSessionUtils userSessionUtils) {
-        this.iOrderDetailRepository = iOrderDetailRepository;
+    public OrderDetailServiceImplementation(IOrderDetailsRepository iOrderDetailsRepository, IProductService iProductService,
+                                            IOrderService iOrderService, IUserService iUserService,
+                                            ModelMapper modelMapper) {
+        this.iOrderDetailsRepository = iOrderDetailsRepository;
         this.iProductService = iProductService;
         this.iOrderService = iOrderService;
-        this.userSessionUtils = userSessionUtils;
-    }
-
-    public void setOrderDetailsList(List<OrderDetails> orderDetailsList) {
-        if (orderDetailsList == null) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_LIST);
-        }
-        this.orderDetailsList = orderDetailsList;
-    }
-
-    public List<OrderDetails> getOrderDetailsList() {
-        return orderDetailsList;
+        this.iUserService = iUserService;
+        this.modelMapper = modelMapper;
     }
 
     @Override
-    public Integer getCurrentOrderDetailsProductQuantity(String reference) {
-        if (reference == null) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_PRODUCT_REFERENCE);
-        }
-        OrderDetails orderDetails = orderDetailsMap.get(reference);
-        return orderDetails != null ? orderDetails.getQuantity() : 0;
-    }
-
-    public void addOrderDetailList(OrderDetails orderDetails) {
-       List<String> validationProductErrors = Validator.validateOrderDetails(orderDetails);
-        if (!validationProductErrors.isEmpty()) {
-            throw new OrderDetailsException(String.join(", ", validationProductErrors));
-        }
-        this.orderDetailsList.add(orderDetails);
-        this.orderDetailsMap.put(orderDetails.getProduct().getReference(), orderDetails);
+    public List<Product> getCart() {
+        return productList;
     }
 
     @Override
-    public List<OrderDetails> findByReference(String reference) {
-        if (reference == null || !reference.startsWith(ReferenceGeneratorUtils.ORDER_DETAIL_PREFIX)) {
-            throw new OrderDetailsException(OrderDetailsErrorMessages.ERROR_ORDER_DETAILS_INVALID_REFERENCE);
-        }
+    public List<OrderDetails> findAll() {
+        return iOrderDetailsRepository.findAll();
+    }
 
-        List<OrderDetails> orderDetails = iOrderDetailRepository.findByReference(reference);
-
-        if (orderDetails.isEmpty()) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_NOT_FOUND);
-        }
-
-        return orderDetails;
+    @Override
+    public Page<OrderDetails> findAll(Pageable pageable) {
+        return iOrderDetailsRepository.findAll(pageable);
     }
 
     @Override
     public OrderDetails findById(Integer id) {
         if (id == null || id <= 0) {
-            throw new OrderDetailsException(OrderDetailsErrorMessages.ERROR_ORDER_DETAILS_INVALID_ID);
+            throw new OrderDetailsException(OrderDetailsExceptionMessages.ERROR_ORDER_DETAILS_INVALID_ID);
         }
 
-        Optional<OrderDetails> optionalOrderDetail = iOrderDetailRepository.findById(id);
+        Optional<OrderDetails> optionalOrderDetail = iOrderDetailsRepository.findById(id);
         if (optionalOrderDetail.isEmpty()) {
             throw new OrderDetailsException(ERROR_ORDER_DETAILS_NOT_FOUND);
         }
@@ -97,151 +72,176 @@ public class OrderDetailServiceImplementation implements IOrderDetailService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)
-    public void save(HttpSession session) {
-        if (orderDetailsList == null || orderDetailsList.isEmpty()) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_LIST);
-        }
+    public Map.Entry<List<Product>, BigDecimal> getCartAndTotalPrice() {
+        return new AbstractMap.SimpleEntry<>(productList, getTotalPrice());
+    }
 
-        String reference;
-        reference = generateUniqueReference(ReferenceGeneratorUtils.ORDER_DETAIL_PREFIX);
-
-        Optional<User> optionalUser = userSessionUtils.checkVerifiedUserFromSession(session);
-        if (optionalUser.isEmpty()) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_USER);
-        }
-
-        Order order = createOrder(reference, optionalUser.get(), orderDetailsList);
-
-        order = iOrderService.save(order);
-
-        List<OrderDetails> orderDetailsToSave = new ArrayList<>();
-        List<Product> productsToUpdate = new ArrayList<>();
-        Order finalOrder = order;
-
-        orderDetailsList.forEach(orderDetail -> {
-            orderDetail.setReference(reference);
-            orderDetail.setOrder(finalOrder);
-            orderDetailsToSave.add(orderDetail);
-
-            orderDetail.getProduct().setQuantity(orderDetail.getProduct().getQuantity() - orderDetail.getQuantity());
-            productsToUpdate.add(orderDetail.getProduct());
-        });
-
-        iOrderDetailRepository.saveAll(orderDetailsToSave);
-        iProductService.saveAllProducts(productsToUpdate);
-
-        clearOrderDetailsList();
+    @Override
+    public Map.Entry<Product, Integer> getCurrentStockById(@PathVariable Integer id) {
+        Product product = iProductService.findById(id);
+        Integer quantity = product.getQuantity() -
+                getTotalProductQuantity(product);
+        return new AbstractMap.SimpleEntry<>(product, quantity);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Integer id, HttpSession session) {
-        if (id == null || id <= 0) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_ID);
+    public Order save() {
+        if (productList.isEmpty()) {
+            throw new OrderDetailsException(ERROR_ORDER_DETAILS_EMPTY_CART);
         }
 
-        Optional<User> optionalUser = userSessionUtils.checkVerifiedAdminFromSession(session);
-        if (optionalUser.isEmpty()) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_ADMIN);
-        }
+        List<Product> products = iProductService.findByIds(new ArrayList<>(productMap.keySet()));;
 
-        iOrderDetailRepository.deleteById(id);
-    }
-
-    @Override
-    public void addProductToOrderDetailList(String reference, Integer quantity) {
-        if (reference == null || !reference.startsWith(ReferenceGeneratorUtils.PRODUCT_PREFIX)) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_PRODUCT_REFERENCE);
-        }
-        if (quantity == null || quantity <= 0) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_QUANTITY);
-        }
-
-        Product product = iProductService.findByReference(reference);
-
-        updateOrderDetailList(product, quantity);
-    }
-
-    @Override
-    public void updateOrderDetailList(Product product, Integer quantity) {
-        List<String> validationProductErrors = Validator.validateProduct(product);
-        if (!validationProductErrors.isEmpty()) {
-            throw new OrderDetailsException(String.join(", ", validationProductErrors));
-        }
-        if (quantity == null || quantity <= 0) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_QUANTITY);
-        }
-        if (quantity > product.getQuantity()) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_STOCK);
-        }
-
-        Integer totalProductQuantity = getTotalProductQuantity(product);
-        if (totalProductQuantity + quantity > product.getQuantity()) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_STOCK);
-        }
-
-        OrderDetails orderDetails = orderDetailsMap.get(product.getReference());
-
-        if (orderDetails != null) {
-            orderDetails.setQuantity(orderDetails.getQuantity() + quantity);
-            BigDecimal totalPrice = product.getPrice().multiply(BigDecimal.valueOf(orderDetails.getQuantity()));
-            orderDetails.setTotal(totalPrice);
-        } else {
-            OrderDetails newOrderDetails = new OrderDetails();
-            newOrderDetails.setProduct(product);
-            newOrderDetails.setPrice(product.getPrice());
-            newOrderDetails.setQuantity(quantity);
-            BigDecimal totalPrice = product.getPrice().multiply(BigDecimal.valueOf(newOrderDetails.getQuantity()));
-            newOrderDetails.setTotal(totalPrice);
-
-            addOrderDetailList(newOrderDetails);
-        }
-
-    }
-
-    @Override
-    public void deleteProductInOrderDetailList(Integer id) {
-        if (id == null || id <= 0) {
-            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_ID);
-        }
-
-        Iterator<OrderDetails> iterator = getOrderDetailsList().iterator();
-        while (iterator.hasNext()) {
-            OrderDetails orderDetails = iterator.next();
-            if (orderDetails.getProduct().getId().equals(id)) {
-                iterator.remove();
-                orderDetailsMap.remove(orderDetails.getProduct().getReference());
-                break;
+        List<OrderDetails> orderDetailsList = products.stream().map(product -> {
+            OrderDetails orderDetails = new OrderDetails();
+            Product matchingProduct = productMap.get(product.getId());
+            if (matchingProduct != null) {
+                orderDetails.setProduct(product);
+                orderDetails.setQuantity(matchingProduct.getQuantity());
+                orderDetails.setTotal(matchingProduct.getPrice());
+                product.setQuantity(product.getQuantity() - matchingProduct.getQuantity());
             }
+            return orderDetails;
+        }).collect(Collectors.toList());
+
+        Order savedOrder = iOrderService.save(orderDetailsList, getTotalPrice(), iUserService.getCurrentUserId());
+        productList.clear();
+        productMap.clear();
+
+        return savedOrder;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Integer id) {
+        if (id == null || id <= 0) {
+            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_ID);
+        }
+        if (!iUserService.isAdmin()) {
+            throw new AuthenticationException(ERROR_NOT_ADMIN_USER_LOGGED_IN);
+        }
+
+        iOrderDetailsRepository.deleteById(id);
+    }
+
+    @Override
+    public Product addProductToCart(Integer productId, Integer productQuantity) {
+        if (productId == null || productId <= 0) {
+            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_ID);
+        }
+        if (productQuantity == null || productQuantity <= 0) {
+            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_QUANTITY);
+        }
+
+        Product product = iProductService.findById(productId);
+        iProductService.validateAndThrow(product);
+
+        return addProductToList(product, productQuantity);
+    }
+
+    @Override
+    public void removeProductFromCart(Integer productId) {
+        if (productId == null || productId <= 0) {
+            throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_ID);
+        }
+
+        Product product = productMap.get(productId);
+        if (product != null) {
+            productList.remove(product);
+            productMap.remove(productId);
         }
     }
 
     @Override
     public BigDecimal getTotalPrice() {
-        return getOrderDetailsList().stream()
-                .map(OrderDetails::getTotal)
+        return productList.stream()
+                .map(Product::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    private Order createOrder(String reference, User user, List<OrderDetails> orderDetails) {
-        Order order = new Order();
-        order.setUser(user);
-        order.setReference(reference);
-        order.setCreationDate(new Date(System.currentTimeMillis()));
-        order.setOrderDetails(orderDetails);
-        order.setTotal(getTotalPrice());
-        return order;
+    @Override
+    public OrderDetailsDto convertOrderDetailsToDto(OrderDetails orderDetails) {
+        OrderDetailsDto orderDetailsDto = new OrderDetailsDto();
+        modelMapper.map(orderDetails, orderDetailsDto);
+
+        return orderDetailsDto;
+    }
+
+    @Override
+    public List<OrderDetailsDto> convertOrderDetailsToDto(List<OrderDetails> ordersDetails) {
+        return ordersDetails.stream()
+                .map(this::convertOrderDetailsToDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> validateOrderDetails(OrderDetails orderDetails) {
+        List<String> errors = new ArrayList<>();
+
+        if (orderDetails == null) {
+            errors.add(ERROR_ORDER_DETAILS_INVALID);
+            return errors;
+        }
+        if (orderDetails.getProduct() == null) {
+            errors.add(ERROR_ORDER_DETAILS_INVALID_PRODUCT);
+        }
+        if (orderDetails.getQuantity() == null || orderDetails.getQuantity() < 0) {
+            errors.add(ERROR_ORDER_DETAILS_INVALID_QUANTITY);
+        }
+        if (orderDetails.getTotal() == null || orderDetails.getTotal().compareTo(BigDecimal.ZERO) <= 0) {
+            errors.add(ERROR_ORDER_DETAILS_INVALID_TOTAL);
+        }
+
+        return errors;
+    }
+
+    @Override
+    public List<String> validateOrdersDetails(List<OrderDetails> ordersDetails) {
+        List<String> errors = new ArrayList<>();
+
+        if (ordersDetails == null || ordersDetails.isEmpty()) {
+            errors.add(ERROR_ORDER_DETAILS_INVALID);
+            return errors;
+        }
+
+        for (OrderDetails orderDetails : ordersDetails) {
+            List<String> orderDetailsErrors = validateOrderDetails(orderDetails);
+            errors.addAll(orderDetailsErrors);
+        }
+
+        return errors;
     }
 
     private Integer getTotalProductQuantity(Product product) {
-        OrderDetails orderDetails = orderDetailsMap.get(product.getReference());
-        return orderDetails != null ? orderDetails.getQuantity() : 0;
+        long count = productList.stream()
+                .filter(p -> p.getId().equals(product.getId()))
+                .count();
+        return (int) count;
     }
 
-    private void clearOrderDetailsList() {
-        orderDetailsList.clear();
-        orderDetailsMap.clear();
+    private Product addProductToList(Product product, Integer productQuantity) {
+        Product existingProduct = productMap.get(product.getId());
+        if (existingProduct != null) {
+            int totalQuantity = existingProduct.getQuantity() + productQuantity;
+            if (product.getQuantity() < totalQuantity) {
+                throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_STOCK);
+            }
+            existingProduct.setQuantity(totalQuantity);
+            existingProduct.setPrice(product.getPrice().multiply(BigDecimal.valueOf(totalQuantity)));
+
+            return existingProduct;
+        } else {
+            if (product.getQuantity() < productQuantity) {
+                throw new OrderDetailsException(ERROR_ORDER_DETAILS_INVALID_STOCK);
+            }
+            product.setQuantity(productQuantity);
+            product.setPrice(product.getPrice().multiply(BigDecimal.valueOf(product.getQuantity())));
+            this.productList.add(product);
+            this.productMap.put(product.getId(), product);
+
+            return product;
+        }
     }
 
 }

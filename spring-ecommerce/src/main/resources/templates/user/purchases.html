@@ -59,7 +59,8 @@
                   <td th:text="${order.reference}"></td>
                   <td th:text="${order.creationDate}" ></td>
                   <td th:text="${order.total}" ></td>
-                  <td><a th:href="@{/user/order_details/{reference} (reference=${order.reference}) }" class="btn btn-success">View Order Details</a></td>
+                  <td><a th:href="@{/users/order-details/id/{id} (id=${order.id}) }" class="btn btn-success">
+                    View Order Details</a></td>
                 </tr>
               </tbody>
             </table>

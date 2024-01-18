@@ -3,82 +3,92 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Spring eCommerce</title>
+    <title>Spring eCommerce</title>
 
 
-  <!-- Bootstrap core CSS -->
-<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
-	rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+    <!-- Inline CSS -->
+    <style>
+        .total {
+          font-size: 1.2em;
+        }
+    </style>
 
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <div th:insert="~{user/template_user.html::header}">
-  </div>
+<!-- Navigation -->
+<div th:insert="~{user/template_user.html::header}">
+</div>
 
 
-    <!-- Page Content -->
-    <div class="container">
+<!-- Page Content -->
+<div class="container">
 
 
-      <!-- Page Heading/Breadcrumbs -->
-      <h1 class="mt-4 mb-3">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
         Spring eCommerce <small>Details</small>
-      </h1>
+    </h1>
 
-      <ol class="breadcrumb">
+    <ol class="breadcrumb">
         <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
         <li class="breadcrumb-item"><a th:href="@{/user/purchases}">Purchases</a></li>
         <li class="breadcrumb-item active">Purchase Details</li>
-      </ol>
+    </ol>
 
-      <!-- Blog Post -->
-      <div class="card mb-4">
+    <!-- Blog Post -->
+    <div class="card mb-4">
         <div class="card-body">
-          <div class="row">
-           <div class="col-lg-12">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Product</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Total</th>                  
-                </tr>
-              </thead>
-              <tbody>
-                <tr th:each="orderDetails:${orderDetails}">
-                  <td th:text="${orderDetails.product.name}"></td>
-                  <td  th:text="${orderDetails.quantity}"></td>
-                  <td th:text="${orderDetails.price}"></td>
-                  <td th:text="${orderDetails.total}"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="orderDetails:${orderDetails}">
+                            <td th:text="${orderDetails.product.name}"></td>
+                            <td th:text="${orderDetails.quantity}"></td>
+                            <td th:text="${orderDetails.total}"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="total" colspan="4" th:text="${total}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <!-- /.container -->
+</div>
+<!-- /.container -->
 
-  <!-- Footer -->
-  <!-- Footer -->
-	<div th:insert="~{user/template_user.html::footer}"></div>
+<!-- Footer -->
+<!-- Footer -->
+<div th:insert="~{user/template_user.html::footer}"></div>
 
-	<!-- Bootstrap core JavaScript -->
-	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 
 </html>

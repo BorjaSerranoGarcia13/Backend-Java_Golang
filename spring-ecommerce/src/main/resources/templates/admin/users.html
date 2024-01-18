@@ -23,7 +23,7 @@
 <body>
 
   <!-- Navigation -->
-  <div th:insert="admin/template_admin.html::header"></div>
+  <div th:insert="~{admin/template_admin.html::header}"></div>
 
 <!-- Page Content -->
 <div class="container">
@@ -34,10 +34,6 @@
     Spring eCommerce <small>Users</small>
   </h1>
 
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a th:href="@{/admin}">Home</a></li>
-    <li class="breadcrumb-item active">View Users</li>
-  </ol>
   <h2>Users</h2>
   <table class="table">
     <thead>
@@ -46,7 +42,7 @@
         <th scope="col">Email</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Address</th>
-        <th scope="col">Admin</th>
+        <th scope="col">Role</th>
         <th scope="col">Delete</th>
       </tr>
     </thead>
@@ -56,18 +52,41 @@
         <td th:text="${user.email}"></td>
         <td th:text="${user.phoneNumber}"></td>
         <td th:text="${user.address}"></td>
-        <td th:text="${user.admin}"></td>
-        <td th:if="${!user.admin}"><a class="btn btn-danger"
-               th:href="@{/admin/users/delete/{id} (id=${user.id}) }">Delete</a></td>
+        <td>
+          <span th:each="authority : ${user.authorities}" th:text="${authority.authority} + ' '"></span>
+        </td>
+        <td>
+          <div th:unless="${#lists.contains(user.authorities, 'ROLE_ADMIN')}">
+          <form th:action="@{/admin/users/delete/{id} (id=${user.id})}" method="post">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
+
+  <div th:block th:with="prevPage=${currentPage - 1}, nextPage=${currentPage + 1}">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item" th:classappend="${currentPage == 0 ? 'disabled' : ''}">
+          <a class="page-link" th:href="@{'/admin/users?page=' + ${prevPage}}">Previous</a>
+        </li>
+        <li class="page-item">
+          <span class="page-link">Page: <span th:text="${currentPage + 1}"></span> / <span th:text="${totalPages}"></span></span>
+        </li>
+        <li class="page-item" th:classappend="${currentPage + 1 == totalPages ? 'disabled' : ''}">
+          <a class="page-link" th:href="@{'/admin/users?page=' + ${nextPage}}">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
 </div>
 <!-- /.container -->
 
 <!-- Footer -->
-<div th:insert="admin/template_admin.html::footer"></div>
+<div th:insert="~{admin/template_admin.html::footer}"></div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>

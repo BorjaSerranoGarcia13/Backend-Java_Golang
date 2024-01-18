@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface IUserRepository extends JpaRepository<User,Integer> {
+public interface IUserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByUsername(String username);
+
     Optional<User> findByEmail(String email);
+
     List<User> findByUsernameOrEmailOrPhoneNumber(String username, String email, String phoneNumber);
+
 
 }

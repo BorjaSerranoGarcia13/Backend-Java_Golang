@@ -2,66 +2,80 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<title>Spring eCommerce</title>
+    <title>Spring eCommerce</title>
 
 
-<!-- Bootstrap core CSS -->
-<link th:href="@{vendor/bootstrap/css/bootstrap.min.css}"
-	rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link th:href="@{css/heroic-features.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{css/heroic-features.css}" rel="stylesheet">
 
 </head>
 
 <body>
 
-	<!-- Navigation -->
-	<div th:insert="~{admin/template_admin.html::header}"></div>
+<!-- Navigation -->
+<div th:insert="~{admin/template_admin.html::header}"></div>
 
-	<!-- Page Content -->
-	<div class="container">
+<!-- Page Content -->
+<div class="container">
 
-		<!-- Jumbotron Header -->
-		<header class="jumbotron my-4">
-			<h1 class="display-3">Spring Ecommerce</h1>
-			<p class="lead">Online Product Store</p>
-		</header>
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">Spring Ecommerce</h1>
+        <p class="lead">Online Product Store</p>
+    </header>
 
-		<!-- Page Features -->
-		<div class="row text-center">
+    <!-- Page Features -->
+    <div class="row text-center">
 
-			<div class="col-lg-3 col-md-6 mb-4" th:each="product: ${products}">
-				<div class="card h-100">
-					<img class="card-img-top"
-						th:src="@{/images/{img} (img=${product.image})} " alt="" src="">
-					<div class="card-body">
-						<p class="card-text" th:text="${product.name}"></p>
-					</div>
-					<div class="card-footer">
-						<a th:href="@{/admin/product/{reference} (reference=${product.reference}) }" class="btn btn-success">View Product</a>
-					</div>
-				</div>
-			</div>
+        <div class="col-lg-3 col-md-6 mb-4" th:each="product: ${products}">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="card-text" th:text="${product.name}"></p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/admin/products/view/{id} (id=${product.id}) }"
+                       class="btn btn-success">View Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
 
+    <div th:block th:with="prevPage=${currentPage - 1}, nextPage=${currentPage + 1}">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" th:classappend="${currentPage == 0 ? 'disabled' : ''}">
+                    <a class="page-link" th:href="@{'/admin?page=' + ${prevPage}}">Previous</a>
+                </li>
+                <li class="page-item">
+                    <span class="page-link">Page: <span th:text="${currentPage + 1}"></span> / <span
+                            th:text="${totalPages}"></span></span>
+                </li>
+                <li class="page-item" th:classappend="${currentPage + 1 == totalPages ? 'disabled' : ''}">
+                    <a class="page-link" th:href="@{'/admin?page=' + ${nextPage}}">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-		</div>
-		<!-- /.row -->
+</div>
 
-	</div>
-	<!-- /.container -->
+<!-- Footer -->
+<div th:insert="~{admin/template_admin.html::footer}"></div>
 
-	<div th:insert="~{admin/template_admin.html::footer}"></div>
-
-	<!-- Bootstrap core JavaScript -->
-	<script th:src="@{vendor/jquery/jquery.min.js}"></script>
-	<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 

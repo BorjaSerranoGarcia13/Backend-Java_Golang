@@ -1,11 +1,8 @@
 package com.ecommerce.service;
 
 import com.ecommerce.exception.ProductException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,22 +11,25 @@ import java.nio.file.Paths;
 
 @Service
 public class UploadFileService {
-    private static final Logger logger = LoggerFactory.getLogger(UploadFileService.class);
-    public static final String IMAGE_FOLDER = "images/";
+    public static final String IMAGE_FOLDER = "src/main/resources/static/images";
     public static final String IMAGE_BY_DEFAULT = "default.jpg";
 
     public String saveImage(MultipartFile newImageFile) {
         try {
             if (newImageFile != null && !newImageFile.isEmpty()) {
                 Path imagePath = Paths.get(IMAGE_FOLDER, newImageFile.getOriginalFilename());
-                byte[] imageBytes = newImageFile.getBytes();
-                Files.write(imagePath, imageBytes);
 
-                logger.info("Image saved at: {}", imagePath);
+                if (!Files.exists(imagePath.getParent())) {
+                    throw new ProductException("Image folder does not exist");
+                }
+
+                if (!Files.exists(imagePath)) {
+                    byte[] imageBytes = newImageFile.getBytes();
+                    Files.write(imagePath, imageBytes);
+                }
+
                 return newImageFile.getOriginalFilename();
             } else {
-                logger.info("ImageFile is empty. Using default image.");
-
                 Path defaultImagePath = Paths.get(IMAGE_FOLDER, IMAGE_BY_DEFAULT);
 
                 if (!Files.exists(defaultImagePath)) {
@@ -47,7 +47,14 @@ public class UploadFileService {
         try {
             if (!imageName.equals(IMAGE_BY_DEFAULT)) {
                 Path imagePath = Paths.get(IMAGE_FOLDER, imageName);
-                Files.deleteIfExists(imagePath);
+
+                if (!Files.exists(imagePath.getParent())) {
+                    throw new ProductException("Image folder does not exist");
+                }
+
+                if (Files.exists(imagePath)) {
+                    Files.deleteIfExists(imagePath);
+                }
             }
 
         } catch (IOException e) {

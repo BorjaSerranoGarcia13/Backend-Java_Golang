@@ -4,9 +4,8 @@ public class RedirectConstants {
     public static final String REDIRECT_USER_HOME = "redirect:/";
     public static final String REDIRECT_ADMIN_HOME = "redirect:/admin";
     public static final String REDIRECT_USER_CART = "redirect:/cart";
-    public static final String REDIRECT_USER_ORDER = "redirect:/order";
-    public static final String REDIRECT_USERS_VIEW = "redirect:/admin/users";
-    public static final String REDIRECT_PRODUCTS = "redirect:/products";
-    public static final String REDIRECT_LOGIN_VIEW = "redirect:/user/login";
+    public static final String REDIRECT_USERS_VIEW = "redirect:/admin/users/list";
+    public static final String REDIRECT_PRODUCTS = "redirect:/admin/products/list";
+    public static final String REDIRECT_LOGIN_VIEW = "redirect:/users/login";
 
 }
