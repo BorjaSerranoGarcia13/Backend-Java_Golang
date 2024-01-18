@@ -6,10 +6,12 @@ import com.ecommerce.controller.restcontroller.ApiProductController;
 import com.ecommerce.controller.restcontroller.ApiUserController;
 import com.ecommerce.dto.ProductDto;
 import com.ecommerce.dto.UserDto;
+import com.ecommerce.security.JwtUtil;
+import com.ecommerce.utils.CookieUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,9 @@ public class HomeController {
     private final ApiOrderDetailsController apiOrderDetailsController;
     private final ApiUserController apiUserController;
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
 
     public HomeController(ApiProductController apiProductController,
                           ApiOrderDetailsController apiOrderDetailsController,
@@ -41,8 +46,8 @@ public class HomeController {
 
     @ModelAttribute("isUserLoggedIn")
     public boolean isUserLoggedIn() {
-        //System.out.println("isUserLoggedIn");
-        return false;
+        String token = CookieUtil.getTokenFromCookie();
+        return token != null;
     }
 
     @GetMapping(HomeControllerWebEndpointRoutes.HOME)

@@ -10,6 +10,7 @@ import com.ecommerce.security.CustomAuthenticationToken;
 import com.ecommerce.security.JwtUtil;
 import com.ecommerce.security.SecurityContextUtil;
 import com.ecommerce.utils.CookieUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ import static com.ecommerce.constants.messages.UserExceptionMessages.*;
 import static com.ecommerce.utils.CookieUtil.createAndSetTokenCookie;
 import static com.ecommerce.utils.CookieUtil.getTokenFromCookie;
 import static com.ecommerce.utils.StringUtil.*;
+
 @Service
 public class UserServiceImplementation implements IUserService {
     private final IUserRepository iUserRepository;
@@ -158,9 +160,6 @@ public class UserServiceImplementation implements IUserService {
 
         authenticateUserAndCreateToken(user);
 
-        //UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-        //SecurityContextHolder.getContext().setAuthentication(authentication);
-
         return user;
     }
 
@@ -168,9 +167,12 @@ public class UserServiceImplementation implements IUserService {
     public void logout() {
         HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).
                 getResponse();
-        if (response != null) {
-            CookieUtil.deleteTokenCookie(response);
+
+        if (response == null) {
+            throw new IllegalStateException("Response object is null");
         }
+        CookieUtil.deleteTokenCookie(response);
+
         SecurityContextUtil.clearSecurityContext();
     }
 

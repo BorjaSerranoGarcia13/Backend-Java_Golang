@@ -34,6 +34,8 @@ public class SecurityContextUtil {
         throw new AuthenticationException("User not authenticated");
     }
 
+
+
     public static boolean isAdmin() {
         Authentication authentication = getAuthentication();
         if (authentication instanceof CustomAuthenticationToken) {

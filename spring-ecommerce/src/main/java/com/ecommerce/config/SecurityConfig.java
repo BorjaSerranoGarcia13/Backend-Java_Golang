@@ -34,27 +34,28 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers(HomeControllerWebEndpointRoutes.PURCHASE_CONFIRM,
+                                UserWebEndpointRoutes.PURCHASE_DETAILS, UserWebEndpointRoutes.PURCHASES,
+                                HomeControllerWebEndpointRoutes.ORDER_SUMMARY).
+                        authenticated()
+                        .requestMatchers("/", "","/home/**", "/vendor/**", "/css/**", "/images/**").permitAll()
                         .requestMatchers(UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE,
                                 UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE, UserWebEndpointRoutes.SAVE,
                                 HomeControllerWebEndpointRoutes.HOME, HomeControllerWebEndpointRoutes.PRODUCT_BY_ID).
                         permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers(ApiUserEndpointRoutes.API_USER_LOGIN, ApiUserEndpointRoutes.API_USER_LOGOUT,
-                                ApiUserEndpointRoutes.API_USER_CREATE).
-                        permitAll()
-                        .anyRequest().permitAll()
+                                ApiUserEndpointRoutes.API_USER_CREATE).permitAll()
+                )
+                .exceptionHandling(exception -> exception
+                        .accessDeniedPage(UserWebEndpointRoutes.LOGIN)
                 )
                 .formLogin(formLogin -> formLogin
-                        .loginPage("/users/login")
+                        .loginPage(UserWebEndpointRoutes.LOGIN)
                         .permitAll()
-                )
-                .logout(logout -> logout
-                        .logoutUrl(UserWebEndpointRoutes.LOGOUT)
-                        .logoutSuccessUrl(UserWebEndpointRoutes.LOGIN)
-                )
-                .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+                );
 
-        //http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

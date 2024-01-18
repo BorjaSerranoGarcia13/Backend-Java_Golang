@@ -34,6 +34,7 @@ public class OrderDetails {
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         if (id == null || id <= 0) {
             throw new OrderDetailsException(OrderDetailsExceptionMessages.ERROR_ORDER_DETAILS_INVALID_ID);
@@ -66,6 +67,7 @@ public class OrderDetails {
     public Product getProduct() {
         return product;
     }
+
     public void setProduct(Product product) {
         if (product == null) {
             throw new OrderDetailsException(OrderDetailsExceptionMessages.ERROR_ORDER_DETAILS_INVALID_PRODUCT);

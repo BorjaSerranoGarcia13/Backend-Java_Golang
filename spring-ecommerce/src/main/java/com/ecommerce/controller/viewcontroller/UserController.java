@@ -5,6 +5,7 @@ import com.ecommerce.controller.restcontroller.ApiOrderController;
 import com.ecommerce.controller.restcontroller.ApiUserController;
 import com.ecommerce.dto.OrderDto;
 import com.ecommerce.model.User;
+import com.ecommerce.utils.CookieUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,12 @@ public class UserController {
     public UserController(ApiUserController apiUserController, ApiOrderController apiOrderController) {
         this.apiUserController = apiUserController;
         this.apiOrderController = apiOrderController;
+    }
+
+    @ModelAttribute("isUserLoggedIn")
+    public boolean isUserLoggedIn() {
+        String token = CookieUtil.getTokenFromCookie();
+        return token != null;
     }
 
     @GetMapping(UserWebEndpointRoutes.CREATE)
@@ -54,10 +61,8 @@ public class UserController {
         apiUserController.login(username, password);
 
         if (apiUserController.isAdmin()) {
-            System.out.println("User is admin");
             return REDIRECT_ADMIN_HOME;
         } else {
-            System.out.println("User not admin");
             return REDIRECT_USER_HOME;
         }
     }

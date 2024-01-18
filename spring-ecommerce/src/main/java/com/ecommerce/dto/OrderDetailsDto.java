@@ -24,6 +24,7 @@ public class OrderDetailsDto {
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         if (id == null || id <= 0) {
             throw new OrderDetailsException(OrderDetailsExceptionMessages.ERROR_ORDER_DETAILS_INVALID_ID);
@@ -56,6 +57,7 @@ public class OrderDetailsDto {
     public ProductDto getProduct() {
         return product;
     }
+
     public void setProduct(ProductDto product) {
         if (product == null) {
             throw new OrderDetailsException(OrderDetailsExceptionMessages.ERROR_ORDER_DETAILS_INVALID_PRODUCT);

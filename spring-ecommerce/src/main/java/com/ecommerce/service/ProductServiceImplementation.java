@@ -149,7 +149,7 @@ public class ProductServiceImplementation implements IProductService {
         if (!iUserService.isAdmin()) {
             throw new AuthenticationException(ERROR_NOT_ADMIN_USER_LOGGED_IN);
         }
-        if (productDto == null ) {
+        if (productDto == null) {
             throw new ProductException(ProductExceptionMessages.ERROR_PRODUCT_INVALID);
         }
         if (productDto.getReference() != null || productDto.getId() == null || productDto.getId() <= 0 ||

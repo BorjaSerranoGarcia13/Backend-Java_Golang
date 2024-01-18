@@ -129,7 +129,7 @@ public class ApiGlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<ErrorResponse> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException
-                                                                                               e) {
+                                                                                           e) {
         logger.error(ARGUMENT_TYPE_MISMATCH_ERROR, e.getMessage());
         return new ResponseEntity<>(new ErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST.value(),
                 System.currentTimeMillis()), HttpStatus.BAD_REQUEST);

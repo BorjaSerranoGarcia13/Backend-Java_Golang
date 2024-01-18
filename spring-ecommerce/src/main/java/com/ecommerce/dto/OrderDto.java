@@ -104,6 +104,7 @@ public class OrderDto {
     public List<OrderDetailsDto> getOrderDetails() {
         return orderDetails;
     }
+
     public void setOrderDetails(List<OrderDetailsDto> orderDetails) {
         if (orderDetails == null) {
             throw new OrderException(OrderExceptionMessages.ERROR_ORDER_INVALID_ORDER_DETAILS);

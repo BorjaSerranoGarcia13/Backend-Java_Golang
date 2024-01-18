@@ -76,7 +76,7 @@
                 <div class="col-lg-3">
                     <h2 class="card-title">Order summary</h2>
 
-                    <form th:action="@{/home/purchase/confirm}" method="post">
+                    <form th:action="@{/purchase/confirm}" method="post">
                         <ul class="list-group">
                             <li class="list-group-item"><h5 th:text=" 'Total Order: '+ ${totalPrice} "></h5></li>
                         </ul>

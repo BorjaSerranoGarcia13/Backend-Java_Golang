@@ -91,7 +91,7 @@ public class OrderDetailServiceImplementation implements IOrderDetailsService {
             throw new OrderDetailsException(ERROR_ORDER_DETAILS_EMPTY_CART);
         }
 
-        List<Product> products = iProductService.findByIds(new ArrayList<>(productMap.keySet()));;
+        List<Product> products = iProductService.findByIds(new ArrayList<>(productMap.keySet()));
 
         List<OrderDetails> orderDetailsList = products.stream().map(product -> {
             OrderDetails orderDetails = new OrderDetails();
