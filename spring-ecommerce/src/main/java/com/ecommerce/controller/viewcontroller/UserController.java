@@ -5,8 +5,10 @@ import com.ecommerce.controller.restcontroller.ApiOrderController;
 import com.ecommerce.controller.restcontroller.ApiUserController;
 import com.ecommerce.dto.OrderDto;
 import com.ecommerce.model.User;
+import com.ecommerce.security.JwtUtil;
 import com.ecommerce.utils.CookieUtil;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,8 @@ import static com.ecommerce.constants.view.ViewConstants.*;
 public class UserController {
     private final ApiUserController apiUserController;
     private final ApiOrderController apiOrderController;
-
+    @Autowired
+    JwtUtil jwtUtil;
 
     public UserController(ApiUserController apiUserController, ApiOrderController apiOrderController) {
         this.apiUserController = apiUserController;
@@ -28,9 +31,14 @@ public class UserController {
     }
 
     @ModelAttribute("isUserLoggedIn")
-    public boolean isUserLoggedIn() {
+    public boolean isUserLoggedIn(Model model) {
         String token = CookieUtil.getTokenFromCookie();
-        return token != null;
+        if (token != null) {
+            String username = jwtUtil.extractUsername(token);
+            model.addAttribute("username", username);
+            return true;
+        }
+        return false;
     }
 
     @GetMapping(UserWebEndpointRoutes.CREATE)

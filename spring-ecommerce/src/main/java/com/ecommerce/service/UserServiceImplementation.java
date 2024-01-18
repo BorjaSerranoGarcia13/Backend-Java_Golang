@@ -120,9 +120,11 @@ public class UserServiceImplementation implements IUserService {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
+        iUserRepository.save(user);
+
         authenticateUserAndCreateToken(user);
 
-        return iUserRepository.save(user);
+        return user;
     }
 
     @Override
@@ -136,7 +138,12 @@ public class UserServiceImplementation implements IUserService {
         }
 
         User user = findById(id);
-        if (user.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
+        List<SimpleGrantedAuthority> authorities = user.getAuthorities();
+
+        boolean isAdmin = authorities.stream()
+                .anyMatch(authority -> "ROLE_ADMIN".equals(authority.getAuthority()));
+
+        if (isAdmin) {
             throw new UserException(ERROR_ADMIN_USER_DELETION_NOT_ALLOWED);
         }
 

@@ -8,5 +8,5 @@ public class HomeControllerWebEndpointRoutes {
     public static final String DELETE_CART_PRODUCT = "/home/cart/delete/{productId}";
     public static final String PURCHASE_CONFIRM = "/purchase/confirm";
     public static final String ORDER_SUMMARY = "/order/summary";
-    public static final String PRODUCT_SEARCH = "/home/search";
+    public static final String PRODUCT_SEARCH = "/search";
 }

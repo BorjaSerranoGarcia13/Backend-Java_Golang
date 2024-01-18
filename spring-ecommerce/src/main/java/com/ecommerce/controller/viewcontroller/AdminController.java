@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static com.ecommerce.constants.redirect.RedirectConstants.REDIRECT_USERS_VIEW;
 import static com.ecommerce.constants.view.ViewConstants.*;
 
@@ -86,6 +90,14 @@ public class AdminController {
         Pageable pageable = PageRequest.of(page, 12);
         Page<UserDto> userPage = apiUserController.getAllUsersPaged(pageable);
 
+        List<UserDto> users = userPage.getContent();
+
+        List<Boolean> isAdminList = users.stream()
+                .map(user -> user.getAuthorities().stream()
+                        .anyMatch(authority -> "ROLE_ADMIN".equals(authority.getAuthority())))
+                .collect(Collectors.toList());
+
+        model.addAttribute("isAdminList", isAdminList);
         model.addAttribute("users", userPage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", userPage.getTotalPages());

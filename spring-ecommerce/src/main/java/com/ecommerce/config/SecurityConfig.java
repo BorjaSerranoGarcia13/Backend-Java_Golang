@@ -34,28 +34,23 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers(HomeControllerWebEndpointRoutes.PURCHASE_CONFIRM,
-                                UserWebEndpointRoutes.PURCHASE_DETAILS, UserWebEndpointRoutes.PURCHASES,
-                                HomeControllerWebEndpointRoutes.ORDER_SUMMARY).
-                        authenticated()
                         .requestMatchers("/", "","/home/**", "/vendor/**", "/css/**", "/images/**").permitAll()
                         .requestMatchers(UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE,
                                 UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE, UserWebEndpointRoutes.SAVE,
-                                HomeControllerWebEndpointRoutes.HOME, HomeControllerWebEndpointRoutes.PRODUCT_BY_ID).
-                        permitAll()
-                        .requestMatchers(ApiUserEndpointRoutes.API_USER_LOGIN, ApiUserEndpointRoutes.API_USER_LOGOUT,
-                                ApiUserEndpointRoutes.API_USER_CREATE).permitAll()
-                )
-                .exceptionHandling(exception -> exception
-                        .accessDeniedPage(UserWebEndpointRoutes.LOGIN)
+                                HomeControllerWebEndpointRoutes.HOME, HomeControllerWebEndpointRoutes.PRODUCT_BY_ID,
+                                HomeControllerWebEndpointRoutes.PRODUCT_SEARCH).permitAll()
+                        .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers(HomeControllerWebEndpointRoutes.PURCHASE_CONFIRM,
+                                UserWebEndpointRoutes.PURCHASE_DETAILS, UserWebEndpointRoutes.PURCHASES,
+                                HomeControllerWebEndpointRoutes.ORDER_SUMMARY).authenticated()
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage(UserWebEndpointRoutes.LOGIN)
                         .permitAll()
                 );
 
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterAfter(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

@@ -12,7 +12,8 @@ public class ProductExceptionMessages {
     public static final String ERROR_PRODUCT_INVALID_DESCRIPTION = "Product description cannot be null or empty.";
     public static final String ERROR_PRODUCT_INVALID_IMAGE = "Product image cannot be null or empty..";
     public static final String ERROR_PRODUCT_INVALID_PRICE = "Product price cannot be null, negative or 0.";
-    public static final String ERROR_PRODUCT_INVALID_QUANTITY = "Product quantity cannot be null or negative.";
+    public static final String ERROR_PRODUCT_INVALID_QUANTITY = "Product quantity cannot be null or negative or " +
+            "superior to 10.000.";
     public static final String ERROR_PRODUCT_INVALID_REFERENCE = "Product reference must start with "
             + ReferenceGeneratorUtil.PRODUCT_PREFIX + ".";
     public static final String ERROR_PRODUCT_INVALID_USER = "Product user cannot be null.";

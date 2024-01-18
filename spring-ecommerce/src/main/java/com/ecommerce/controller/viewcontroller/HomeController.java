@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,9 +43,14 @@ public class HomeController {
     }
 
     @ModelAttribute("isUserLoggedIn")
-    public boolean isUserLoggedIn() {
+    public boolean isUserLoggedIn(Model model) {
         String token = CookieUtil.getTokenFromCookie();
-        return token != null;
+        if (token != null) {
+            String username = jwtUtil.extractUsername(token);
+            model.addAttribute("username", username);
+            return true;
+        }
+        return false;
     }
 
     @GetMapping(HomeControllerWebEndpointRoutes.HOME)
@@ -118,16 +121,15 @@ public class HomeController {
         return USER_ORDER_VIEW;
     }
 
-    @GetMapping(HomeControllerWebEndpointRoutes.PRODUCT_SEARCH)
+    @PostMapping(HomeControllerWebEndpointRoutes.PRODUCT_SEARCH)
     public String searchProductsByNameOrReference(@RequestParam("searchTerm") String searchTerm,
                                                   @RequestParam("searchType") String searchType,
                                                   Model model) {
-
         List<ProductDto> products = apiProductController.searchProductsByNameOrReference(searchTerm, searchType);
 
         model.addAttribute("products", products);
         model.addAttribute("currentPage", 0);
-        model.addAttribute("totalPages", 20);
+        model.addAttribute("totalPages", 1);
 
         return USER_HOME_VIEW;
     }

@@ -4,6 +4,7 @@ import com.ecommerce.constants.endpoints.api.ApiUserEndpointRoutes;
 import com.ecommerce.constants.endpoints.web.HomeControllerWebEndpointRoutes;
 import com.ecommerce.constants.endpoints.web.UserWebEndpointRoutes;
 import com.ecommerce.exception.AuthenticationException;
+import com.ecommerce.exception.UserException;
 import com.ecommerce.model.User;
 import com.ecommerce.utils.CookieUtil;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -39,8 +40,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        if (path.startsWith("/vendor") || path.startsWith("/css") ||
-                path.startsWith("/images")) {
+        if (path.contains("/vendor") || path.contains("/css") || path.contains("/images")) {
             return true;
         }
 
@@ -48,7 +48,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 ApiUserEndpointRoutes.API_USER_LOGOUT, ApiUserEndpointRoutes.API_USER_CREATE);
 
         List<String> viewRoutesWithoutAuthentication = List.of(UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE,
-                UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE);
+                UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE, UserWebEndpointRoutes.SAVE);
 
         List<String> combinedRoutesWithoutAuthentication = Stream.concat(apiRoutesWithoutAuthentication.stream(), viewRoutesWithoutAuthentication.stream())
                 .toList();
@@ -62,9 +62,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         try {
             String token = extractTokenFromCookie(request);
             String path = request.getRequestURI();
-            System.out.println("Token: " + path);
+            System.out.println(path);
             if (token != null && jwtUtil.validateToken(token)) {
-                System.out.println("Autehnticado");
                 String username = jwtUtil.extractUsername(token);
                 User user = (User) this.userDetailsService.loadUserByUsername(username);
                 Integer userIdFromToken = jwtUtil.extractUserId(token);
@@ -84,14 +83,18 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                     throw new AuthenticationException("Unauthorized access. Please log in again.");
                 }
             } else {
-                if (request.getRequestURI().startsWith("/purchase/confirm") ||
-                        request.getRequestURI().startsWith("/home") || request.getRequestURI().startsWith("/")) {
+                if (request.getRequestURI().startsWith("/home") ||
+                        request.getRequestURI().startsWith(HomeControllerWebEndpointRoutes.PRODUCT_SEARCH) ||
+                        request.getRequestURI().startsWith(HomeControllerWebEndpointRoutes.PURCHASE_CONFIRM) ||
+                        request.getRequestURI().startsWith(HomeControllerWebEndpointRoutes.ORDER_SUMMARY) ||
+                        request.getRequestURI().equals(HomeControllerWebEndpointRoutes.HOME)) {
+                    System.out.println("deleting cookie");
                     deleteTokenCookie(response);
                     chain.doFilter(request, response);
                 }
                 throw new AuthenticationException("Unauthorized access. Please log in again.");
             }
-        } catch (AuthenticationException | ExpiredJwtException | IllegalStateException e) {
+        } catch (AuthenticationException | ExpiredJwtException | IllegalStateException | UserException e) {
             deleteTokenCookie(response);
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write(e.getMessage());

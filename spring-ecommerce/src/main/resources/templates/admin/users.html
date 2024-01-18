@@ -56,7 +56,7 @@
           <span th:each="authority : ${user.authorities}" th:text="${authority.authority} + ' '"></span>
         </td>
         <td>
-          <div th:unless="${#lists.contains(user.authorities, 'ROLE_ADMIN')}">
+          <div th:unless="${isAdminList[userStat.index]}">
           <form th:action="@{/admin/users/delete/{id} (id=${user.id})}" method="post">
             <input type="submit" value="Delete" class="btn btn-danger">
           </form>

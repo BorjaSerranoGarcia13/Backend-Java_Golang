@@ -278,10 +278,8 @@ public class ProductServiceImplementation implements IProductService {
         } else if (product.getPrice().compareTo(MAX_PRODUCT_PRICE) > 0) {
             errors.add(ERROR_PRODUCT_INVALID_PRICE_MAX_);
         }
-        if (product.getQuantity() < 0) {
+        if (product.getQuantity() < 0 || product.getQuantity() > MAX_PRODUCT_QUANTITY) {
             errors.add(ProductExceptionMessages.ERROR_PRODUCT_INVALID_QUANTITY);
-        } else if (product.getQuantity() > MAX_PRODUCT_QUANTITY) {
-            errors.add(ERROR_PRODUCT_INVALID_QUANTITY_MAX);
         }
         if (product.getUserId() == null || product.getUserId() <= 0) {
             errors.add(ERROR_PRODUCT_INVALID_USER_ID);

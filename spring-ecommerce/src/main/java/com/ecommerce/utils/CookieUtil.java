@@ -40,10 +40,13 @@ public class CookieUtil {
     }
 
     public static void deleteTokenCookie(HttpServletResponse response) {
-        Cookie tokenCookie = new Cookie(TOKEN, null);
-        tokenCookie.setMaxAge(0);
-        tokenCookie.setHttpOnly(true);
-        tokenCookie.setPath("/");
-        response.addCookie(tokenCookie);
+        String token = getTokenFromCookie();
+        if (token != null) {
+            Cookie tokenCookie = new Cookie(TOKEN, null);
+            tokenCookie.setMaxAge(0);
+            tokenCookie.setHttpOnly(true);
+            tokenCookie.setPath("/");
+            response.addCookie(tokenCookie);
+        }
     }
 }
