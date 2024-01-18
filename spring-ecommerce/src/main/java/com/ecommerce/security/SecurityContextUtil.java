@@ -35,7 +35,6 @@ public class SecurityContextUtil {
     }
 
 
-
     public static boolean isAdmin() {
         Authentication authentication = getAuthentication();
         if (authentication instanceof CustomAuthenticationToken) {

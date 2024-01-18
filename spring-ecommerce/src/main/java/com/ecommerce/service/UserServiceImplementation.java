@@ -10,7 +10,6 @@ import com.ecommerce.security.CustomAuthenticationToken;
 import com.ecommerce.security.JwtUtil;
 import com.ecommerce.security.SecurityContextUtil;
 import com.ecommerce.utils.CookieUtil;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

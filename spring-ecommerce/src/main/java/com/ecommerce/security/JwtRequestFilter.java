@@ -62,7 +62,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         try {
             String token = extractTokenFromCookie(request);
             String path = request.getRequestURI();
-            System.out.println(path);
             if (token != null && jwtUtil.validateToken(token)) {
                 String username = jwtUtil.extractUsername(token);
                 User user = (User) this.userDetailsService.loadUserByUsername(username);
@@ -88,7 +87,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                         request.getRequestURI().startsWith(HomeControllerWebEndpointRoutes.PURCHASE_CONFIRM) ||
                         request.getRequestURI().startsWith(HomeControllerWebEndpointRoutes.ORDER_SUMMARY) ||
                         request.getRequestURI().equals(HomeControllerWebEndpointRoutes.HOME)) {
-                    System.out.println("deleting cookie");
                     deleteTokenCookie(response);
                     chain.doFilter(request, response);
                 }

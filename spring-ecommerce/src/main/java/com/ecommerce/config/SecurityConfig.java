@@ -1,6 +1,5 @@
 package com.ecommerce.config;
 
-import com.ecommerce.constants.endpoints.api.ApiUserEndpointRoutes;
 import com.ecommerce.constants.endpoints.web.HomeControllerWebEndpointRoutes;
 import com.ecommerce.constants.endpoints.web.UserWebEndpointRoutes;
 import com.ecommerce.security.JwtRequestFilter;
@@ -34,7 +33,7 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "","/home/**", "/vendor/**", "/css/**", "/images/**").permitAll()
+                        .requestMatchers("/", "", "/home/**", "/vendor/**", "/css/**", "/images/**").permitAll()
                         .requestMatchers(UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE,
                                 UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE, UserWebEndpointRoutes.SAVE,
                                 HomeControllerWebEndpointRoutes.HOME, HomeControllerWebEndpointRoutes.PRODUCT_BY_ID,

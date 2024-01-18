@@ -10,7 +10,6 @@ public class ExceptionHandlerMessages {
     public static final String ORDER_ERROR = "Order error: {}";
     public static final String USER_ERROR = "User error: {}";
     public static final String AUTHENTICATION_ERROR = "Authentication error: {}";
-    public static final String TOKEN_EXPIRED_ERROR = "Token expired: {}";
     public static final String EXCEPTION_ERROR = "Unexpected error: {}";
     public static final String VALIDATION_ERROR = "Validation error: {}";
     public static final String MESSAGE_NOT_READABLE_ERROR = "Message not readable: {}";

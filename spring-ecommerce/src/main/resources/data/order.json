@@ -1,46 +1,60 @@
 [ {
   "id" : 1,
-  "reference" : "D734d1ec-2513-42f9-a4ee-fbcc77f2e99a",
+  "reference" : "D3f39d4c-e802-4d23-bca8-0fe1622166cf",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 988.20,
-  "userId" : 31,
+  "total" : 1090.68,
+  "userId" : 1,
   "orderDetails" : [ {
     "id" : 1,
     "quantity" : 1,
-    "total" : 13.42,
+    "total" : 57.34,
     "product" : {
-      "id" : 11,
-      "reference" : "Pa389a1a-94e7-4171-860b-57f42e21c939",
-      "userId" : 4,
-      "name" : "Product 11",
-      "description" : "Description for product 11",
-      "price" : 13.42,
+      "id" : 47,
+      "reference" : "P0400ecd-e7a8-40b7-b3b9-72006eff568d",
+      "userId" : 2,
+      "name" : "Product 47",
+      "description" : "Description for product 47",
+      "price" : 57.34,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 2,
     "quantity" : 2,
-    "total" : 53.68,
+    "total" : 209.84,
     "product" : {
-      "id" : 22,
-      "reference" : "P01cb6cf-a5ed-4918-b462-2bccdef2170c",
-      "userId" : 5,
-      "name" : "Product 22",
-      "description" : "Description for product 22",
-      "price" : 26.84,
+      "id" : 86,
+      "reference" : "Pa519727-b7ff-428e-96bf-02e700eb8eb4",
+      "userId" : 4,
+      "name" : "Product 86",
+      "description" : "Description for product 86",
+      "price" : 104.92,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 3,
     "quantity" : 3,
-    "total" : 98.82,
+    "total" : 325.74,
+    "product" : {
+      "id" : 89,
+      "reference" : "P03210cb-56a8-435e-853b-4d7b7048beb6",
+      "userId" : 10,
+      "name" : "Product 89",
+      "description" : "Description for product 89",
+      "price" : 108.58,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 4,
+    "quantity" : 4,
+    "total" : 131.76,
     "product" : {
       "id" : 27,
-      "reference" : "P99e56b2-c421-4d47-a388-8b3d25ec65f5",
-      "userId" : 3,
+      "reference" : "P40cb907-777d-4aec-85bf-9db506adf029",
+      "userId" : 2,
       "name" : "Product 27",
       "description" : "Description for product 27",
       "price" : 32.94,
@@ -48,260 +62,12 @@
       "deleted" : false
     }
   }, {
-    "id" : 4,
-    "quantity" : 4,
-    "total" : 322.08,
-    "product" : {
-      "id" : 66,
-      "reference" : "P5d6cc9c-fbe5-496f-81cd-3a82baa220c0",
-      "userId" : 7,
-      "name" : "Product 66",
-      "description" : "Description for product 66",
-      "price" : 80.52,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
     "id" : 5,
     "quantity" : 5,
-    "total" : 500.20,
-    "product" : {
-      "id" : 82,
-      "reference" : "Pa4a8539-f520-40c6-bd55-4453f36d3915",
-      "userId" : 7,
-      "name" : "Product 82",
-      "description" : "Description for product 82",
-      "price" : 100.04,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 2,
-  "reference" : "D88d3117-cb2e-4fa2-895d-00f550372dd7",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 1069.94,
-  "userId" : 8,
-  "orderDetails" : [ {
-    "id" : 6,
-    "quantity" : 6,
-    "total" : 270.84,
-    "product" : {
-      "id" : 37,
-      "reference" : "P55d01e9-8760-4e85-8b5a-c1bc401dd8e8",
-      "userId" : 4,
-      "name" : "Product 37",
-      "description" : "Description for product 37",
-      "price" : 45.14,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 7,
-    "quantity" : 7,
-    "total" : 324.52,
-    "product" : {
-      "id" : 38,
-      "reference" : "Pe2239ae-5eb0-4521-8a20-60d9b3f65556",
-      "userId" : 9,
-      "name" : "Product 38",
-      "description" : "Description for product 38",
-      "price" : 46.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 8,
-    "quantity" : 8,
-    "total" : 175.68,
-    "product" : {
-      "id" : 18,
-      "reference" : "P12c261d-e041-41c9-9b2d-9bef883a33ea",
-      "userId" : 5,
-      "name" : "Product 18",
-      "description" : "Description for product 18",
-      "price" : 21.96,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 9,
-    "quantity" : 9,
-    "total" : 274.50,
-    "product" : {
-      "id" : 25,
-      "reference" : "P22bc81a-47ef-4a4d-b861-7cee12abd724",
-      "userId" : 5,
-      "name" : "Product 25",
-      "description" : "Description for product 25",
-      "price" : 30.50,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 10,
-    "quantity" : 10,
-    "total" : 24.40,
-    "product" : {
-      "id" : 2,
-      "reference" : "P693043e-399c-454c-8a52-000209dcfba2",
-      "userId" : 10,
-      "name" : "Product 2",
-      "description" : "Description for product 2",
-      "price" : 2.44,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 3,
-  "reference" : "D8e5c4e9-c8a5-4996-96e8-820807da4973",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 4240.72,
-  "userId" : 46,
-  "orderDetails" : [ {
-    "id" : 11,
-    "quantity" : 11,
-    "total" : 1127.28,
-    "product" : {
-      "id" : 84,
-      "reference" : "Pbbebc04-fcea-40f2-af17-ea1dce469178",
-      "userId" : 10,
-      "name" : "Product 84",
-      "description" : "Description for product 84",
-      "price" : 102.48,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 12,
-    "quantity" : 12,
-    "total" : 483.12,
-    "product" : {
-      "id" : 33,
-      "reference" : "P22927ab-8872-48ef-abe7-550a62621890",
-      "userId" : 2,
-      "name" : "Product 33",
-      "description" : "Description for product 33",
-      "price" : 40.26,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 13,
-    "quantity" : 13,
-    "total" : 63.44,
-    "product" : {
-      "id" : 4,
-      "reference" : "Paf30fec-e0a1-4406-991d-97161adb28ea",
-      "userId" : 10,
-      "name" : "Product 4",
-      "description" : "Description for product 4",
-      "price" : 4.88,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 14,
-    "quantity" : 14,
-    "total" : 956.48,
-    "product" : {
-      "id" : 56,
-      "reference" : "P744d69a-5196-41c1-b6b9-59878d34f421",
-      "userId" : 5,
-      "name" : "Product 56",
-      "description" : "Description for product 56",
-      "price" : 68.32,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 15,
-    "quantity" : 15,
-    "total" : 1610.40,
-    "product" : {
-      "id" : 88,
-      "reference" : "Pcdee889-78a6-49a7-8b06-45fe55fafd81",
-      "userId" : 6,
-      "name" : "Product 88",
-      "description" : "Description for product 88",
-      "price" : 107.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 4,
-  "reference" : "Dca82c8d-d399-4407-8fdf-11e11cef25ec",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 3226.90,
-  "userId" : 13,
-  "orderDetails" : [ {
-    "id" : 16,
-    "quantity" : 16,
-    "total" : 97.60,
-    "product" : {
-      "id" : 5,
-      "reference" : "Pe293cee-8300-417a-bd9e-d3b83c71cfab",
-      "userId" : 5,
-      "name" : "Product 5",
-      "description" : "Description for product 5",
-      "price" : 6.10,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 17,
-    "quantity" : 17,
-    "total" : 871.08,
-    "product" : {
-      "id" : 42,
-      "reference" : "P92ee7f3-b30f-47d8-9c6f-14595c543806",
-      "userId" : 5,
-      "name" : "Product 42",
-      "description" : "Description for product 42",
-      "price" : 51.24,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 18,
-    "quantity" : 18,
-    "total" : 724.68,
-    "product" : {
-      "id" : 33,
-      "reference" : "P22927ab-8872-48ef-abe7-550a62621890",
-      "userId" : 2,
-      "name" : "Product 33",
-      "description" : "Description for product 33",
-      "price" : 40.26,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 19,
-    "quantity" : 19,
-    "total" : 69.54,
-    "product" : {
-      "id" : 3,
-      "reference" : "Pb7589e0-9884-48d5-9703-c19f90f95097",
-      "userId" : 4,
-      "name" : "Product 3",
-      "description" : "Description for product 3",
-      "price" : 3.66,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 20,
-    "quantity" : 20,
-    "total" : 1464.00,
+    "total" : 366.00,
     "product" : {
       "id" : 60,
-      "reference" : "P4327883-eda8-474f-a512-2753899d3fb7",
+      "reference" : "P16f90e3-3f09-45e9-8006-4f5427a48912",
       "userId" : 6,
       "name" : "Product 60",
       "description" : "Description for product 60",
@@ -311,33 +77,607 @@
     }
   } ]
 }, {
-  "id" : 5,
-  "reference" : "Dc152589-1bd0-4014-9650-cf894a28eee9",
+  "id" : 2,
+  "reference" : "D4ef1318-6e74-48a5-9668-832a66a3d6b5",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 5059.34,
+  "total" : 2061.80,
+  "userId" : 19,
+  "orderDetails" : [ {
+    "id" : 6,
+    "quantity" : 6,
+    "total" : 563.64,
+    "product" : {
+      "id" : 77,
+      "reference" : "Pdb693f0-d565-4d1f-af6a-b5ff272c4388",
+      "userId" : 4,
+      "name" : "Product 77",
+      "description" : "Description for product 77",
+      "price" : 93.94,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 7,
+    "quantity" : 7,
+    "total" : 503.86,
+    "product" : {
+      "id" : 59,
+      "reference" : "P9fb613c-4b8c-4546-8233-a6896d634c94",
+      "userId" : 3,
+      "name" : "Product 59",
+      "description" : "Description for product 59",
+      "price" : 71.98,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 8,
+    "quantity" : 8,
+    "total" : 19.52,
+    "product" : {
+      "id" : 2,
+      "reference" : "Pe328916-8578-40b8-aba7-113b7a9d83a8",
+      "userId" : 2,
+      "name" : "Product 2",
+      "description" : "Description for product 2",
+      "price" : 2.44,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 9,
+    "quantity" : 9,
+    "total" : 779.58,
+    "product" : {
+      "id" : 71,
+      "reference" : "P3ec5d8b-3a8d-458b-8f65-961e4a3767b7",
+      "userId" : 10,
+      "name" : "Product 71",
+      "description" : "Description for product 71",
+      "price" : 86.62,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 10,
+    "quantity" : 10,
+    "total" : 195.20,
+    "product" : {
+      "id" : 16,
+      "reference" : "P1ce7ffd-2dcc-4701-96e9-8c44cf58b3dc",
+      "userId" : 3,
+      "name" : "Product 16",
+      "description" : "Description for product 16",
+      "price" : 19.52,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 3,
+  "reference" : "Dce43063-7bb8-4ccd-bfdc-2104c4d79f02",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 4420.06,
+  "userId" : 47,
+  "orderDetails" : [ {
+    "id" : 11,
+    "quantity" : 11,
+    "total" : 630.74,
+    "product" : {
+      "id" : 47,
+      "reference" : "P0400ecd-e7a8-40b7-b3b9-72006eff568d",
+      "userId" : 2,
+      "name" : "Product 47",
+      "description" : "Description for product 47",
+      "price" : 57.34,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 12,
+    "quantity" : 12,
+    "total" : 585.60,
+    "product" : {
+      "id" : 40,
+      "reference" : "Pe394720-01d8-48c1-acb6-2823f46ed4f7",
+      "userId" : 4,
+      "name" : "Product 40",
+      "description" : "Description for product 40",
+      "price" : 48.80,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 13,
+    "quantity" : 13,
+    "total" : 904.02,
+    "product" : {
+      "id" : 57,
+      "reference" : "P2181872-8e46-4c4c-ba8a-d373c20b55f7",
+      "userId" : 7,
+      "name" : "Product 57",
+      "description" : "Description for product 57",
+      "price" : 69.54,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 14,
+    "quantity" : 14,
+    "total" : 854.00,
+    "product" : {
+      "id" : 50,
+      "reference" : "Pb6b8368-96fb-40da-9060-29833fca3778",
+      "userId" : 6,
+      "name" : "Product 50",
+      "description" : "Description for product 50",
+      "price" : 61.00,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 15,
+    "quantity" : 15,
+    "total" : 1445.70,
+    "product" : {
+      "id" : 79,
+      "reference" : "Pc11516b-e3bb-4420-ab21-11b597ac743a",
+      "userId" : 10,
+      "name" : "Product 79",
+      "description" : "Description for product 79",
+      "price" : 96.38,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 4,
+  "reference" : "Df6fe1a5-fad3-4c35-991b-0a5f5b5ab5a8",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 6780.76,
+  "userId" : 47,
+  "orderDetails" : [ {
+    "id" : 16,
+    "quantity" : 16,
+    "total" : 585.60,
+    "product" : {
+      "id" : 30,
+      "reference" : "Pface5fc-5179-4810-9bd0-fb384c060550",
+      "userId" : 9,
+      "name" : "Product 30",
+      "description" : "Description for product 30",
+      "price" : 36.60,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 17,
+    "quantity" : 17,
+    "total" : 1534.76,
+    "product" : {
+      "id" : 74,
+      "reference" : "P4646f59-9553-4cc3-a740-a97f2e81458a",
+      "userId" : 3,
+      "name" : "Product 74",
+      "description" : "Description for product 74",
+      "price" : 90.28,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 18,
+    "quantity" : 18,
+    "total" : 1800.72,
+    "product" : {
+      "id" : 82,
+      "reference" : "P0b6e8ab-5450-40dd-81c4-3cd9643d3d3c",
+      "userId" : 4,
+      "name" : "Product 82",
+      "description" : "Description for product 82",
+      "price" : 100.04,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 19,
+    "quantity" : 19,
+    "total" : 1298.08,
+    "product" : {
+      "id" : 56,
+      "reference" : "Pd8d0c99-c5e1-4b70-8711-0006bf8cd212",
+      "userId" : 1,
+      "name" : "Product 56",
+      "description" : "Description for product 56",
+      "price" : 68.32,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 20,
+    "quantity" : 20,
+    "total" : 1561.60,
+    "product" : {
+      "id" : 64,
+      "reference" : "P4a17a85-3fd9-41fc-90bf-37cf3cdb3f02",
+      "userId" : 3,
+      "name" : "Product 64",
+      "description" : "Description for product 64",
+      "price" : 78.08,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 5,
+  "reference" : "D5a1890b-b9c8-4575-8123-7e35adfc9e47",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 6056.08,
   "userId" : 43,
   "orderDetails" : [ {
     "id" : 21,
     "quantity" : 21,
-    "total" : 1485.96,
+    "total" : 845.46,
     "product" : {
-      "id" : 58,
-      "reference" : "P8db3094-720d-4199-a391-b5287a9fa1be",
-      "userId" : 7,
-      "name" : "Product 58",
-      "description" : "Description for product 58",
-      "price" : 70.76,
+      "id" : 33,
+      "reference" : "P08789f4-3a33-4ee3-8c50-ff8f54f8328d",
+      "userId" : 3,
+      "name" : "Product 33",
+      "description" : "Description for product 33",
+      "price" : 40.26,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 22,
     "quantity" : 22,
-    "total" : 1207.80,
+    "total" : 509.96,
+    "product" : {
+      "id" : 19,
+      "reference" : "Pdae4849-5aa2-46c6-9553-19eee81442b2",
+      "userId" : 1,
+      "name" : "Product 19",
+      "description" : "Description for product 19",
+      "price" : 23.18,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 23,
+    "quantity" : 23,
+    "total" : 1487.18,
+    "product" : {
+      "id" : 53,
+      "reference" : "P94ff798-688d-4859-b240-a4b9ce5a451a",
+      "userId" : 6,
+      "name" : "Product 53",
+      "description" : "Description for product 53",
+      "price" : 64.66,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 24,
+    "quantity" : 24,
+    "total" : 2664.48,
+    "product" : {
+      "id" : 91,
+      "reference" : "P1b87796-00e8-4e13-9d97-f538224931bd",
+      "userId" : 3,
+      "name" : "Product 91",
+      "description" : "Description for product 91",
+      "price" : 111.02,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 25,
+    "quantity" : 25,
+    "total" : 549.00,
+    "product" : {
+      "id" : 18,
+      "reference" : "P76d3557-6919-4941-b931-446ac9df5294",
+      "userId" : 6,
+      "name" : "Product 18",
+      "description" : "Description for product 18",
+      "price" : 21.96,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 6,
+  "reference" : "Dbf0448f-0545-48e1-b3e4-b30495d2d568",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 5871.86,
+  "userId" : 29,
+  "orderDetails" : [ {
+    "id" : 26,
+    "quantity" : 26,
+    "total" : 1554.28,
+    "product" : {
+      "id" : 49,
+      "reference" : "Pa6a8050-7643-4ee1-98b6-0eadeda3613d",
+      "userId" : 10,
+      "name" : "Product 49",
+      "description" : "Description for product 49",
+      "price" : 59.78,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 27,
+    "quantity" : 27,
+    "total" : 2404.62,
+    "product" : {
+      "id" : 73,
+      "reference" : "Pf83d07a-e048-412e-8ad4-5899b14459ab",
+      "userId" : 8,
+      "name" : "Product 73",
+      "description" : "Description for product 73",
+      "price" : 89.06,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 28,
+    "quantity" : 28,
+    "total" : 307.44,
+    "product" : {
+      "id" : 9,
+      "reference" : "P79cee9b-92a9-4f6a-b460-b750a95ec44f",
+      "userId" : 4,
+      "name" : "Product 9",
+      "description" : "Description for product 9",
+      "price" : 10.98,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 29,
+    "quantity" : 29,
+    "total" : 141.52,
+    "product" : {
+      "id" : 4,
+      "reference" : "P31cf6cd-87ef-469c-b5e5-f694c9cc4e5b",
+      "userId" : 1,
+      "name" : "Product 4",
+      "description" : "Description for product 4",
+      "price" : 4.88,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 30,
+    "quantity" : 30,
+    "total" : 1464.00,
+    "product" : {
+      "id" : 40,
+      "reference" : "Pe394720-01d8-48c1-acb6-2823f46ed4f7",
+      "userId" : 4,
+      "name" : "Product 40",
+      "description" : "Description for product 40",
+      "price" : 48.80,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 7,
+  "reference" : "D489cd99-f7b0-461a-bc3e-294d9cf4b8a5",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 10978.78,
+  "userId" : 4,
+  "orderDetails" : [ {
+    "id" : 31,
+    "quantity" : 31,
+    "total" : 2004.46,
+    "product" : {
+      "id" : 53,
+      "reference" : "P94ff798-688d-4859-b240-a4b9ce5a451a",
+      "userId" : 6,
+      "name" : "Product 53",
+      "description" : "Description for product 53",
+      "price" : 64.66,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 32,
+    "quantity" : 32,
+    "total" : 2420.48,
+    "product" : {
+      "id" : 62,
+      "reference" : "Pfa02f6a-c110-4a9e-921a-33a3e656b82b",
+      "userId" : 8,
+      "name" : "Product 62",
+      "description" : "Description for product 62",
+      "price" : 75.64,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 33,
+    "quantity" : 33,
+    "total" : 644.16,
+    "product" : {
+      "id" : 16,
+      "reference" : "P1ce7ffd-2dcc-4701-96e9-8c44cf58b3dc",
+      "userId" : 3,
+      "name" : "Product 16",
+      "description" : "Description for product 16",
+      "price" : 19.52,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 34,
+    "quantity" : 34,
+    "total" : 3774.68,
+    "product" : {
+      "id" : 91,
+      "reference" : "P1b87796-00e8-4e13-9d97-f538224931bd",
+      "userId" : 3,
+      "name" : "Product 91",
+      "description" : "Description for product 91",
+      "price" : 111.02,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 35,
+    "quantity" : 35,
+    "total" : 2135.00,
+    "product" : {
+      "id" : 50,
+      "reference" : "Pb6b8368-96fb-40da-9060-29833fca3778",
+      "userId" : 6,
+      "name" : "Product 50",
+      "description" : "Description for product 50",
+      "price" : 61.00,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 8,
+  "reference" : "D9bc9424-8a6b-47fa-97bd-b7788324ffe9",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 11962.10,
+  "userId" : 5,
+  "orderDetails" : [ {
+    "id" : 36,
+    "quantity" : 36,
+    "total" : 263.52,
+    "product" : {
+      "id" : 6,
+      "reference" : "Pbe31c34-1610-44e6-b476-e9ab85171ee2",
+      "userId" : 9,
+      "name" : "Product 6",
+      "description" : "Description for product 6",
+      "price" : 7.32,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 37,
+    "quantity" : 37,
+    "total" : 1399.34,
+    "product" : {
+      "id" : 31,
+      "reference" : "P83a4a47-db5e-4326-a303-3eafd794fc15",
+      "userId" : 9,
+      "name" : "Product 31",
+      "description" : "Description for product 31",
+      "price" : 37.82,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 38,
+    "quantity" : 38,
+    "total" : 3662.44,
+    "product" : {
+      "id" : 79,
+      "reference" : "Pc11516b-e3bb-4420-ab21-11b597ac743a",
+      "userId" : 10,
+      "name" : "Product 79",
+      "description" : "Description for product 79",
+      "price" : 96.38,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 39,
+    "quantity" : 39,
+    "total" : 3806.40,
+    "product" : {
+      "id" : 80,
+      "reference" : "Pc78b96f-ca66-40f0-aa00-93002795b83d",
+      "userId" : 7,
+      "name" : "Product 80",
+      "description" : "Description for product 80",
+      "price" : 97.60,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 40,
+    "quantity" : 40,
+    "total" : 2830.40,
+    "product" : {
+      "id" : 58,
+      "reference" : "Pf91eb82-ca4c-4d6f-802a-d9fa900a8f63",
+      "userId" : 1,
+      "name" : "Product 58",
+      "description" : "Description for product 58",
+      "price" : 70.76,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 9,
+  "reference" : "Dcad6f64-a828-473e-b9f2-55968e6feb64",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 12368.36,
+  "userId" : 40,
+  "orderDetails" : [ {
+    "id" : 41,
+    "quantity" : 41,
+    "total" : 700.28,
+    "product" : {
+      "id" : 14,
+      "reference" : "P28be0f3-a243-48d9-9f80-abbf10c44b14",
+      "userId" : 6,
+      "name" : "Product 14",
+      "description" : "Description for product 14",
+      "price" : 17.08,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 42,
+    "quantity" : 42,
+    "total" : 3228.12,
+    "product" : {
+      "id" : 63,
+      "reference" : "P1d9c087-5122-43b9-a83a-a46d8c243b3e",
+      "userId" : 2,
+      "name" : "Product 63",
+      "description" : "Description for product 63",
+      "price" : 76.86,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 43,
+    "quantity" : 43,
+    "total" : 2675.46,
+    "product" : {
+      "id" : 51,
+      "reference" : "P8ed88e0-4dad-49e4-9be8-b90ee02f8eb3",
+      "userId" : 10,
+      "name" : "Product 51",
+      "description" : "Description for product 51",
+      "price" : 62.22,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 44,
+    "quantity" : 44,
+    "total" : 2415.60,
     "product" : {
       "id" : 45,
-      "reference" : "Pe53f385-975c-4548-939f-55e1d9df0c19",
+      "reference" : "Pcf090f5-3693-48c5-92e8-90f54baacc6a",
       "userId" : 3,
       "name" : "Product 45",
       "description" : "Description for product 45",
@@ -346,375 +686,35 @@
       "deleted" : false
     }
   }, {
-    "id" : 23,
-    "quantity" : 23,
-    "total" : 84.18,
-    "product" : {
-      "id" : 3,
-      "reference" : "Pb7589e0-9884-48d5-9703-c19f90f95097",
-      "userId" : 4,
-      "name" : "Product 3",
-      "description" : "Description for product 3",
-      "price" : 3.66,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 24,
-    "quantity" : 24,
-    "total" : 146.40,
-    "product" : {
-      "id" : 5,
-      "reference" : "Pe293cee-8300-417a-bd9e-d3b83c71cfab",
-      "userId" : 5,
-      "name" : "Product 5",
-      "description" : "Description for product 5",
-      "price" : 6.10,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 25,
-    "quantity" : 25,
-    "total" : 2135.00,
-    "product" : {
-      "id" : 70,
-      "reference" : "Pd580ddb-afea-4980-bc12-2df8520f463d",
-      "userId" : 8,
-      "name" : "Product 70",
-      "description" : "Description for product 70",
-      "price" : 85.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 6,
-  "reference" : "De0806e6-e195-49a4-9046-7522c781fb14",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 7973.92,
-  "userId" : 17,
-  "orderDetails" : [ {
-    "id" : 26,
-    "quantity" : 26,
-    "total" : 3140.28,
-    "product" : {
-      "id" : 99,
-      "reference" : "P66829b4-ce20-472a-993c-5ab435be05c1",
-      "userId" : 6,
-      "name" : "Product 99",
-      "description" : "Description for product 99",
-      "price" : 120.78,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 27,
-    "quantity" : 27,
-    "total" : 1185.84,
-    "product" : {
-      "id" : 36,
-      "reference" : "Pfdb81ab-e962-4530-a725-8ccb360b4f80",
-      "userId" : 1,
-      "name" : "Product 36",
-      "description" : "Description for product 36",
-      "price" : 43.92,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 28,
-    "quantity" : 28,
-    "total" : 683.20,
-    "product" : {
-      "id" : 20,
-      "reference" : "P76aba92-be5d-49e0-973f-856e099288b1",
-      "userId" : 8,
-      "name" : "Product 20",
-      "description" : "Description for product 20",
-      "price" : 24.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 29,
-    "quantity" : 29,
-    "total" : 1061.40,
-    "product" : {
-      "id" : 30,
-      "reference" : "P70b9e85-4d98-45e7-a746-08177494cb8e",
-      "userId" : 3,
-      "name" : "Product 30",
-      "description" : "Description for product 30",
-      "price" : 36.60,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 30,
-    "quantity" : 30,
-    "total" : 1903.20,
-    "product" : {
-      "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
-      "userId" : 2,
-      "name" : "Product 52",
-      "description" : "Description for product 52",
-      "price" : 63.44,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 7,
-  "reference" : "Daa68daf-b3d9-4822-93b8-5163f7a2a3dc",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 9897.86,
-  "userId" : 23,
-  "orderDetails" : [ {
-    "id" : 31,
-    "quantity" : 31,
-    "total" : 3441.62,
-    "product" : {
-      "id" : 91,
-      "reference" : "Pfcd7fbd-db7e-43ce-9f5a-d4583e52f032",
-      "userId" : 1,
-      "name" : "Product 91",
-      "description" : "Description for product 91",
-      "price" : 111.02,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 32,
-    "quantity" : 32,
-    "total" : 312.32,
-    "product" : {
-      "id" : 8,
-      "reference" : "P2e22315-b95f-45fb-a1f0-b1e01d0c4b7f",
-      "userId" : 1,
-      "name" : "Product 8",
-      "description" : "Description for product 8",
-      "price" : 9.76,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 33,
-    "quantity" : 33,
-    "total" : 563.64,
-    "product" : {
-      "id" : 14,
-      "reference" : "Pa9feb9e-cc7a-4358-bd0f-b3307115c7f8",
-      "userId" : 10,
-      "name" : "Product 14",
-      "description" : "Description for product 14",
-      "price" : 17.08,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 34,
-    "quantity" : 34,
-    "total" : 3359.88,
-    "product" : {
-      "id" : 81,
-      "reference" : "Pb182a98-045d-410d-8718-f5ce9e8a7051",
-      "userId" : 7,
-      "name" : "Product 81",
-      "description" : "Description for product 81",
-      "price" : 98.82,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 35,
-    "quantity" : 35,
-    "total" : 2220.40,
-    "product" : {
-      "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
-      "userId" : 2,
-      "name" : "Product 52",
-      "description" : "Description for product 52",
-      "price" : 63.44,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 8,
-  "reference" : "Dd9b8f1e-baeb-470e-baea-4a2a76bd17c0",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 10011.32,
-  "userId" : 23,
-  "orderDetails" : [ {
-    "id" : 36,
-    "quantity" : 36,
-    "total" : 2547.36,
-    "product" : {
-      "id" : 58,
-      "reference" : "P8db3094-720d-4199-a391-b5287a9fa1be",
-      "userId" : 7,
-      "name" : "Product 58",
-      "description" : "Description for product 58",
-      "price" : 70.76,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 37,
-    "quantity" : 37,
-    "total" : 270.84,
-    "product" : {
-      "id" : 6,
-      "reference" : "P627c71f-7af9-4788-8144-3fdc8adb4c09",
-      "userId" : 5,
-      "name" : "Product 6",
-      "description" : "Description for product 6",
-      "price" : 7.32,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 38,
-    "quantity" : 38,
-    "total" : 1159.00,
-    "product" : {
-      "id" : 25,
-      "reference" : "P22bc81a-47ef-4a4d-b861-7cee12abd724",
-      "userId" : 5,
-      "name" : "Product 25",
-      "description" : "Description for product 25",
-      "price" : 30.50,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 39,
-    "quantity" : 39,
-    "total" : 2569.32,
-    "product" : {
-      "id" : 54,
-      "reference" : "P752fe52-074a-4cfb-a700-96208c567e5d",
-      "userId" : 3,
-      "name" : "Product 54",
-      "description" : "Description for product 54",
-      "price" : 65.88,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 40,
-    "quantity" : 40,
-    "total" : 3464.80,
-    "product" : {
-      "id" : 71,
-      "reference" : "Pf4179d5-da86-4925-932e-183e6702f8c9",
-      "userId" : 10,
-      "name" : "Product 71",
-      "description" : "Description for product 71",
-      "price" : 86.62,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 9,
-  "reference" : "D7c02261-3439-45da-bcf8-e76a1fa0478d",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 11640.02,
-  "userId" : 50,
-  "orderDetails" : [ {
-    "id" : 41,
-    "quantity" : 41,
-    "total" : 1900.76,
-    "product" : {
-      "id" : 38,
-      "reference" : "Pe2239ae-5eb0-4521-8a20-60d9b3f65556",
-      "userId" : 9,
-      "name" : "Product 38",
-      "description" : "Description for product 38",
-      "price" : 46.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 42,
-    "quantity" : 42,
-    "total" : 1434.72,
-    "product" : {
-      "id" : 28,
-      "reference" : "P7474938-b4d5-4480-9d79-e951b7023216",
-      "userId" : 5,
-      "name" : "Product 28",
-      "description" : "Description for product 28",
-      "price" : 34.16,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 43,
-    "quantity" : 43,
-    "total" : 4144.34,
-    "product" : {
-      "id" : 79,
-      "reference" : "Paf3bd1e-a5ad-4148-bad4-381a7969d55c",
-      "userId" : 7,
-      "name" : "Product 79",
-      "description" : "Description for product 79",
-      "price" : 96.38,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 44,
-    "quantity" : 44,
-    "total" : 2952.40,
-    "product" : {
-      "id" : 55,
-      "reference" : "P898f7bf-bbc5-4310-bc3d-64ac7957b80b",
-      "userId" : 3,
-      "name" : "Product 55",
-      "description" : "Description for product 55",
-      "price" : 67.10,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
     "id" : 45,
     "quantity" : 45,
-    "total" : 1207.80,
+    "total" : 3348.90,
     "product" : {
-      "id" : 22,
-      "reference" : "P01cb6cf-a5ed-4918-b462-2bccdef2170c",
-      "userId" : 5,
-      "name" : "Product 22",
-      "description" : "Description for product 22",
-      "price" : 26.84,
+      "id" : 61,
+      "reference" : "P5fb3057-752c-4c81-9425-d2526999d526",
+      "userId" : 2,
+      "name" : "Product 61",
+      "description" : "Description for product 61",
+      "price" : 74.42,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
   "id" : 10,
-  "reference" : "D52f23b7-e0aa-49c2-8e13-526781859446",
+  "reference" : "Da8bb825-2e35-4d4d-b4b5-f7dcc41de144",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 12056.04,
-  "userId" : 26,
+  "total" : 18609.88,
+  "userId" : 22,
   "orderDetails" : [ {
     "id" : 46,
     "quantity" : 46,
     "total" : 1459.12,
     "product" : {
       "id" : 26,
-      "reference" : "Pc87a36e-d78a-4ff4-b802-ed6e2d428a2c",
-      "userId" : 3,
+      "reference" : "Pf2e5dc0-da37-4ecf-868c-ffbbab67e554",
+      "userId" : 5,
       "name" : "Product 26",
       "description" : "Description for product 26",
       "price" : 31.72,
@@ -724,89 +724,11 @@
   }, {
     "id" : 47,
     "quantity" : 47,
-    "total" : 573.40,
-    "product" : {
-      "id" : 10,
-      "reference" : "Pdc55ca5-b18e-48d5-aa48-3d405078ba45",
-      "userId" : 9,
-      "name" : "Product 10",
-      "description" : "Description for product 10",
-      "price" : 12.20,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 48,
-    "quantity" : 48,
-    "total" : 5153.28,
-    "product" : {
-      "id" : 88,
-      "reference" : "Pcdee889-78a6-49a7-8b06-45fe55fafd81",
-      "userId" : 6,
-      "name" : "Product 88",
-      "description" : "Description for product 88",
-      "price" : 107.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 49,
-    "quantity" : 49,
-    "total" : 3467.24,
-    "product" : {
-      "id" : 58,
-      "reference" : "P8db3094-720d-4199-a391-b5287a9fa1be",
-      "userId" : 7,
-      "name" : "Product 58",
-      "description" : "Description for product 58",
-      "price" : 70.76,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 50,
-    "quantity" : 50,
-    "total" : 1403.00,
-    "product" : {
-      "id" : 23,
-      "reference" : "Pe35cafd-d543-4d6c-ac9b-8aa02f372c18",
-      "userId" : 9,
-      "name" : "Product 23",
-      "description" : "Description for product 23",
-      "price" : 28.06,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 11,
-  "reference" : "Dae66a47-d263-4821-94ca-c0b1dc0c1d2d",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 15391.52,
-  "userId" : 20,
-  "orderDetails" : [ {
-    "id" : 51,
-    "quantity" : 51,
-    "total" : 1244.40,
-    "product" : {
-      "id" : 20,
-      "reference" : "P76aba92-be5d-49e0-973f-856e099288b1",
-      "userId" : 8,
-      "name" : "Product 20",
-      "description" : "Description for product 20",
-      "price" : 24.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 52,
-    "quantity" : 52,
-    "total" : 5773.04,
+    "total" : 5217.94,
     "product" : {
       "id" : 91,
-      "reference" : "Pfcd7fbd-db7e-43ce-9f5a-d4583e52f032",
-      "userId" : 1,
+      "reference" : "P1b87796-00e8-4e13-9d97-f538224931bd",
+      "userId" : 3,
       "name" : "Product 91",
       "description" : "Description for product 91",
       "price" : 111.02,
@@ -814,91 +736,63 @@
       "deleted" : false
     }
   }, {
-    "id" : 53,
-    "quantity" : 53,
-    "total" : 1487.18,
+    "id" : 48,
+    "quantity" : 48,
+    "total" : 3806.40,
     "product" : {
-      "id" : 23,
-      "reference" : "Pe35cafd-d543-4d6c-ac9b-8aa02f372c18",
-      "userId" : 9,
-      "name" : "Product 23",
-      "description" : "Description for product 23",
-      "price" : 28.06,
+      "id" : 65,
+      "reference" : "P7012a30-542d-4dd0-a661-3707b0b8deaf",
+      "userId" : 2,
+      "name" : "Product 65",
+      "description" : "Description for product 65",
+      "price" : 79.30,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 54,
-    "quantity" : 54,
-    "total" : 4941.00,
+    "id" : 49,
+    "quantity" : 49,
+    "total" : 2331.42,
     "product" : {
-      "id" : 75,
-      "reference" : "Pc3123f0-829d-4ffb-a8ba-c048b733882b",
+      "id" : 39,
+      "reference" : "P56e1de8-2335-4070-84eb-bbb70ae39803",
       "userId" : 8,
-      "name" : "Product 75",
-      "description" : "Description for product 75",
-      "price" : 91.50,
+      "name" : "Product 39",
+      "description" : "Description for product 39",
+      "price" : 47.58,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 55,
-    "quantity" : 55,
-    "total" : 1945.90,
+    "id" : 50,
+    "quantity" : 50,
+    "total" : 5795.00,
     "product" : {
-      "id" : 29,
-      "reference" : "Pe4f289a-475f-4bec-83b1-4e5aed2be1e6",
-      "userId" : 3,
-      "name" : "Product 29",
-      "description" : "Description for product 29",
-      "price" : 35.38,
+      "id" : 95,
+      "reference" : "P1438e34-10ea-484f-ac71-b303db8101f7",
+      "userId" : 2,
+      "name" : "Product 95",
+      "description" : "Description for product 95",
+      "price" : 115.90,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
-  "id" : 12,
-  "reference" : "D424cd4e-5647-4180-9260-ba2049996f94",
+  "id" : 11,
+  "reference" : "D9aaf115-7c16-4cf8-a015-731bbe1312eb",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 10080.86,
-  "userId" : 24,
+  "total" : 10400.50,
+  "userId" : 43,
   "orderDetails" : [ {
-    "id" : 56,
-    "quantity" : 56,
-    "total" : 341.60,
-    "product" : {
-      "id" : 5,
-      "reference" : "Pe293cee-8300-417a-bd9e-d3b83c71cfab",
-      "userId" : 5,
-      "name" : "Product 5",
-      "description" : "Description for product 5",
-      "price" : 6.10,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 57,
-    "quantity" : 57,
-    "total" : 625.86,
-    "product" : {
-      "id" : 9,
-      "reference" : "P2cef276-f22f-400b-8d6a-814ae61d3b9c",
-      "userId" : 4,
-      "name" : "Product 9",
-      "description" : "Description for product 9",
-      "price" : 10.98,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 58,
-    "quantity" : 58,
-    "total" : 495.32,
+    "id" : 51,
+    "quantity" : 51,
+    "total" : 435.54,
     "product" : {
       "id" : 7,
-      "reference" : "P6926d4c-bfec-4e0c-b9a6-92a9b788aeb3",
-      "userId" : 6,
+      "reference" : "Pe5501ea-bce6-4fbe-b58b-9e6070d6dc3c",
+      "userId" : 5,
       "name" : "Product 7",
       "description" : "Description for product 7",
       "price" : 8.54,
@@ -906,63 +800,27 @@
       "deleted" : false
     }
   }, {
-    "id" : 59,
-    "quantity" : 59,
-    "total" : 5470.48,
+    "id" : 52,
+    "quantity" : 52,
+    "total" : 2664.48,
     "product" : {
-      "id" : 76,
-      "reference" : "Pcb3cd5b-f912-412d-b58e-4c0192dfe5c2",
-      "userId" : 2,
-      "name" : "Product 76",
-      "description" : "Description for product 76",
-      "price" : 92.72,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 60,
-    "quantity" : 60,
-    "total" : 3147.60,
-    "product" : {
-      "id" : 43,
-      "reference" : "P9bd9993-c983-4d3a-bc0e-04b5cbf537f0",
+      "id" : 42,
+      "reference" : "P0b44244-77ff-4463-ab87-698a3c1062de",
       "userId" : 7,
-      "name" : "Product 43",
-      "description" : "Description for product 43",
-      "price" : 52.46,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 13,
-  "reference" : "D8fc5acd-7b28-4b33-a4d5-0d9991748391",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 20320.32,
-  "userId" : 50,
-  "orderDetails" : [ {
-    "id" : 61,
-    "quantity" : 61,
-    "total" : 3051.22,
-    "product" : {
-      "id" : 41,
-      "reference" : "P7278bff-5c2b-42a8-a096-85aa47c1aab6",
-      "userId" : 1,
-      "name" : "Product 41",
-      "description" : "Description for product 41",
-      "price" : 50.02,
+      "name" : "Product 42",
+      "description" : "Description for product 42",
+      "price" : 51.24,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 62,
-    "quantity" : 62,
-    "total" : 6051.20,
+    "id" : 53,
+    "quantity" : 53,
+    "total" : 5172.80,
     "product" : {
       "id" : 80,
-      "reference" : "P53c429a-5ed3-451b-8729-27a03a39e0fb",
-      "userId" : 6,
+      "reference" : "Pc78b96f-ca66-40f0-aa00-93002795b83d",
+      "userId" : 7,
       "name" : "Product 80",
       "description" : "Description for product 80",
       "price" : 97.60,
@@ -970,41 +828,105 @@
       "deleted" : false
     }
   }, {
-    "id" : 63,
-    "quantity" : 63,
-    "total" : 1844.64,
+    "id" : 54,
+    "quantity" : 54,
+    "total" : 1054.08,
     "product" : {
-      "id" : 24,
-      "reference" : "Pbe160d9-d41f-4940-9521-8bda3d2a5089",
+      "id" : 16,
+      "reference" : "P1ce7ffd-2dcc-4701-96e9-8c44cf58b3dc",
+      "userId" : 3,
+      "name" : "Product 16",
+      "description" : "Description for product 16",
+      "price" : 19.52,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 55,
+    "quantity" : 55,
+    "total" : 1073.60,
+    "product" : {
+      "id" : 16,
+      "reference" : "P1ce7ffd-2dcc-4701-96e9-8c44cf58b3dc",
+      "userId" : 3,
+      "name" : "Product 16",
+      "description" : "Description for product 16",
+      "price" : 19.52,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 12,
+  "reference" : "Dfbfa06c-df4a-486e-a999-44e3d11679aa",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 21027.92,
+  "userId" : 50,
+  "orderDetails" : [ {
+    "id" : 56,
+    "quantity" : 56,
+    "total" : 4850.72,
+    "product" : {
+      "id" : 71,
+      "reference" : "P3ec5d8b-3a8d-458b-8f65-961e4a3767b7",
       "userId" : 10,
-      "name" : "Product 24",
-      "description" : "Description for product 24",
-      "price" : 29.28,
+      "name" : "Product 71",
+      "description" : "Description for product 71",
+      "price" : 86.62,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 64,
-    "quantity" : 64,
-    "total" : 4060.16,
+    "id" : 57,
+    "quantity" : 57,
+    "total" : 5354.58,
     "product" : {
-      "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
-      "userId" : 2,
-      "name" : "Product 52",
-      "description" : "Description for product 52",
-      "price" : 63.44,
+      "id" : 77,
+      "reference" : "Pdb693f0-d565-4d1f-af6a-b5ff272c4388",
+      "userId" : 4,
+      "name" : "Product 77",
+      "description" : "Description for product 77",
+      "price" : 93.94,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 65,
-    "quantity" : 65,
-    "total" : 5313.10,
+    "id" : 58,
+    "quantity" : 58,
+    "total" : 3254.96,
+    "product" : {
+      "id" : 46,
+      "reference" : "P2a842e3-945f-41c5-aaa3-8548e124eab7",
+      "userId" : 2,
+      "name" : "Product 46",
+      "description" : "Description for product 46",
+      "price" : 56.12,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 59,
+    "quantity" : 59,
+    "total" : 2663.26,
+    "product" : {
+      "id" : 37,
+      "reference" : "Pa9ac504-ceec-4152-9294-5999118ba01f",
+      "userId" : 6,
+      "name" : "Product 37",
+      "description" : "Description for product 37",
+      "price" : 45.14,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 60,
+    "quantity" : 60,
+    "total" : 4904.40,
     "product" : {
       "id" : 67,
-      "reference" : "Pcc18575-a581-482f-8833-2d7ceb21f8ca",
-      "userId" : 7,
+      "reference" : "P382d2a6-5d5e-4054-ac8d-b2c7b2f2cbe5",
+      "userId" : 5,
       "name" : "Product 67",
       "description" : "Description for product 67",
       "price" : 81.74,
@@ -1013,19 +935,19 @@
     }
   } ]
 }, {
-  "id" : 14,
-  "reference" : "Db1c837f-63b8-4a95-9f3e-95a464bca4e2",
+  "id" : 13,
+  "reference" : "Dae78f74-054f-4dea-81da-c1479c005a0c",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 19828.66,
-  "userId" : 42,
+  "total" : 10672.56,
+  "userId" : 2,
   "orderDetails" : [ {
-    "id" : 66,
-    "quantity" : 66,
-    "total" : 4187.04,
+    "id" : 61,
+    "quantity" : 61,
+    "total" : 3869.84,
     "product" : {
       "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
+      "reference" : "P12e7d49-4ac7-446a-8e75-5c9219bfd838",
       "userId" : 2,
       "name" : "Product 52",
       "description" : "Description for product 52",
@@ -1034,40 +956,90 @@
       "deleted" : false
     }
   }, {
+    "id" : 62,
+    "quantity" : 62,
+    "total" : 2496.12,
+    "product" : {
+      "id" : 33,
+      "reference" : "P08789f4-3a33-4ee3-8c50-ff8f54f8328d",
+      "userId" : 3,
+      "name" : "Product 33",
+      "description" : "Description for product 33",
+      "price" : 40.26,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 63,
+    "quantity" : 63,
+    "total" : 230.58,
+    "product" : {
+      "id" : 3,
+      "reference" : "P51892e1-03bb-48d9-ad94-6a989c667ab7",
+      "userId" : 6,
+      "name" : "Product 3",
+      "description" : "Description for product 3",
+      "price" : 3.66,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 64,
+    "quantity" : 64,
+    "total" : 3045.12,
+    "product" : {
+      "id" : 39,
+      "reference" : "P56e1de8-2335-4070-84eb-bbb70ae39803",
+      "userId" : 8,
+      "name" : "Product 39",
+      "description" : "Description for product 39",
+      "price" : 47.58,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 65,
+    "quantity" : 65,
+    "total" : 1030.90,
+    "product" : {
+      "id" : 13,
+      "reference" : "Pafa9c05-7791-4a9e-be8a-9c69a136bea7",
+      "userId" : 5,
+      "name" : "Product 13",
+      "description" : "Description for product 13",
+      "price" : 15.86,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 14,
+  "reference" : "Db13e7fe-94b1-463e-af99-51fc22ed83aa",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 10298.02,
+  "userId" : 31,
+  "orderDetails" : [ {
+    "id" : 66,
+    "quantity" : 66,
+    "total" : 2657.16,
+    "product" : {
+      "id" : 33,
+      "reference" : "P08789f4-3a33-4ee3-8c50-ff8f54f8328d",
+      "userId" : 3,
+      "name" : "Product 33",
+      "description" : "Description for product 33",
+      "price" : 40.26,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
     "id" : 67,
     "quantity" : 67,
-    "total" : 817.40,
-    "product" : {
-      "id" : 10,
-      "reference" : "Pdc55ca5-b18e-48d5-aa48-3d405078ba45",
-      "userId" : 9,
-      "name" : "Product 10",
-      "description" : "Description for product 10",
-      "price" : 12.20,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 68,
-    "quantity" : 68,
-    "total" : 8047.12,
-    "product" : {
-      "id" : 97,
-      "reference" : "Pa5177af-76d6-4fb1-8aa9-8b32a981be22",
-      "userId" : 5,
-      "name" : "Product 97",
-      "description" : "Description for product 97",
-      "price" : 118.34,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 69,
-    "quantity" : 69,
-    "total" : 3788.10,
+    "total" : 3678.30,
     "product" : {
       "id" : 45,
-      "reference" : "Pe53f385-975c-4548-939f-55e1d9df0c19",
+      "reference" : "Pcf090f5-3693-48c5-92e8-90f54baacc6a",
       "userId" : 3,
       "name" : "Product 45",
       "description" : "Description for product 45",
@@ -1076,35 +1048,219 @@
       "deleted" : false
     }
   }, {
+    "id" : 68,
+    "quantity" : 68,
+    "total" : 1659.20,
+    "product" : {
+      "id" : 20,
+      "reference" : "P12388c9-cc09-418c-b715-11e3bdf241e8",
+      "userId" : 1,
+      "name" : "Product 20",
+      "description" : "Description for product 20",
+      "price" : 24.40,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 69,
+    "quantity" : 69,
+    "total" : 168.36,
+    "product" : {
+      "id" : 2,
+      "reference" : "Pe328916-8578-40b8-aba7-113b7a9d83a8",
+      "userId" : 2,
+      "name" : "Product 2",
+      "description" : "Description for product 2",
+      "price" : 2.44,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
     "id" : 70,
     "quantity" : 70,
-    "total" : 2989.00,
+    "total" : 2135.00,
     "product" : {
-      "id" : 35,
-      "reference" : "Ped0207c-810f-46be-a206-df68319c47a2",
+      "id" : 25,
+      "reference" : "P823e13e-79c6-4261-99cf-076fb6710f79",
       "userId" : 2,
-      "name" : "Product 35",
-      "description" : "Description for product 35",
-      "price" : 42.70,
+      "name" : "Product 25",
+      "description" : "Description for product 25",
+      "price" : 30.50,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
   "id" : 15,
-  "reference" : "Da0ebd10-89ea-428b-b054-9e24e2d8c4c3",
+  "reference" : "D83c96c4-96b4-43fe-aa8c-eeadb83e4a34",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 22673.70,
-  "userId" : 26,
+  "total" : 15680.66,
+  "userId" : 34,
   "orderDetails" : [ {
     "id" : 71,
     "quantity" : 71,
-    "total" : 8055.66,
+    "total" : 3551.42,
+    "product" : {
+      "id" : 41,
+      "reference" : "P03eebc5-6e45-4d36-8266-7ef45b966708",
+      "userId" : 10,
+      "name" : "Product 41",
+      "description" : "Description for product 41",
+      "price" : 50.02,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 72,
+    "quantity" : 72,
+    "total" : 2371.68,
+    "product" : {
+      "id" : 27,
+      "reference" : "P40cb907-777d-4aec-85bf-9db506adf029",
+      "userId" : 2,
+      "name" : "Product 27",
+      "description" : "Description for product 27",
+      "price" : 32.94,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 73,
+    "quantity" : 73,
+    "total" : 6323.26,
+    "product" : {
+      "id" : 71,
+      "reference" : "P3ec5d8b-3a8d-458b-8f65-961e4a3767b7",
+      "userId" : 10,
+      "name" : "Product 71",
+      "description" : "Description for product 71",
+      "price" : 86.62,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 74,
+    "quantity" : 74,
+    "total" : 3159.80,
+    "product" : {
+      "id" : 35,
+      "reference" : "Pec037b2-1675-4153-8335-1453c6967235",
+      "userId" : 7,
+      "name" : "Product 35",
+      "description" : "Description for product 35",
+      "price" : 42.70,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 75,
+    "quantity" : 75,
+    "total" : 274.50,
+    "product" : {
+      "id" : 3,
+      "reference" : "P51892e1-03bb-48d9-ad94-6a989c667ab7",
+      "userId" : 6,
+      "name" : "Product 3",
+      "description" : "Description for product 3",
+      "price" : 3.66,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 16,
+  "reference" : "D36c9b97-b108-4bea-aec8-dc0dfbd3c1b8",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 16006.40,
+  "userId" : 3,
+  "orderDetails" : [ {
+    "id" : 76,
+    "quantity" : 76,
+    "total" : 6490.40,
+    "product" : {
+      "id" : 70,
+      "reference" : "P3fcd13b-cc2e-4a9a-84ae-8e8b3e2dc2a2",
+      "userId" : 3,
+      "name" : "Product 70",
+      "description" : "Description for product 70",
+      "price" : 85.40,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 77,
+    "quantity" : 77,
+    "total" : 93.94,
+    "product" : {
+      "id" : 1,
+      "reference" : "P823716b-b5ae-40f1-bf71-106831ab492a",
+      "userId" : 10,
+      "name" : "Product 1",
+      "description" : "Description for product 1",
+      "price" : 1.22,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 78,
+    "quantity" : 78,
+    "total" : 856.44,
+    "product" : {
+      "id" : 9,
+      "reference" : "P79cee9b-92a9-4f6a-b460-b750a95ec44f",
+      "userId" : 4,
+      "name" : "Product 9",
+      "description" : "Description for product 9",
+      "price" : 10.98,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 79,
+    "quantity" : 79,
+    "total" : 1831.22,
+    "product" : {
+      "id" : 19,
+      "reference" : "Pdae4849-5aa2-46c6-9553-19eee81442b2",
+      "userId" : 1,
+      "name" : "Product 19",
+      "description" : "Description for product 19",
+      "price" : 23.18,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 80,
+    "quantity" : 80,
+    "total" : 6734.40,
+    "product" : {
+      "id" : 69,
+      "reference" : "P08f3a55-71c9-4a98-8f7d-855abba38ec3",
+      "userId" : 4,
+      "name" : "Product 69",
+      "description" : "Description for product 69",
+      "price" : 84.18,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 17,
+  "reference" : "D03e3100-f954-41fd-904b-8f7392519557",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 23771.70,
+  "userId" : 49,
+  "orderDetails" : [ {
+    "id" : 81,
+    "quantity" : 81,
+    "total" : 9190.26,
     "product" : {
       "id" : 93,
-      "reference" : "Pedd0a73-13aa-4730-b005-91496fa02618",
-      "userId" : 3,
+      "reference" : "Paff02e1-5122-435a-86e4-eac9a8be39b1",
+      "userId" : 5,
       "name" : "Product 93",
       "description" : "Description for product 93",
       "price" : 113.46,
@@ -1112,169 +1268,77 @@
       "deleted" : false
     }
   }, {
-    "id" : 72,
-    "quantity" : 72,
-    "total" : 2459.52,
-    "product" : {
-      "id" : 28,
-      "reference" : "P7474938-b4d5-4480-9d79-e951b7023216",
-      "userId" : 5,
-      "name" : "Product 28",
-      "description" : "Description for product 28",
-      "price" : 34.16,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 73,
-    "quantity" : 73,
-    "total" : 3206.16,
-    "product" : {
-      "id" : 36,
-      "reference" : "Pfdb81ab-e962-4530-a725-8ccb360b4f80",
-      "userId" : 1,
-      "name" : "Product 36",
-      "description" : "Description for product 36",
-      "price" : 43.92,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 74,
-    "quantity" : 74,
-    "total" : 7854.36,
-    "product" : {
-      "id" : 87,
-      "reference" : "Pde9d705-021e-4b78-aaf8-59251e782a3f",
-      "userId" : 3,
-      "name" : "Product 87",
-      "description" : "Description for product 87",
-      "price" : 106.14,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 75,
-    "quantity" : 75,
-    "total" : 1098.00,
-    "product" : {
-      "id" : 12,
-      "reference" : "P17aad49-5d54-4b85-a82d-3db14eeb291c",
-      "userId" : 7,
-      "name" : "Product 12",
-      "description" : "Description for product 12",
-      "price" : 14.64,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 16,
-  "reference" : "Df3823e4-e57f-4c47-8688-1ebbf5de0c38",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 26860.74,
-  "userId" : 25,
-  "orderDetails" : [ {
-    "id" : 76,
-    "quantity" : 76,
-    "total" : 2225.28,
-    "product" : {
-      "id" : 24,
-      "reference" : "Pbe160d9-d41f-4940-9521-8bda3d2a5089",
-      "userId" : 10,
-      "name" : "Product 24",
-      "description" : "Description for product 24",
-      "price" : 29.28,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 77,
-    "quantity" : 77,
-    "total" : 7797.02,
-    "product" : {
-      "id" : 83,
-      "reference" : "P1f6e070-c920-4ac6-a0c8-b2573db43da8",
-      "userId" : 6,
-      "name" : "Product 83",
-      "description" : "Description for product 83",
-      "price" : 101.26,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 78,
-    "quantity" : 78,
-    "total" : 3045.12,
-    "product" : {
-      "id" : 32,
-      "reference" : "P1651185-ac68-426a-98af-df6f504fb0f2",
-      "userId" : 6,
-      "name" : "Product 32",
-      "description" : "Description for product 32",
-      "price" : 39.04,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 79,
-    "quantity" : 79,
-    "total" : 5204.52,
-    "product" : {
-      "id" : 54,
-      "reference" : "P752fe52-074a-4cfb-a700-96208c567e5d",
-      "userId" : 3,
-      "name" : "Product 54",
-      "description" : "Description for product 54",
-      "price" : 65.88,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 80,
-    "quantity" : 80,
-    "total" : 8588.80,
-    "product" : {
-      "id" : 88,
-      "reference" : "Pcdee889-78a6-49a7-8b06-45fe55fafd81",
-      "userId" : 6,
-      "name" : "Product 88",
-      "description" : "Description for product 88",
-      "price" : 107.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 17,
-  "reference" : "D2f1ea1c-cd31-4502-8122-b1f496403d58",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 30191.34,
-  "userId" : 38,
-  "orderDetails" : [ {
-    "id" : 81,
-    "quantity" : 81,
-    "total" : 8399.70,
-    "product" : {
-      "id" : 85,
-      "reference" : "P4e93ea0-6e26-472b-9301-eebd170efa6d",
-      "userId" : 4,
-      "name" : "Product 85",
-      "description" : "Description for product 85",
-      "price" : 103.70,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
     "id" : 82,
     "quantity" : 82,
-    "total" : 9503.80,
+    "total" : 7503.00,
+    "product" : {
+      "id" : 75,
+      "reference" : "Pfce070d-e3e9-4396-94a1-9ecf1fb65976",
+      "userId" : 2,
+      "name" : "Product 75",
+      "description" : "Description for product 75",
+      "price" : 91.50,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 83,
+    "quantity" : 83,
+    "total" : 2734.02,
+    "product" : {
+      "id" : 27,
+      "reference" : "P40cb907-777d-4aec-85bf-9db506adf029",
+      "userId" : 2,
+      "name" : "Product 27",
+      "description" : "Description for product 27",
+      "price" : 32.94,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 84,
+    "quantity" : 84,
+    "total" : 922.32,
+    "product" : {
+      "id" : 9,
+      "reference" : "P79cee9b-92a9-4f6a-b460-b750a95ec44f",
+      "userId" : 4,
+      "name" : "Product 9",
+      "description" : "Description for product 9",
+      "price" : 10.98,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 85,
+    "quantity" : 85,
+    "total" : 3422.10,
+    "product" : {
+      "id" : 33,
+      "reference" : "P08789f4-3a33-4ee3-8c50-ff8f54f8328d",
+      "userId" : 3,
+      "name" : "Product 33",
+      "description" : "Description for product 33",
+      "price" : 40.26,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 18,
+  "reference" : "D9005fe4-9583-46ec-bae3-12e68331371f",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 30762.30,
+  "userId" : 49,
+  "orderDetails" : [ {
+    "id" : 86,
+    "quantity" : 86,
+    "total" : 9967.40,
     "product" : {
       "id" : 95,
-      "reference" : "Pa1f0cbb-8c02-4f4d-81c1-4aa8a6564615",
-      "userId" : 10,
+      "reference" : "P1438e34-10ea-484f-ac71-b303db8101f7",
+      "userId" : 2,
       "name" : "Product 95",
       "description" : "Description for product 95",
       "price" : 115.90,
@@ -1282,261 +1346,91 @@
       "deleted" : false
     }
   }, {
-    "id" : 83,
-    "quantity" : 83,
-    "total" : 6176.86,
-    "product" : {
-      "id" : 61,
-      "reference" : "P6fd5479-0450-4e81-bfe9-78db7db5971a",
-      "userId" : 5,
-      "name" : "Product 61",
-      "description" : "Description for product 61",
-      "price" : 74.42,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 84,
-    "quantity" : 84,
-    "total" : 614.88,
-    "product" : {
-      "id" : 6,
-      "reference" : "P627c71f-7af9-4788-8144-3fdc8adb4c09",
-      "userId" : 5,
-      "name" : "Product 6",
-      "description" : "Description for product 6",
-      "price" : 7.32,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 85,
-    "quantity" : 85,
-    "total" : 5496.10,
-    "product" : {
-      "id" : 53,
-      "reference" : "Pd2775f7-af33-42f9-bc53-176e078bbe71",
-      "userId" : 2,
-      "name" : "Product 53",
-      "description" : "Description for product 53",
-      "price" : 64.66,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 18,
-  "reference" : "Dfa5c01f-3f92-4833-b608-28043b66d30f",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 31532.12,
-  "userId" : 15,
-  "orderDetails" : [ {
-    "id" : 86,
-    "quantity" : 86,
-    "total" : 3986.96,
-    "product" : {
-      "id" : 38,
-      "reference" : "Pe2239ae-5eb0-4521-8a20-60d9b3f65556",
-      "userId" : 9,
-      "name" : "Product 38",
-      "description" : "Description for product 38",
-      "price" : 46.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
     "id" : 87,
     "quantity" : 87,
-    "total" : 10614.00,
+    "total" : 3396.48,
     "product" : {
-      "id" : 100,
-      "reference" : "Pe3efe3f-c965-4a77-a628-62bdfdd6d740",
-      "userId" : 8,
-      "name" : "Product 100",
-      "description" : "Description for product 100",
-      "price" : 122.00,
+      "id" : 32,
+      "reference" : "P4b33c80-05cb-4f11-b4a1-0e58fb66d92c",
+      "userId" : 9,
+      "name" : "Product 32",
+      "description" : "Description for product 32",
+      "price" : 39.04,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 88,
     "quantity" : 88,
-    "total" : 6441.60,
+    "total" : 2791.36,
     "product" : {
-      "id" : 60,
-      "reference" : "P4327883-eda8-474f-a512-2753899d3fb7",
-      "userId" : 6,
-      "name" : "Product 60",
-      "description" : "Description for product 60",
-      "price" : 73.20,
+      "id" : 26,
+      "reference" : "Pf2e5dc0-da37-4ecf-868c-ffbbab67e554",
+      "userId" : 5,
+      "name" : "Product 26",
+      "description" : "Description for product 26",
+      "price" : 31.72,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 89,
     "quantity" : 89,
-    "total" : 4560.36,
+    "total" : 9446.46,
     "product" : {
-      "id" : 42,
-      "reference" : "P92ee7f3-b30f-47d8-9c6f-14595c543806",
+      "id" : 87,
+      "reference" : "P007b7a3-506b-4f3b-9bcc-77883ad79d6b",
       "userId" : 5,
-      "name" : "Product 42",
-      "description" : "Description for product 42",
-      "price" : 51.24,
+      "name" : "Product 87",
+      "description" : "Description for product 87",
+      "price" : 106.14,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 90,
     "quantity" : 90,
-    "total" : 5929.20,
+    "total" : 5160.60,
     "product" : {
-      "id" : 54,
-      "reference" : "P752fe52-074a-4cfb-a700-96208c567e5d",
-      "userId" : 3,
-      "name" : "Product 54",
-      "description" : "Description for product 54",
-      "price" : 65.88,
+      "id" : 47,
+      "reference" : "P0400ecd-e7a8-40b7-b3b9-72006eff568d",
+      "userId" : 2,
+      "name" : "Product 47",
+      "description" : "Description for product 47",
+      "price" : 57.34,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
   "id" : 19,
-  "reference" : "D92bac90-3ceb-4413-b826-bd0d79c514ed",
+  "reference" : "Dde3908a-85d0-44bf-8756-4b5d5b61c4b0",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 32580.10,
-  "userId" : 33,
+  "total" : 25615.12,
+  "userId" : 19,
   "orderDetails" : [ {
     "id" : 91,
     "quantity" : 91,
-    "total" : 6217.12,
+    "total" : 6328.14,
     "product" : {
-      "id" : 56,
-      "reference" : "P744d69a-5196-41c1-b6b9-59878d34f421",
-      "userId" : 5,
-      "name" : "Product 56",
-      "description" : "Description for product 56",
-      "price" : 68.32,
+      "id" : 57,
+      "reference" : "P2181872-8e46-4c4c-ba8a-d373c20b55f7",
+      "userId" : 7,
+      "name" : "Product 57",
+      "description" : "Description for product 57",
+      "price" : 69.54,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 92,
     "quantity" : 92,
-    "total" : 4377.36,
-    "product" : {
-      "id" : 39,
-      "reference" : "P4c68b7e-5fbf-40b4-9b0e-9951a0b9fb97",
-      "userId" : 7,
-      "name" : "Product 39",
-      "description" : "Description for product 39",
-      "price" : 47.58,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 93,
-    "quantity" : 93,
-    "total" : 6921.06,
-    "product" : {
-      "id" : 61,
-      "reference" : "P6fd5479-0450-4e81-bfe9-78db7db5971a",
-      "userId" : 5,
-      "name" : "Product 61",
-      "description" : "Description for product 61",
-      "price" : 74.42,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 94,
-    "quantity" : 94,
-    "total" : 11123.96,
-    "product" : {
-      "id" : 97,
-      "reference" : "Pa5177af-76d6-4fb1-8aa9-8b32a981be22",
-      "userId" : 5,
-      "name" : "Product 97",
-      "description" : "Description for product 97",
-      "price" : 118.34,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 95,
-    "quantity" : 95,
-    "total" : 3940.60,
-    "product" : {
-      "id" : 34,
-      "reference" : "Pb639fc8-4f15-4b81-9130-efddd6ddfa4b",
-      "userId" : 4,
-      "name" : "Product 34",
-      "description" : "Description for product 34",
-      "price" : 41.48,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 20,
-  "reference" : "Dfa7b8fd-29b3-4667-81d5-d4a1ae87d986",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 25045.38,
-  "userId" : 23,
-  "orderDetails" : [ {
-    "id" : 96,
-    "quantity" : 96,
-    "total" : 3864.96,
-    "product" : {
-      "id" : 33,
-      "reference" : "P22927ab-8872-48ef-abe7-550a62621890",
-      "userId" : 2,
-      "name" : "Product 33",
-      "description" : "Description for product 33",
-      "price" : 40.26,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 97,
-    "quantity" : 97,
-    "total" : 10177.24,
-    "product" : {
-      "id" : 86,
-      "reference" : "Pa545211-b09c-43b2-a335-efe867ed6f84",
-      "userId" : 7,
-      "name" : "Product 86",
-      "description" : "Description for product 86",
-      "price" : 104.92,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 98,
-    "quantity" : 98,
-    "total" : 4662.84,
-    "product" : {
-      "id" : 39,
-      "reference" : "P4c68b7e-5fbf-40b4-9b0e-9951a0b9fb97",
-      "userId" : 7,
-      "name" : "Product 39",
-      "description" : "Description for product 39",
-      "price" : 47.58,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 99,
-    "quantity" : 99,
-    "total" : 362.34,
+    "total" : 336.72,
     "product" : {
       "id" : 3,
-      "reference" : "Pb7589e0-9884-48d5-9703-c19f90f95097",
-      "userId" : 4,
+      "reference" : "P51892e1-03bb-48d9-ad94-6a989c667ab7",
+      "userId" : 6,
       "name" : "Product 3",
       "description" : "Description for product 3",
       "price" : 3.66,
@@ -1544,52 +1438,158 @@
       "deleted" : false
     }
   }, {
+    "id" : 93,
+    "quantity" : 93,
+    "total" : 5332.62,
+    "product" : {
+      "id" : 47,
+      "reference" : "P0400ecd-e7a8-40b7-b3b9-72006eff568d",
+      "userId" : 2,
+      "name" : "Product 47",
+      "description" : "Description for product 47",
+      "price" : 57.34,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 94,
+    "quantity" : 94,
+    "total" : 5504.64,
+    "product" : {
+      "id" : 48,
+      "reference" : "P0e1a7dd-26f3-485e-991e-605e44c10421",
+      "userId" : 10,
+      "name" : "Product 48",
+      "description" : "Description for product 48",
+      "price" : 58.56,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 95,
+    "quantity" : 95,
+    "total" : 8113.00,
+    "product" : {
+      "id" : 70,
+      "reference" : "P3fcd13b-cc2e-4a9a-84ae-8e8b3e2dc2a2",
+      "userId" : 3,
+      "name" : "Product 70",
+      "description" : "Description for product 70",
+      "price" : 85.40,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 20,
+  "reference" : "Dfd8b44b-81f2-4793-bed8-8df4e0c0d70c",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 33768.38,
+  "userId" : 12,
+  "orderDetails" : [ {
+    "id" : 96,
+    "quantity" : 96,
+    "total" : 3396.48,
+    "product" : {
+      "id" : 29,
+      "reference" : "P1fb7803-74fa-485b-b771-e860d61d6059",
+      "userId" : 9,
+      "name" : "Product 29",
+      "description" : "Description for product 29",
+      "price" : 35.38,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 97,
+    "quantity" : 97,
+    "total" : 11123.96,
+    "product" : {
+      "id" : 94,
+      "reference" : "P970b287-172b-4d38-a90f-24cc075e37b6",
+      "userId" : 1,
+      "name" : "Product 94",
+      "description" : "Description for product 94",
+      "price" : 114.68,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 98,
+    "quantity" : 98,
+    "total" : 3347.68,
+    "product" : {
+      "id" : 28,
+      "reference" : "P9f566fc-7b4b-4cfd-829b-5daf1c935f1a",
+      "userId" : 2,
+      "name" : "Product 28",
+      "description" : "Description for product 28",
+      "price" : 34.16,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 99,
+    "quantity" : 99,
+    "total" : 8092.26,
+    "product" : {
+      "id" : 67,
+      "reference" : "P382d2a6-5d5e-4054-ac8d-b2c7b2f2cbe5",
+      "userId" : 5,
+      "name" : "Product 67",
+      "description" : "Description for product 67",
+      "price" : 81.74,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
     "id" : 100,
     "quantity" : 100,
-    "total" : 5978.00,
+    "total" : 7808.00,
     "product" : {
-      "id" : 49,
-      "reference" : "Pe2129eb-f27e-499b-9bd2-19144973f3ef",
+      "id" : 64,
+      "reference" : "P4a17a85-3fd9-41fc-90bf-37cf3cdb3f02",
       "userId" : 3,
-      "name" : "Product 49",
-      "description" : "Description for product 49",
-      "price" : 59.78,
+      "name" : "Product 64",
+      "description" : "Description for product 64",
+      "price" : 78.08,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
   "id" : 21,
-  "reference" : "D29574ae-5273-4893-b00c-9aba03a1ac4f",
+  "reference" : "Dd49c84e-94f5-4662-8a46-cec4d63ef9d2",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 27966.06,
-  "userId" : 21,
+  "total" : 39425.52,
+  "userId" : 24,
   "orderDetails" : [ {
     "id" : 101,
     "quantity" : 101,
-    "total" : 4312.70,
+    "total" : 10966.58,
     "product" : {
-      "id" : 35,
-      "reference" : "Ped0207c-810f-46be-a206-df68319c47a2",
-      "userId" : 2,
-      "name" : "Product 35",
-      "description" : "Description for product 35",
-      "price" : 42.70,
+      "id" : 89,
+      "reference" : "P03210cb-56a8-435e-853b-4d7b7048beb6",
+      "userId" : 10,
+      "name" : "Product 89",
+      "description" : "Description for product 89",
+      "price" : 108.58,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 102,
     "quantity" : 102,
-    "total" : 4479.84,
+    "total" : 3235.44,
     "product" : {
-      "id" : 36,
-      "reference" : "Pfdb81ab-e962-4530-a725-8ccb360b4f80",
-      "userId" : 1,
-      "name" : "Product 36",
-      "description" : "Description for product 36",
-      "price" : 43.92,
+      "id" : 26,
+      "reference" : "Pf2e5dc0-da37-4ecf-868c-ffbbab67e554",
+      "userId" : 5,
+      "name" : "Product 26",
+      "description" : "Description for product 26",
+      "price" : 31.72,
       "quantity" : 900,
       "deleted" : false
     }
@@ -1599,8 +1599,8 @@
     "total" : 8167.90,
     "product" : {
       "id" : 65,
-      "reference" : "Pee03b53-1262-4769-86ea-c9a27789a4e3",
-      "userId" : 5,
+      "reference" : "P7012a30-542d-4dd0-a661-3707b0b8deaf",
+      "userId" : 2,
       "name" : "Product 65",
       "description" : "Description for product 65",
       "price" : 79.30,
@@ -1610,10 +1610,400 @@
   }, {
     "id" : 104,
     "quantity" : 104,
-    "total" : 1141.92,
+    "total" : 11419.20,
+    "product" : {
+      "id" : 90,
+      "reference" : "Pe44b9f1-093b-4dbd-9d69-2f79b6eb53a5",
+      "userId" : 7,
+      "name" : "Product 90",
+      "description" : "Description for product 90",
+      "price" : 109.80,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 105,
+    "quantity" : 105,
+    "total" : 5636.40,
+    "product" : {
+      "id" : 44,
+      "reference" : "Pacf77d1-1a52-409d-aa95-0f3691428e54",
+      "userId" : 2,
+      "name" : "Product 44",
+      "description" : "Description for product 44",
+      "price" : 53.68,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 22,
+  "reference" : "D56f27ea-3385-413f-a738-c869ac01e626",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 35061.58,
+  "userId" : 18,
+  "orderDetails" : [ {
+    "id" : 106,
+    "quantity" : 106,
+    "total" : 8017.84,
+    "product" : {
+      "id" : 62,
+      "reference" : "Pfa02f6a-c110-4a9e-921a-33a3e656b82b",
+      "userId" : 8,
+      "name" : "Product 62",
+      "description" : "Description for product 62",
+      "price" : 75.64,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 107,
+    "quantity" : 107,
+    "total" : 2871.88,
+    "product" : {
+      "id" : 22,
+      "reference" : "P9f664a9-0a6e-4e55-990d-b95069a75e5d",
+      "userId" : 1,
+      "name" : "Product 22",
+      "description" : "Description for product 22",
+      "price" : 26.84,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 108,
+    "quantity" : 108,
+    "total" : 9223.20,
+    "product" : {
+      "id" : 70,
+      "reference" : "P3fcd13b-cc2e-4a9a-84ae-8e8b3e2dc2a2",
+      "userId" : 3,
+      "name" : "Product 70",
+      "description" : "Description for product 70",
+      "price" : 85.40,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 109,
+    "quantity" : 109,
+    "total" : 8909.66,
+    "product" : {
+      "id" : 67,
+      "reference" : "P382d2a6-5d5e-4054-ac8d-b2c7b2f2cbe5",
+      "userId" : 5,
+      "name" : "Product 67",
+      "description" : "Description for product 67",
+      "price" : 81.74,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 110,
+    "quantity" : 110,
+    "total" : 6039.00,
+    "product" : {
+      "id" : 45,
+      "reference" : "Pcf090f5-3693-48c5-92e8-90f54baacc6a",
+      "userId" : 3,
+      "name" : "Product 45",
+      "description" : "Description for product 45",
+      "price" : 54.90,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 23,
+  "reference" : "D04a3640-1a85-423b-9a9d-e8b54a313f97",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 41719.12,
+  "userId" : 25,
+  "orderDetails" : [ {
+    "id" : 111,
+    "quantity" : 111,
+    "total" : 10291.92,
+    "product" : {
+      "id" : 76,
+      "reference" : "P5b51e52-ffc0-41dd-976e-9795d4ccca47",
+      "userId" : 1,
+      "name" : "Product 76",
+      "description" : "Description for product 76",
+      "price" : 92.72,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 112,
+    "quantity" : 112,
+    "total" : 11614.40,
+    "product" : {
+      "id" : 85,
+      "reference" : "Pc60b29c-8854-4ab7-b489-3becfe176138",
+      "userId" : 1,
+      "name" : "Product 85",
+      "description" : "Description for product 85",
+      "price" : 103.70,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 113,
+    "quantity" : 113,
+    "total" : 3308.64,
+    "product" : {
+      "id" : 24,
+      "reference" : "Pdd1d513-7569-4f40-84f5-f89c5aa47484",
+      "userId" : 3,
+      "name" : "Product 24",
+      "description" : "Description for product 24",
+      "price" : 29.28,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 114,
+    "quantity" : 114,
+    "total" : 5841.36,
+    "product" : {
+      "id" : 42,
+      "reference" : "P0b44244-77ff-4463-ab87-698a3c1062de",
+      "userId" : 7,
+      "name" : "Product 42",
+      "description" : "Description for product 42",
+      "price" : 51.24,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 115,
+    "quantity" : 115,
+    "total" : 10662.80,
+    "product" : {
+      "id" : 76,
+      "reference" : "P5b51e52-ffc0-41dd-976e-9795d4ccca47",
+      "userId" : 1,
+      "name" : "Product 76",
+      "description" : "Description for product 76",
+      "price" : 92.72,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 24,
+  "reference" : "De3cf007-b74d-441c-9673-4ab6f96ab4ab",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 34932.26,
+  "userId" : 10,
+  "orderDetails" : [ {
+    "id" : 116,
+    "quantity" : 116,
+    "total" : 8632.72,
+    "product" : {
+      "id" : 61,
+      "reference" : "P5fb3057-752c-4c81-9425-d2526999d526",
+      "userId" : 2,
+      "name" : "Product 61",
+      "description" : "Description for product 61",
+      "price" : 74.42,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 117,
+    "quantity" : 117,
+    "total" : 8564.40,
+    "product" : {
+      "id" : 60,
+      "reference" : "P16f90e3-3f09-45e9-8006-4f5427a48912",
+      "userId" : 6,
+      "name" : "Product 60",
+      "description" : "Description for product 60",
+      "price" : 73.20,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 118,
+    "quantity" : 118,
+    "total" : 6190.28,
+    "product" : {
+      "id" : 43,
+      "reference" : "P1b32add-3cca-4291-bcdf-f73a3277c847",
+      "userId" : 5,
+      "name" : "Product 43",
+      "description" : "Description for product 43",
+      "price" : 52.46,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 119,
+    "quantity" : 119,
+    "total" : 2468.06,
+    "product" : {
+      "id" : 17,
+      "reference" : "Pf19d270-bb6d-4313-ba58-c72b375aff3e",
+      "userId" : 5,
+      "name" : "Product 17",
+      "description" : "Description for product 17",
+      "price" : 20.74,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 120,
+    "quantity" : 120,
+    "total" : 9076.80,
+    "product" : {
+      "id" : 62,
+      "reference" : "Pfa02f6a-c110-4a9e-921a-33a3e656b82b",
+      "userId" : 8,
+      "name" : "Product 62",
+      "description" : "Description for product 62",
+      "price" : 75.64,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 25,
+  "reference" : "Dd21798f-ebba-48ed-b62e-08e972a1f045",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 51636.50,
+  "userId" : 7,
+  "orderDetails" : [ {
+    "id" : 121,
+    "quantity" : 121,
+    "total" : 3542.88,
+    "product" : {
+      "id" : 24,
+      "reference" : "Pdd1d513-7569-4f40-84f5-f89c5aa47484",
+      "userId" : 3,
+      "name" : "Product 24",
+      "description" : "Description for product 24",
+      "price" : 29.28,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 122,
+    "quantity" : 122,
+    "total" : 10121.12,
+    "product" : {
+      "id" : 68,
+      "reference" : "P57cd7ec-439a-4903-bd0c-1a8089cf2e6a",
+      "userId" : 9,
+      "name" : "Product 68",
+      "description" : "Description for product 68",
+      "price" : 82.96,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 123,
+    "quantity" : 123,
+    "total" : 13205.28,
+    "product" : {
+      "id" : 88,
+      "reference" : "P29a2a39-962d-4e17-b923-b9751b09674c",
+      "userId" : 5,
+      "name" : "Product 88",
+      "description" : "Description for product 88",
+      "price" : 107.36,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 124,
+    "quantity" : 124,
+    "total" : 11194.72,
+    "product" : {
+      "id" : 74,
+      "reference" : "P4646f59-9553-4cc3-a740-a97f2e81458a",
+      "userId" : 3,
+      "name" : "Product 74",
+      "description" : "Description for product 74",
+      "price" : 90.28,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 125,
+    "quantity" : 125,
+    "total" : 13572.50,
+    "product" : {
+      "id" : 89,
+      "reference" : "P03210cb-56a8-435e-853b-4d7b7048beb6",
+      "userId" : 10,
+      "name" : "Product 89",
+      "description" : "Description for product 89",
+      "price" : 108.58,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 26,
+  "reference" : "De186cc3-9a16-4f72-8500-62b82ad83718",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 39318.16,
+  "userId" : 26,
+  "orderDetails" : [ {
+    "id" : 126,
+    "quantity" : 126,
+    "total" : 3996.72,
+    "product" : {
+      "id" : 26,
+      "reference" : "Pf2e5dc0-da37-4ecf-868c-ffbbab67e554",
+      "userId" : 5,
+      "name" : "Product 26",
+      "description" : "Description for product 26",
+      "price" : 31.72,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 127,
+    "quantity" : 127,
+    "total" : 6352.54,
+    "product" : {
+      "id" : 41,
+      "reference" : "P03eebc5-6e45-4d36-8266-7ef45b966708",
+      "userId" : 10,
+      "name" : "Product 41",
+      "description" : "Description for product 41",
+      "price" : 50.02,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 128,
+    "quantity" : 128,
+    "total" : 12961.28,
+    "product" : {
+      "id" : 83,
+      "reference" : "P0fc9166-64e6-4c51-860c-b4d3b4773c7e",
+      "userId" : 2,
+      "name" : "Product 83",
+      "description" : "Description for product 83",
+      "price" : 101.26,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 129,
+    "quantity" : 129,
+    "total" : 1416.42,
     "product" : {
       "id" : 9,
-      "reference" : "P2cef276-f22f-400b-8d6a-814ae61d3b9c",
+      "reference" : "P79cee9b-92a9-4f6a-b460-b750a95ec44f",
       "userId" : 4,
       "name" : "Product 9",
       "description" : "Description for product 9",
@@ -1622,470 +2012,80 @@
       "deleted" : false
     }
   }, {
-    "id" : 105,
-    "quantity" : 105,
-    "total" : 9863.70,
-    "product" : {
-      "id" : 77,
-      "reference" : "Pcf105b8-a5ca-494f-a9a2-da1cb6f97f6c",
-      "userId" : 3,
-      "name" : "Product 77",
-      "description" : "Description for product 77",
-      "price" : 93.94,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 22,
-  "reference" : "D9e6ccd3-af3f-4bdb-afe9-7543976164e9",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 35739.90,
-  "userId" : 10,
-  "orderDetails" : [ {
-    "id" : 106,
-    "quantity" : 106,
-    "total" : 9569.68,
-    "product" : {
-      "id" : 74,
-      "reference" : "P1e87ca1-f049-4fcc-8ddd-7f532612ceb1",
-      "userId" : 5,
-      "name" : "Product 74",
-      "description" : "Description for product 74",
-      "price" : 90.28,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 107,
-    "quantity" : 107,
-    "total" : 10573.74,
-    "product" : {
-      "id" : 81,
-      "reference" : "Pb182a98-045d-410d-8718-f5ce9e8a7051",
-      "userId" : 7,
-      "name" : "Product 81",
-      "description" : "Description for product 81",
-      "price" : 98.82,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 108,
-    "quantity" : 108,
-    "total" : 11594.88,
-    "product" : {
-      "id" : 88,
-      "reference" : "Pcdee889-78a6-49a7-8b06-45fe55fafd81",
-      "userId" : 6,
-      "name" : "Product 88",
-      "description" : "Description for product 88",
-      "price" : 107.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 109,
-    "quantity" : 109,
-    "total" : 2659.60,
-    "product" : {
-      "id" : 20,
-      "reference" : "P76aba92-be5d-49e0-973f-856e099288b1",
-      "userId" : 8,
-      "name" : "Product 20",
-      "description" : "Description for product 20",
-      "price" : 24.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 110,
-    "quantity" : 110,
-    "total" : 1342.00,
-    "product" : {
-      "id" : 10,
-      "reference" : "Pdc55ca5-b18e-48d5-aa48-3d405078ba45",
-      "userId" : 9,
-      "name" : "Product 10",
-      "description" : "Description for product 10",
-      "price" : 12.20,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 23,
-  "reference" : "D1582b9e-9b92-4f71-bc8d-f6e623b93432",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 40880.98,
-  "userId" : 42,
-  "orderDetails" : [ {
-    "id" : 111,
-    "quantity" : 111,
-    "total" : 3520.92,
-    "product" : {
-      "id" : 26,
-      "reference" : "Pc87a36e-d78a-4ff4-b802-ed6e2d428a2c",
-      "userId" : 3,
-      "name" : "Product 26",
-      "description" : "Description for product 26",
-      "price" : 31.72,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 112,
-    "quantity" : 112,
-    "total" : 11751.04,
-    "product" : {
-      "id" : 86,
-      "reference" : "Pa545211-b09c-43b2-a335-efe867ed6f84",
-      "userId" : 7,
-      "name" : "Product 86",
-      "description" : "Description for product 86",
-      "price" : 104.92,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 113,
-    "quantity" : 113,
-    "total" : 10753.08,
-    "product" : {
-      "id" : 78,
-      "reference" : "Pa6b0b10-2356-46ba-aac7-cf66224a8c3f",
-      "userId" : 2,
-      "name" : "Product 78",
-      "description" : "Description for product 78",
-      "price" : 95.16,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 114,
-    "quantity" : 114,
-    "total" : 1808.04,
-    "product" : {
-      "id" : 13,
-      "reference" : "Pd841db3-13b3-46d5-8376-97d67cf984c3",
-      "userId" : 2,
-      "name" : "Product 13",
-      "description" : "Description for product 13",
-      "price" : 15.86,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 115,
-    "quantity" : 115,
-    "total" : 13047.90,
-    "product" : {
-      "id" : 93,
-      "reference" : "Pedd0a73-13aa-4730-b005-91496fa02618",
-      "userId" : 3,
-      "name" : "Product 93",
-      "description" : "Description for product 93",
-      "price" : 113.46,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 24,
-  "reference" : "D8ccb455-34fc-4e32-9093-47aea39de557",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 35384.88,
-  "userId" : 26,
-  "orderDetails" : [ {
-    "id" : 116,
-    "quantity" : 116,
-    "total" : 2405.84,
-    "product" : {
-      "id" : 17,
-      "reference" : "P0a3b272-4db1-4bb8-9f68-c6ee96c081b4",
-      "userId" : 1,
-      "name" : "Product 17",
-      "description" : "Description for product 17",
-      "price" : 20.74,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 117,
-    "quantity" : 117,
-    "total" : 7993.44,
-    "product" : {
-      "id" : 56,
-      "reference" : "P744d69a-5196-41c1-b6b9-59878d34f421",
-      "userId" : 5,
-      "name" : "Product 56",
-      "description" : "Description for product 56",
-      "price" : 68.32,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 118,
-    "quantity" : 118,
-    "total" : 5470.48,
-    "product" : {
-      "id" : 38,
-      "reference" : "Pe2239ae-5eb0-4521-8a20-60d9b3f65556",
-      "userId" : 9,
-      "name" : "Product 38",
-      "description" : "Description for product 38",
-      "price" : 46.36,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 119,
-    "quantity" : 119,
-    "total" : 12195.12,
-    "product" : {
-      "id" : 84,
-      "reference" : "Pbbebc04-fcea-40f2-af17-ea1dce469178",
-      "userId" : 10,
-      "name" : "Product 84",
-      "description" : "Description for product 84",
-      "price" : 102.48,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 120,
-    "quantity" : 120,
-    "total" : 7320.00,
-    "product" : {
-      "id" : 50,
-      "reference" : "P481c8e8-c284-4ec8-84b2-c3c27e99bc58",
-      "userId" : 3,
-      "name" : "Product 50",
-      "description" : "Description for product 50",
-      "price" : 61.00,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 25,
-  "reference" : "D554f63c-0c99-494e-ba1c-2072e80c6b73",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 26771.68,
-  "userId" : 47,
-  "orderDetails" : [ {
-    "id" : 121,
-    "quantity" : 121,
-    "total" : 2952.40,
-    "product" : {
-      "id" : 20,
-      "reference" : "P76aba92-be5d-49e0-973f-856e099288b1",
-      "userId" : 8,
-      "name" : "Product 20",
-      "description" : "Description for product 20",
-      "price" : 24.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 122,
-    "quantity" : 122,
-    "total" : 6400.12,
-    "product" : {
-      "id" : 43,
-      "reference" : "P9bd9993-c983-4d3a-bc0e-04b5cbf537f0",
-      "userId" : 7,
-      "name" : "Product 43",
-      "description" : "Description for product 43",
-      "price" : 52.46,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 123,
-    "quantity" : 123,
-    "total" : 1500.60,
-    "product" : {
-      "id" : 10,
-      "reference" : "Pdc55ca5-b18e-48d5-aa48-3d405078ba45",
-      "userId" : 9,
-      "name" : "Product 10",
-      "description" : "Description for product 10",
-      "price" : 12.20,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 124,
-    "quantity" : 124,
-    "total" : 11648.56,
-    "product" : {
-      "id" : 77,
-      "reference" : "Pcf105b8-a5ca-494f-a9a2-da1cb6f97f6c",
-      "userId" : 3,
-      "name" : "Product 77",
-      "description" : "Description for product 77",
-      "price" : 93.94,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 125,
-    "quantity" : 125,
-    "total" : 4270.00,
-    "product" : {
-      "id" : 28,
-      "reference" : "P7474938-b4d5-4480-9d79-e951b7023216",
-      "userId" : 5,
-      "name" : "Product 28",
-      "description" : "Description for product 28",
-      "price" : 34.16,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 26,
-  "reference" : "Df513408-75b6-4bf3-bcde-b9e8d3f37cbf",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 22665.16,
-  "userId" : 28,
-  "orderDetails" : [ {
-    "id" : 126,
-    "quantity" : 126,
-    "total" : 1229.76,
-    "product" : {
-      "id" : 8,
-      "reference" : "P2e22315-b95f-45fb-a1f0-b1e01d0c4b7f",
-      "userId" : 1,
-      "name" : "Product 8",
-      "description" : "Description for product 8",
-      "price" : 9.76,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 127,
-    "quantity" : 127,
-    "total" : 2014.22,
-    "product" : {
-      "id" : 13,
-      "reference" : "Pd841db3-13b3-46d5-8376-97d67cf984c3",
-      "userId" : 2,
-      "name" : "Product 13",
-      "description" : "Description for product 13",
-      "price" : 15.86,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 128,
-    "quantity" : 128,
-    "total" : 156.16,
-    "product" : {
-      "id" : 1,
-      "reference" : "P7540250-b6d4-478b-8544-f6b712073af0",
-      "userId" : 10,
-      "name" : "Product 1",
-      "description" : "Description for product 1",
-      "price" : 1.22,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 129,
-    "quantity" : 129,
-    "total" : 10859.22,
-    "product" : {
-      "id" : 69,
-      "reference" : "P2350722-f870-49b8-b8b5-c1f7cfc8dbb1",
-      "userId" : 2,
-      "name" : "Product 69",
-      "description" : "Description for product 69",
-      "price" : 84.18,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
     "id" : 130,
     "quantity" : 130,
-    "total" : 8405.80,
+    "total" : 14591.20,
     "product" : {
-      "id" : 53,
-      "reference" : "Pd2775f7-af33-42f9-bc53-176e078bbe71",
-      "userId" : 2,
-      "name" : "Product 53",
-      "description" : "Description for product 53",
-      "price" : 64.66,
+      "id" : 92,
+      "reference" : "P4f1c546-84cb-47e5-af1e-e88259d74acc",
+      "userId" : 1,
+      "name" : "Product 92",
+      "description" : "Description for product 92",
+      "price" : 112.24,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
   "id" : 27,
-  "reference" : "D2c5c4b3-1fbf-49ae-9f33-44006dad47d1",
+  "reference" : "D836451f-64ab-4273-bfdf-94a01d1ac792",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 35571.54,
-  "userId" : 39,
+  "total" : 34738.28,
+  "userId" : 42,
   "orderDetails" : [ {
     "id" : 131,
     "quantity" : 131,
-    "total" : 8470.46,
+    "total" : 6232.98,
     "product" : {
-      "id" : 53,
-      "reference" : "Pd2775f7-af33-42f9-bc53-176e078bbe71",
-      "userId" : 2,
-      "name" : "Product 53",
-      "description" : "Description for product 53",
-      "price" : 64.66,
+      "id" : 39,
+      "reference" : "P56e1de8-2335-4070-84eb-bbb70ae39803",
+      "userId" : 8,
+      "name" : "Product 39",
+      "description" : "Description for product 39",
+      "price" : 47.58,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 132,
     "quantity" : 132,
-    "total" : 13527.36,
+    "total" : 7085.76,
     "product" : {
-      "id" : 84,
-      "reference" : "Pbbebc04-fcea-40f2-af17-ea1dce469178",
-      "userId" : 10,
-      "name" : "Product 84",
-      "description" : "Description for product 84",
-      "price" : 102.48,
+      "id" : 44,
+      "reference" : "Pacf77d1-1a52-409d-aa95-0f3691428e54",
+      "userId" : 2,
+      "name" : "Product 44",
+      "description" : "Description for product 44",
+      "price" : 53.68,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 133,
     "quantity" : 133,
-    "total" : 5192.32,
+    "total" : 5354.58,
     "product" : {
-      "id" : 32,
-      "reference" : "P1651185-ac68-426a-98af-df6f504fb0f2",
-      "userId" : 6,
-      "name" : "Product 32",
-      "description" : "Description for product 32",
-      "price" : 39.04,
+      "id" : 33,
+      "reference" : "P08789f4-3a33-4ee3-8c50-ff8f54f8328d",
+      "userId" : 3,
+      "name" : "Product 33",
+      "description" : "Description for product 33",
+      "price" : 40.26,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 134,
     "quantity" : 134,
-    "total" : 2452.20,
+    "total" : 10135.76,
     "product" : {
-      "id" : 15,
-      "reference" : "P7d6a449-dcc5-42f7-af07-894eb5d13314",
-      "userId" : 4,
-      "name" : "Product 15",
-      "description" : "Description for product 15",
-      "price" : 18.30,
+      "id" : 62,
+      "reference" : "Pfa02f6a-c110-4a9e-921a-33a3e656b82b",
+      "userId" : 8,
+      "name" : "Product 62",
+      "description" : "Description for product 62",
+      "price" : 75.64,
       "quantity" : 900,
       "deleted" : false
     }
@@ -2095,8 +2095,8 @@
     "total" : 5929.20,
     "product" : {
       "id" : 36,
-      "reference" : "Pfdb81ab-e962-4530-a725-8ccb360b4f80",
-      "userId" : 1,
+      "reference" : "P2282d03-4a6f-48bc-8a57-b407b324fd69",
+      "userId" : 3,
       "name" : "Product 36",
       "description" : "Description for product 36",
       "price" : 43.92,
@@ -2106,111 +2106,97 @@
   } ]
 }, {
   "id" : 28,
-  "reference" : "Df8876f9-83ad-4e71-abfb-0155c196408a",
+  "reference" : "Dde92121-4979-41b2-a590-cbd0ebed2140",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 63238.70,
-  "userId" : 32,
+  "total" : 60185.04,
+  "userId" : 49,
   "orderDetails" : [ {
     "id" : 136,
     "quantity" : 136,
-    "total" : 13937.28,
+    "total" : 15098.72,
     "product" : {
-      "id" : 84,
-      "reference" : "Pbbebc04-fcea-40f2-af17-ea1dce469178",
-      "userId" : 10,
-      "name" : "Product 84",
-      "description" : "Description for product 84",
-      "price" : 102.48,
+      "id" : 91,
+      "reference" : "P1b87796-00e8-4e13-9d97-f538224931bd",
+      "userId" : 3,
+      "name" : "Product 91",
+      "description" : "Description for product 91",
+      "price" : 111.02,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 137,
     "quantity" : 137,
-    "total" : 13538.34,
+    "total" : 16212.58,
     "product" : {
-      "id" : 81,
-      "reference" : "Pb182a98-045d-410d-8718-f5ce9e8a7051",
-      "userId" : 7,
-      "name" : "Product 81",
-      "description" : "Description for product 81",
-      "price" : 98.82,
+      "id" : 97,
+      "reference" : "Pd2df1f2-ba63-4143-9f93-7ef2e87a0558",
+      "userId" : 9,
+      "name" : "Product 97",
+      "description" : "Description for product 97",
+      "price" : 118.34,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 138,
     "quantity" : 138,
-    "total" : 11280.12,
+    "total" : 3030.48,
     "product" : {
-      "id" : 67,
-      "reference" : "Pcc18575-a581-482f-8833-2d7ceb21f8ca",
-      "userId" : 7,
-      "name" : "Product 67",
-      "description" : "Description for product 67",
-      "price" : 81.74,
+      "id" : 18,
+      "reference" : "P76d3557-6919-4941-b931-446ac9df5294",
+      "userId" : 6,
+      "name" : "Product 18",
+      "description" : "Description for product 18",
+      "price" : 21.96,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 139,
     "quantity" : 139,
-    "total" : 15601.36,
+    "total" : 16449.26,
     "product" : {
-      "id" : 92,
-      "reference" : "P0c356bf-fa2c-4d2c-a108-056ed5cfd111",
-      "userId" : 7,
-      "name" : "Product 92",
-      "description" : "Description for product 92",
-      "price" : 112.24,
+      "id" : 97,
+      "reference" : "Pd2df1f2-ba63-4143-9f93-7ef2e87a0558",
+      "userId" : 9,
+      "name" : "Product 97",
+      "description" : "Description for product 97",
+      "price" : 118.34,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 140,
     "quantity" : 140,
-    "total" : 8881.60,
+    "total" : 9394.00,
     "product" : {
-      "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
-      "userId" : 2,
-      "name" : "Product 52",
-      "description" : "Description for product 52",
-      "price" : 63.44,
+      "id" : 55,
+      "reference" : "P6e2b07c-5600-44b8-b5ba-116c5eb0e6e0",
+      "userId" : 8,
+      "name" : "Product 55",
+      "description" : "Description for product 55",
+      "price" : 67.10,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
   "id" : 29,
-  "reference" : "D95fef12-1428-407f-bb78-6e86071b4d96",
+  "reference" : "D494bc3a-6427-4358-9054-9a6821ca4b2c",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 38664.24,
-  "userId" : 43,
+  "total" : 21069.40,
+  "userId" : 45,
   "orderDetails" : [ {
     "id" : 141,
     "quantity" : 141,
-    "total" : 7224.84,
-    "product" : {
-      "id" : 42,
-      "reference" : "P92ee7f3-b30f-47d8-9c6f-14595c543806",
-      "userId" : 5,
-      "name" : "Product 42",
-      "description" : "Description for product 42",
-      "price" : 51.24,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 142,
-    "quantity" : 142,
-    "total" : 1732.40,
+    "total" : 1720.20,
     "product" : {
       "id" : 10,
-      "reference" : "Pdc55ca5-b18e-48d5-aa48-3d405078ba45",
-      "userId" : 9,
+      "reference" : "Pd107d99-d48f-465c-8f15-5036c4425a03",
+      "userId" : 10,
       "name" : "Product 10",
       "description" : "Description for product 10",
       "price" : 12.20,
@@ -2218,91 +2204,27 @@
       "deleted" : false
     }
   }, {
+    "id" : 142,
+    "quantity" : 142,
+    "total" : 8662.00,
+    "product" : {
+      "id" : 50,
+      "reference" : "Pb6b8368-96fb-40da-9060-29833fca3778",
+      "userId" : 6,
+      "name" : "Product 50",
+      "description" : "Description for product 50",
+      "price" : 61.00,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
     "id" : 143,
     "quantity" : 143,
-    "total" : 11339.90,
-    "product" : {
-      "id" : 65,
-      "reference" : "Pee03b53-1262-4769-86ea-c9a27789a4e3",
-      "userId" : 5,
-      "name" : "Product 65",
-      "description" : "Description for product 65",
-      "price" : 79.30,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 144,
-    "quantity" : 144,
-    "total" : 4392.00,
-    "product" : {
-      "id" : 25,
-      "reference" : "P22bc81a-47ef-4a4d-b861-7cee12abd724",
-      "userId" : 5,
-      "name" : "Product 25",
-      "description" : "Description for product 25",
-      "price" : 30.50,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 145,
-    "quantity" : 145,
-    "total" : 13975.10,
-    "product" : {
-      "id" : 79,
-      "reference" : "Paf3bd1e-a5ad-4148-bad4-381a7969d55c",
-      "userId" : 7,
-      "name" : "Product 79",
-      "description" : "Description for product 79",
-      "price" : 96.38,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 30,
-  "reference" : "Dc451e9c-24c3-4e8e-a32b-ce86626022e9",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 53033.40,
-  "userId" : 17,
-  "orderDetails" : [ {
-    "id" : 146,
-    "quantity" : 146,
-    "total" : 4453.00,
-    "product" : {
-      "id" : 25,
-      "reference" : "P22bc81a-47ef-4a4d-b861-7cee12abd724",
-      "userId" : 5,
-      "name" : "Product 25",
-      "description" : "Description for product 25",
-      "price" : 30.50,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 147,
-    "quantity" : 147,
-    "total" : 15423.24,
-    "product" : {
-      "id" : 86,
-      "reference" : "Pa545211-b09c-43b2-a335-efe867ed6f84",
-      "userId" : 7,
-      "name" : "Product 86",
-      "description" : "Description for product 86",
-      "price" : 104.92,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 148,
-    "quantity" : 148,
-    "total" : 6680.72,
+    "total" : 6455.02,
     "product" : {
       "id" : 37,
-      "reference" : "P55d01e9-8760-4e85-8b5a-c1bc401dd8e8",
-      "userId" : 4,
+      "reference" : "Pa9ac504-ceec-4152-9294-5999118ba01f",
+      "userId" : 6,
       "name" : "Product 37",
       "description" : "Description for product 37",
       "price" : 45.14,
@@ -2310,168 +2232,90 @@
       "deleted" : false
     }
   }, {
+    "id" : 144,
+    "quantity" : 144,
+    "total" : 1932.48,
+    "product" : {
+      "id" : 11,
+      "reference" : "P06c9337-d950-440b-bb6c-a2d2ce7a5ba6",
+      "userId" : 8,
+      "name" : "Product 11",
+      "description" : "Description for product 11",
+      "price" : 13.42,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 145,
+    "quantity" : 145,
+    "total" : 2299.70,
+    "product" : {
+      "id" : 13,
+      "reference" : "Pafa9c05-7791-4a9e-be8a-9c69a136bea7",
+      "userId" : 5,
+      "name" : "Product 13",
+      "description" : "Description for product 13",
+      "price" : 15.86,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 30,
+  "reference" : "D8c8a722-cc24-44d5-ba0a-c484aa578098",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 29330.02,
+  "userId" : 49,
+  "orderDetails" : [ {
+    "id" : 146,
+    "quantity" : 146,
+    "total" : 712.48,
+    "product" : {
+      "id" : 4,
+      "reference" : "P31cf6cd-87ef-469c-b5e5-f694c9cc4e5b",
+      "userId" : 1,
+      "name" : "Product 4",
+      "description" : "Description for product 4",
+      "price" : 4.88,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 147,
+    "quantity" : 147,
+    "total" : 11836.44,
+    "product" : {
+      "id" : 66,
+      "reference" : "P2e4d86f-c36d-4f57-89dc-54e4ba5c2fc6",
+      "userId" : 9,
+      "name" : "Product 66",
+      "description" : "Description for product 66",
+      "price" : 80.52,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 148,
+    "quantity" : 148,
+    "total" : 3250.08,
+    "product" : {
+      "id" : 18,
+      "reference" : "P76d3557-6919-4941-b931-446ac9df5294",
+      "userId" : 6,
+      "name" : "Product 18",
+      "description" : "Description for product 18",
+      "price" : 21.96,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
     "id" : 149,
     "quantity" : 149,
-    "total" : 8725.44,
-    "product" : {
-      "id" : 48,
-      "reference" : "Pe8b26bb-0bdc-4a96-85d8-0a3fbee8a45e",
-      "userId" : 7,
-      "name" : "Product 48",
-      "description" : "Description for product 48",
-      "price" : 58.56,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 150,
-    "quantity" : 150,
-    "total" : 17751.00,
-    "product" : {
-      "id" : 97,
-      "reference" : "Pa5177af-76d6-4fb1-8aa9-8b32a981be22",
-      "userId" : 5,
-      "name" : "Product 97",
-      "description" : "Description for product 97",
-      "price" : 118.34,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 31,
-  "reference" : "D405bbd3-6feb-4c34-a4ce-c81df8a0a574",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 46248.98,
-  "userId" : 30,
-  "orderDetails" : [ {
-    "id" : 151,
-    "quantity" : 151,
-    "total" : 18422.00,
-    "product" : {
-      "id" : 100,
-      "reference" : "Pe3efe3f-c965-4a77-a628-62bdfdd6d740",
-      "userId" : 8,
-      "name" : "Product 100",
-      "description" : "Description for product 100",
-      "price" : 122.00,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 152,
-    "quantity" : 152,
-    "total" : 12980.80,
-    "product" : {
-      "id" : 70,
-      "reference" : "Pd580ddb-afea-4980-bc12-2df8520f463d",
-      "userId" : 8,
-      "name" : "Product 70",
-      "description" : "Description for product 70",
-      "price" : 85.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 153,
-    "quantity" : 153,
-    "total" : 3733.20,
-    "product" : {
-      "id" : 20,
-      "reference" : "P76aba92-be5d-49e0-973f-856e099288b1",
-      "userId" : 8,
-      "name" : "Product 20",
-      "description" : "Description for product 20",
-      "price" : 24.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 154,
-    "quantity" : 154,
-    "total" : 6763.68,
-    "product" : {
-      "id" : 36,
-      "reference" : "Pfdb81ab-e962-4530-a725-8ccb360b4f80",
-      "userId" : 1,
-      "name" : "Product 36",
-      "description" : "Description for product 36",
-      "price" : 43.92,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 155,
-    "quantity" : 155,
-    "total" : 4349.30,
-    "product" : {
-      "id" : 23,
-      "reference" : "Pe35cafd-d543-4d6c-ac9b-8aa02f372c18",
-      "userId" : 9,
-      "name" : "Product 23",
-      "description" : "Description for product 23",
-      "price" : 28.06,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 32,
-  "reference" : "D823570f-5640-4200-8125-17117c1fc09d",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 28099.04,
-  "userId" : 7,
-  "orderDetails" : [ {
-    "id" : 156,
-    "quantity" : 156,
-    "total" : 2854.80,
-    "product" : {
-      "id" : 15,
-      "reference" : "P7d6a449-dcc5-42f7-af07-894eb5d13314",
-      "userId" : 4,
-      "name" : "Product 15",
-      "description" : "Description for product 15",
-      "price" : 18.30,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 157,
-    "quantity" : 157,
-    "total" : 12450.10,
-    "product" : {
-      "id" : 65,
-      "reference" : "Pee03b53-1262-4769-86ea-c9a27789a4e3",
-      "userId" : 5,
-      "name" : "Product 65",
-      "description" : "Description for product 65",
-      "price" : 79.30,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 158,
-    "quantity" : 158,
-    "total" : 6168.32,
-    "product" : {
-      "id" : 32,
-      "reference" : "P1651185-ac68-426a-98af-df6f504fb0f2",
-      "userId" : 6,
-      "name" : "Product 32",
-      "description" : "Description for product 32",
-      "price" : 39.04,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 159,
-    "quantity" : 159,
-    "total" : 1745.82,
+    "total" : 1636.02,
     "product" : {
       "id" : 9,
-      "reference" : "P2cef276-f22f-400b-8d6a-814ae61d3b9c",
+      "reference" : "P79cee9b-92a9-4f6a-b460-b750a95ec44f",
       "userId" : 4,
       "name" : "Product 9",
       "description" : "Description for product 9",
@@ -2480,191 +2324,113 @@
       "deleted" : false
     }
   }, {
-    "id" : 160,
-    "quantity" : 160,
-    "total" : 4880.00,
+    "id" : 150,
+    "quantity" : 150,
+    "total" : 11895.00,
     "product" : {
-      "id" : 25,
-      "reference" : "P22bc81a-47ef-4a4d-b861-7cee12abd724",
-      "userId" : 5,
-      "name" : "Product 25",
-      "description" : "Description for product 25",
-      "price" : 30.50,
+      "id" : 65,
+      "reference" : "P7012a30-542d-4dd0-a661-3707b0b8deaf",
+      "userId" : 2,
+      "name" : "Product 65",
+      "description" : "Description for product 65",
+      "price" : 79.30,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
-  "id" : 33,
-  "reference" : "D4cecc7c-b366-4662-85d5-e7206af3be80",
+  "id" : 31,
+  "reference" : "Ded34117-fe04-4a57-a290-0d10d450ba00",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 66335.06,
-  "userId" : 29,
+  "total" : 64496.52,
+  "userId" : 40,
   "orderDetails" : [ {
-    "id" : 161,
-    "quantity" : 161,
-    "total" : 14338.66,
+    "id" : 151,
+    "quantity" : 151,
+    "total" : 12526.96,
     "product" : {
-      "id" : 73,
-      "reference" : "Pd3f7ffc-fe2b-4ddc-989b-35840df4dcd7",
-      "userId" : 6,
-      "name" : "Product 73",
-      "description" : "Description for product 73",
-      "price" : 89.06,
+      "id" : 68,
+      "reference" : "P57cd7ec-439a-4903-bd0c-1a8089cf2e6a",
+      "userId" : 9,
+      "name" : "Product 68",
+      "description" : "Description for product 68",
+      "price" : 82.96,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 162,
-    "quantity" : 162,
-    "total" : 10277.28,
+    "id" : 152,
+    "quantity" : 152,
+    "total" : 8344.80,
     "product" : {
-      "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
-      "userId" : 2,
-      "name" : "Product 52",
-      "description" : "Description for product 52",
-      "price" : 63.44,
+      "id" : 45,
+      "reference" : "Pcf090f5-3693-48c5-92e8-90f54baacc6a",
+      "userId" : 3,
+      "name" : "Product 45",
+      "description" : "Description for product 45",
+      "price" : 54.90,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 163,
-    "quantity" : 163,
-    "total" : 19886.00,
+    "id" : 153,
+    "quantity" : 153,
+    "total" : 11012.94,
     "product" : {
-      "id" : 100,
-      "reference" : "Pe3efe3f-c965-4a77-a628-62bdfdd6d740",
-      "userId" : 8,
-      "name" : "Product 100",
-      "description" : "Description for product 100",
-      "price" : 122.00,
+      "id" : 59,
+      "reference" : "P9fb613c-4b8c-4546-8233-a6896d634c94",
+      "userId" : 3,
+      "name" : "Product 59",
+      "description" : "Description for product 59",
+      "price" : 71.98,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
-    "id" : 164,
-    "quantity" : 164,
-    "total" : 17807.12,
+    "id" : 154,
+    "quantity" : 154,
+    "total" : 15781.92,
+    "product" : {
+      "id" : 84,
+      "reference" : "P85fd4bb-b316-424b-b521-0b682071ccf0",
+      "userId" : 7,
+      "name" : "Product 84",
+      "description" : "Description for product 84",
+      "price" : 102.48,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 155,
+    "quantity" : 155,
+    "total" : 16829.90,
     "product" : {
       "id" : 89,
-      "reference" : "P3b3f139-4915-4cbd-b7e0-7293496caac1",
-      "userId" : 2,
+      "reference" : "P03210cb-56a8-435e-853b-4d7b7048beb6",
+      "userId" : 10,
       "name" : "Product 89",
       "description" : "Description for product 89",
       "price" : 108.58,
       "quantity" : 900,
       "deleted" : false
     }
-  }, {
-    "id" : 165,
-    "quantity" : 165,
-    "total" : 4026.00,
-    "product" : {
-      "id" : 20,
-      "reference" : "P76aba92-be5d-49e0-973f-856e099288b1",
-      "userId" : 8,
-      "name" : "Product 20",
-      "description" : "Description for product 20",
-      "price" : 24.40,
-      "quantity" : 900,
-      "deleted" : false
-    }
   } ]
 }, {
-  "id" : 34,
-  "reference" : "D876e00c-cf27-4ae0-9354-c50ffc6e39d0",
+  "id" : 32,
+  "reference" : "Dfa565b1-6fb7-4e7c-8220-4ac9bd2199cd",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 70888.10,
-  "userId" : 4,
+  "total" : 22624.90,
+  "userId" : 29,
   "orderDetails" : [ {
-    "id" : 166,
-    "quantity" : 166,
-    "total" : 18631.84,
-    "product" : {
-      "id" : 92,
-      "reference" : "P0c356bf-fa2c-4d2c-a108-056ed5cfd111",
-      "userId" : 7,
-      "name" : "Product 92",
-      "description" : "Description for product 92",
-      "price" : 112.24,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 167,
-    "quantity" : 167,
-    "total" : 11816.92,
-    "product" : {
-      "id" : 58,
-      "reference" : "P8db3094-720d-4199-a391-b5287a9fa1be",
-      "userId" : 7,
-      "name" : "Product 58",
-      "description" : "Description for product 58",
-      "price" : 70.76,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 168,
-    "quantity" : 168,
-    "total" : 10248.00,
-    "product" : {
-      "id" : 50,
-      "reference" : "P481c8e8-c284-4ec8-84b2-c3c27e99bc58",
-      "userId" : 3,
-      "name" : "Product 50",
-      "description" : "Description for product 50",
-      "price" : 61.00,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 169,
-    "quantity" : 169,
-    "total" : 15051.14,
-    "product" : {
-      "id" : 73,
-      "reference" : "Pd3f7ffc-fe2b-4ddc-989b-35840df4dcd7",
-      "userId" : 6,
-      "name" : "Product 73",
-      "description" : "Description for product 73",
-      "price" : 89.06,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 170,
-    "quantity" : 170,
-    "total" : 15140.20,
-    "product" : {
-      "id" : 73,
-      "reference" : "Pd3f7ffc-fe2b-4ddc-989b-35840df4dcd7",
-      "userId" : 6,
-      "name" : "Product 73",
-      "description" : "Description for product 73",
-      "price" : 89.06,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 35,
-  "reference" : "D32a70a3-40f8-4d55-bf1c-bc1c8bf6798f",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 49303.86,
-  "userId" : 28,
-  "orderDetails" : [ {
-    "id" : 171,
-    "quantity" : 171,
-    "total" : 417.24,
+    "id" : 156,
+    "quantity" : 156,
+    "total" : 380.64,
     "product" : {
       "id" : 2,
-      "reference" : "P693043e-399c-454c-8a52-000209dcfba2",
-      "userId" : 10,
+      "reference" : "Pe328916-8578-40b8-aba7-113b7a9d83a8",
+      "userId" : 2,
       "name" : "Product 2",
       "description" : "Description for product 2",
       "price" : 2.44,
@@ -2672,13 +2438,261 @@
       "deleted" : false
     }
   }, {
+    "id" : 157,
+    "quantity" : 157,
+    "total" : 4980.04,
+    "product" : {
+      "id" : 26,
+      "reference" : "Pf2e5dc0-da37-4ecf-868c-ffbbab67e554",
+      "userId" : 5,
+      "name" : "Product 26",
+      "description" : "Description for product 26",
+      "price" : 31.72,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 158,
+    "quantity" : 158,
+    "total" : 4240.72,
+    "product" : {
+      "id" : 22,
+      "reference" : "P9f664a9-0a6e-4e55-990d-b95069a75e5d",
+      "userId" : 1,
+      "name" : "Product 22",
+      "description" : "Description for product 22",
+      "price" : 26.84,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 159,
+    "quantity" : 159,
+    "total" : 8729.10,
+    "product" : {
+      "id" : 45,
+      "reference" : "Pcf090f5-3693-48c5-92e8-90f54baacc6a",
+      "userId" : 3,
+      "name" : "Product 45",
+      "description" : "Description for product 45",
+      "price" : 54.90,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 160,
+    "quantity" : 160,
+    "total" : 4294.40,
+    "product" : {
+      "id" : 22,
+      "reference" : "P9f664a9-0a6e-4e55-990d-b95069a75e5d",
+      "userId" : 1,
+      "name" : "Product 22",
+      "description" : "Description for product 22",
+      "price" : 26.84,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 33,
+  "reference" : "Dcbec2f0-a3c3-4cef-814e-51d086229c17",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 57374.16,
+  "userId" : 4,
+  "orderDetails" : [ {
+    "id" : 161,
+    "quantity" : 161,
+    "total" : 13552.98,
+    "product" : {
+      "id" : 69,
+      "reference" : "P08f3a55-71c9-4a98-8f7d-855abba38ec3",
+      "userId" : 4,
+      "name" : "Product 69",
+      "description" : "Description for product 69",
+      "price" : 84.18,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 162,
+    "quantity" : 162,
+    "total" : 10474.92,
+    "product" : {
+      "id" : 53,
+      "reference" : "P94ff798-688d-4859-b240-a4b9ce5a451a",
+      "userId" : 6,
+      "name" : "Product 53",
+      "description" : "Description for product 53",
+      "price" : 64.66,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 163,
+    "quantity" : 163,
+    "total" : 12528.18,
+    "product" : {
+      "id" : 63,
+      "reference" : "P1d9c087-5122-43b9-a83a-a46d8c243b3e",
+      "userId" : 2,
+      "name" : "Product 63",
+      "description" : "Description for product 63",
+      "price" : 76.86,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 164,
+    "quantity" : 164,
+    "total" : 19207.68,
+    "product" : {
+      "id" : 96,
+      "reference" : "P9f8291c-776b-4e3d-812e-b91e98f86bdd",
+      "userId" : 10,
+      "name" : "Product 96",
+      "description" : "Description for product 96",
+      "price" : 117.12,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 165,
+    "quantity" : 165,
+    "total" : 1610.40,
+    "product" : {
+      "id" : 8,
+      "reference" : "P9b54b7b-6a8f-4096-b29e-7f8202dcaa5b",
+      "userId" : 8,
+      "name" : "Product 8",
+      "description" : "Description for product 8",
+      "price" : 9.76,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 34,
+  "reference" : "Db47730d-08fd-4a99-b698-50b825c57b3b",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 44456.80,
+  "userId" : 37,
+  "orderDetails" : [ {
+    "id" : 166,
+    "quantity" : 166,
+    "total" : 12556.24,
+    "product" : {
+      "id" : 62,
+      "reference" : "Pfa02f6a-c110-4a9e-921a-33a3e656b82b",
+      "userId" : 8,
+      "name" : "Product 62",
+      "description" : "Description for product 62",
+      "price" : 75.64,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 167,
+    "quantity" : 167,
+    "total" : 1426.18,
+    "product" : {
+      "id" : 7,
+      "reference" : "Pe5501ea-bce6-4fbe-b58b-9e6070d6dc3c",
+      "userId" : 5,
+      "name" : "Product 7",
+      "description" : "Description for product 7",
+      "price" : 8.54,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 168,
+    "quantity" : 168,
+    "total" : 14142.24,
+    "product" : {
+      "id" : 69,
+      "reference" : "P08f3a55-71c9-4a98-8f7d-855abba38ec3",
+      "userId" : 4,
+      "name" : "Product 69",
+      "description" : "Description for product 69",
+      "price" : 84.18,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 169,
+    "quantity" : 169,
+    "total" : 8865.74,
+    "product" : {
+      "id" : 43,
+      "reference" : "P1b32add-3cca-4291-bcdf-f73a3277c847",
+      "userId" : 5,
+      "name" : "Product 43",
+      "description" : "Description for product 43",
+      "price" : 52.46,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 170,
+    "quantity" : 170,
+    "total" : 7466.40,
+    "product" : {
+      "id" : 36,
+      "reference" : "P2282d03-4a6f-48bc-8a57-b407b324fd69",
+      "userId" : 3,
+      "name" : "Product 36",
+      "description" : "Description for product 36",
+      "price" : 43.92,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 35,
+  "reference" : "D2e839e0-d2a3-4da2-990f-bfd908ad7167",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 32771.64,
+  "userId" : 5,
+  "orderDetails" : [ {
+    "id" : 171,
+    "quantity" : 171,
+    "total" : 5841.36,
+    "product" : {
+      "id" : 28,
+      "reference" : "P9f566fc-7b4b-4cfd-829b-5daf1c935f1a",
+      "userId" : 2,
+      "name" : "Product 28",
+      "description" : "Description for product 28",
+      "price" : 34.16,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
     "id" : 172,
     "quantity" : 172,
-    "total" : 7973.92,
+    "total" : 839.36,
+    "product" : {
+      "id" : 4,
+      "reference" : "P31cf6cd-87ef-469c-b5e5-f694c9cc4e5b",
+      "userId" : 1,
+      "name" : "Product 4",
+      "description" : "Description for product 4",
+      "price" : 4.88,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 173,
+    "quantity" : 173,
+    "total" : 8020.28,
     "product" : {
       "id" : 38,
-      "reference" : "Pe2239ae-5eb0-4521-8a20-60d9b3f65556",
-      "userId" : 9,
+      "reference" : "P31de0e1-5edb-41a0-841e-97c5268bf207",
+      "userId" : 7,
       "name" : "Product 38",
       "description" : "Description for product 38",
       "price" : 46.36,
@@ -2686,66 +2700,52 @@
       "deleted" : false
     }
   }, {
-    "id" : 173,
-    "quantity" : 173,
-    "total" : 18362.22,
-    "product" : {
-      "id" : 87,
-      "reference" : "Pde9d705-021e-4b78-aaf8-59251e782a3f",
-      "userId" : 3,
-      "name" : "Product 87",
-      "description" : "Description for product 87",
-      "price" : 106.14,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
     "id" : 174,
     "quantity" : 174,
-    "total" : 14010.48,
+    "total" : 13373.64,
     "product" : {
-      "id" : 66,
-      "reference" : "P5d6cc9c-fbe5-496f-81cd-3a82baa220c0",
-      "userId" : 7,
-      "name" : "Product 66",
-      "description" : "Description for product 66",
-      "price" : 80.52,
+      "id" : 63,
+      "reference" : "P1d9c087-5122-43b9-a83a-a46d8c243b3e",
+      "userId" : 2,
+      "name" : "Product 63",
+      "description" : "Description for product 63",
+      "price" : 76.86,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 175,
     "quantity" : 175,
-    "total" : 8540.00,
+    "total" : 4697.00,
     "product" : {
-      "id" : 40,
-      "reference" : "Pc8ff9f2-3964-4289-b669-089b32a51455",
-      "userId" : 3,
-      "name" : "Product 40",
-      "description" : "Description for product 40",
-      "price" : 48.80,
+      "id" : 22,
+      "reference" : "P9f664a9-0a6e-4e55-990d-b95069a75e5d",
+      "userId" : 1,
+      "name" : "Product 22",
+      "description" : "Description for product 22",
+      "price" : 26.84,
       "quantity" : 900,
       "deleted" : false
     }
   } ]
 }, {
   "id" : 36,
-  "reference" : "D1dde1f9-a02b-4f23-9f57-07abc381d31a",
+  "reference" : "D5ec6bb4-2240-4b6a-9cb8-8c96b335d43c",
   "creationDate" : "2024-01-18",
   "receivedDate" : "2024-01-18",
-  "total" : 59770.24,
-  "userId" : 37,
+  "total" : 48089.96,
+  "userId" : 27,
   "orderDetails" : [ {
     "id" : 176,
     "quantity" : 176,
-    "total" : 20398.40,
+    "total" : 3435.52,
     "product" : {
-      "id" : 95,
-      "reference" : "Pa1f0cbb-8c02-4f4d-81c1-4aa8a6564615",
-      "userId" : 10,
-      "name" : "Product 95",
-      "description" : "Description for product 95",
-      "price" : 115.90,
+      "id" : 16,
+      "reference" : "P1ce7ffd-2dcc-4701-96e9-8c44cf58b3dc",
+      "userId" : 3,
+      "name" : "Product 16",
+      "description" : "Description for product 16",
+      "price" : 19.52,
       "quantity" : 900,
       "deleted" : false
     }
@@ -2755,7 +2755,7 @@
     "total" : 11228.88,
     "product" : {
       "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
+      "reference" : "P12e7d49-4ac7-446a-8e75-5c9219bfd838",
       "userId" : 2,
       "name" : "Product 52",
       "description" : "Description for product 52",
@@ -2766,322 +2766,24 @@
   }, {
     "id" : 178,
     "quantity" : 178,
-    "total" : 5863.32,
+    "total" : 9772.20,
     "product" : {
-      "id" : 27,
-      "reference" : "P99e56b2-c421-4d47-a388-8b3d25ec65f5",
+      "id" : 45,
+      "reference" : "Pcf090f5-3693-48c5-92e8-90f54baacc6a",
       "userId" : 3,
-      "name" : "Product 27",
-      "description" : "Description for product 27",
-      "price" : 32.94,
+      "name" : "Product 45",
+      "description" : "Description for product 45",
+      "price" : 54.90,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 179,
     "quantity" : 179,
-    "total" : 21401.24,
-    "product" : {
-      "id" : 98,
-      "reference" : "P6f4d9e9-578c-45b6-add5-272176938eef",
-      "userId" : 10,
-      "name" : "Product 98",
-      "description" : "Description for product 98",
-      "price" : 119.56,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 180,
-    "quantity" : 180,
-    "total" : 878.40,
-    "product" : {
-      "id" : 4,
-      "reference" : "Paf30fec-e0a1-4406-991d-97161adb28ea",
-      "userId" : 10,
-      "name" : "Product 4",
-      "description" : "Description for product 4",
-      "price" : 4.88,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 37,
-  "reference" : "Dfce6dd9-ff98-4baf-a7cb-5ea3c9d863c8",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 70946.66,
-  "userId" : 31,
-  "orderDetails" : [ {
-    "id" : 181,
-    "quantity" : 181,
-    "total" : 14353.30,
-    "product" : {
-      "id" : 65,
-      "reference" : "Pee03b53-1262-4769-86ea-c9a27789a4e3",
-      "userId" : 5,
-      "name" : "Product 65",
-      "description" : "Description for product 65",
-      "price" : 79.30,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 182,
-    "quantity" : 182,
-    "total" : 21537.88,
-    "product" : {
-      "id" : 97,
-      "reference" : "Pa5177af-76d6-4fb1-8aa9-8b32a981be22",
-      "userId" : 5,
-      "name" : "Product 97",
-      "description" : "Description for product 97",
-      "price" : 118.34,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 183,
-    "quantity" : 183,
-    "total" : 3348.90,
-    "product" : {
-      "id" : 15,
-      "reference" : "P7d6a449-dcc5-42f7-af07-894eb5d13314",
-      "userId" : 4,
-      "name" : "Product 15",
-      "description" : "Description for product 15",
-      "price" : 18.30,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 184,
-    "quantity" : 184,
-    "total" : 21550.08,
-    "product" : {
-      "id" : 96,
-      "reference" : "P29032d7-f826-490a-9581-674413be3335",
-      "userId" : 9,
-      "name" : "Product 96",
-      "description" : "Description for product 96",
-      "price" : 117.12,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 185,
-    "quantity" : 185,
-    "total" : 10156.50,
-    "product" : {
-      "id" : 45,
-      "reference" : "Pe53f385-975c-4548-939f-55e1d9df0c19",
-      "userId" : 3,
-      "name" : "Product 45",
-      "description" : "Description for product 45",
-      "price" : 54.90,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 38,
-  "reference" : "D31a42ed-37ef-466d-88eb-9d17d8aa99a3",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 55407.52,
-  "userId" : 33,
-  "orderDetails" : [ {
-    "id" : 186,
-    "quantity" : 186,
-    "total" : 16338.24,
-    "product" : {
-      "id" : 72,
-      "reference" : "Pd38acc5-5250-4134-9512-bd0502541193",
-      "userId" : 2,
-      "name" : "Product 72",
-      "description" : "Description for product 72",
-      "price" : 87.84,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 187,
-    "quantity" : 187,
-    "total" : 9581.88,
-    "product" : {
-      "id" : 42,
-      "reference" : "P92ee7f3-b30f-47d8-9c6f-14595c543806",
-      "userId" : 5,
-      "name" : "Product 42",
-      "description" : "Description for product 42",
-      "price" : 51.24,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 188,
-    "quantity" : 188,
-    "total" : 15367.12,
-    "product" : {
-      "id" : 67,
-      "reference" : "Pcc18575-a581-482f-8833-2d7ceb21f8ca",
-      "userId" : 7,
-      "name" : "Product 67",
-      "description" : "Description for product 67",
-      "price" : 81.74,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 189,
-    "quantity" : 189,
-    "total" : 3689.28,
-    "product" : {
-      "id" : 16,
-      "reference" : "P2865018-32df-419e-b2a5-5d17f66a6958",
-      "userId" : 5,
-      "name" : "Product 16",
-      "description" : "Description for product 16",
-      "price" : 19.52,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 190,
-    "quantity" : 190,
-    "total" : 10431.00,
-    "product" : {
-      "id" : 45,
-      "reference" : "Pe53f385-975c-4548-939f-55e1d9df0c19",
-      "userId" : 3,
-      "name" : "Product 45",
-      "description" : "Description for product 45",
-      "price" : 54.90,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 39,
-  "reference" : "Dc925e4d-8925-43d0-b7da-50f7b4fd5db7",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 62459.12,
-  "userId" : 46,
-  "orderDetails" : [ {
-    "id" : 191,
-    "quantity" : 191,
-    "total" : 13748.18,
-    "product" : {
-      "id" : 59,
-      "reference" : "P45d8963-305e-4d4c-8a2d-e175a145a76e",
-      "userId" : 1,
-      "name" : "Product 59",
-      "description" : "Description for product 59",
-      "price" : 71.98,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 192,
-    "quantity" : 192,
-    "total" : 10540.80,
-    "product" : {
-      "id" : 45,
-      "reference" : "Pe53f385-975c-4548-939f-55e1d9df0c19",
-      "userId" : 3,
-      "name" : "Product 45",
-      "description" : "Description for product 45",
-      "price" : 54.90,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 193,
-    "quantity" : 193,
-    "total" : 4944.66,
-    "product" : {
-      "id" : 21,
-      "reference" : "P18a9634-1c7a-47e5-9fbf-88f92406b28a",
-      "userId" : 7,
-      "name" : "Product 21",
-      "description" : "Description for product 21",
-      "price" : 25.62,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 194,
-    "quantity" : 194,
-    "total" : 15620.88,
-    "product" : {
-      "id" : 66,
-      "reference" : "P5d6cc9c-fbe5-496f-81cd-3a82baa220c0",
-      "userId" : 7,
-      "name" : "Product 66",
-      "description" : "Description for product 66",
-      "price" : 80.52,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 195,
-    "quantity" : 195,
-    "total" : 17604.60,
-    "product" : {
-      "id" : 74,
-      "reference" : "P1e87ca1-f049-4fcc-8ddd-7f532612ceb1",
-      "userId" : 5,
-      "name" : "Product 74",
-      "description" : "Description for product 74",
-      "price" : 90.28,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  } ]
-}, {
-  "id" : 40,
-  "reference" : "Da19c8f0-531d-46f7-b904-3c6bfe340565",
-  "creationDate" : "2024-01-18",
-  "receivedDate" : "2024-01-18",
-  "total" : 75061.72,
-  "userId" : 43,
-  "orderDetails" : [ {
-    "id" : 196,
-    "quantity" : 196,
-    "total" : 1912.96,
-    "product" : {
-      "id" : 8,
-      "reference" : "P2e22315-b95f-45fb-a1f0-b1e01d0c4b7f",
-      "userId" : 1,
-      "name" : "Product 8",
-      "description" : "Description for product 8",
-      "price" : 9.76,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 197,
-    "quantity" : 197,
-    "total" : 19948.22,
-    "product" : {
-      "id" : 83,
-      "reference" : "P1f6e070-c920-4ac6-a0c8-b2573db43da8",
-      "userId" : 6,
-      "name" : "Product 83",
-      "description" : "Description for product 83",
-      "price" : 101.26,
-      "quantity" : 900,
-      "deleted" : false
-    }
-  }, {
-    "id" : 198,
-    "quantity" : 198,
-    "total" : 12561.12,
+    "total" : 11355.76,
     "product" : {
       "id" : 52,
-      "reference" : "Pb6c9853-a056-430f-a5fb-1bc37c215aa2",
+      "reference" : "P12e7d49-4ac7-446a-8e75-5c9219bfd838",
       "userId" : 2,
       "name" : "Product 52",
       "description" : "Description for product 52",
@@ -3090,30 +2792,328 @@
       "deleted" : false
     }
   }, {
+    "id" : 180,
+    "quantity" : 180,
+    "total" : 12297.60,
+    "product" : {
+      "id" : 56,
+      "reference" : "Pd8d0c99-c5e1-4b70-8711-0006bf8cd212",
+      "userId" : 1,
+      "name" : "Product 56",
+      "description" : "Description for product 56",
+      "price" : 68.32,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 37,
+  "reference" : "D7d86bd1-1f57-43c1-bb90-0e133209f771",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 79317.08,
+  "userId" : 23,
+  "orderDetails" : [ {
+    "id" : 181,
+    "quantity" : 181,
+    "total" : 18548.88,
+    "product" : {
+      "id" : 84,
+      "reference" : "P85fd4bb-b316-424b-b521-0b682071ccf0",
+      "userId" : 7,
+      "name" : "Product 84",
+      "description" : "Description for product 84",
+      "price" : 102.48,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 182,
+    "quantity" : 182,
+    "total" : 4440.80,
+    "product" : {
+      "id" : 20,
+      "reference" : "P12388c9-cc09-418c-b715-11e3bdf241e8",
+      "userId" : 1,
+      "name" : "Product 20",
+      "description" : "Description for product 20",
+      "price" : 24.40,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 183,
+    "quantity" : 183,
+    "total" : 21209.70,
+    "product" : {
+      "id" : 95,
+      "reference" : "P1438e34-10ea-484f-ac71-b303db8101f7",
+      "userId" : 2,
+      "name" : "Product 95",
+      "description" : "Description for product 95",
+      "price" : 115.90,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 184,
+    "quantity" : 184,
+    "total" : 16836.00,
+    "product" : {
+      "id" : 75,
+      "reference" : "Pfce070d-e3e9-4396-94a1-9ecf1fb65976",
+      "userId" : 2,
+      "name" : "Product 75",
+      "description" : "Description for product 75",
+      "price" : 91.50,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 185,
+    "quantity" : 185,
+    "total" : 18281.70,
+    "product" : {
+      "id" : 81,
+      "reference" : "P6cc7371-b44d-4cb2-ab02-48b83406151f",
+      "userId" : 4,
+      "name" : "Product 81",
+      "description" : "Description for product 81",
+      "price" : 98.82,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 38,
+  "reference" : "D175d4fa-25f9-4ad3-8133-b20d7b45fe3c",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 75272.78,
+  "userId" : 41,
+  "orderDetails" : [ {
+    "id" : 186,
+    "quantity" : 186,
+    "total" : 21103.56,
+    "product" : {
+      "id" : 93,
+      "reference" : "Paff02e1-5122-435a-86e4-eac9a8be39b1",
+      "userId" : 5,
+      "name" : "Product 93",
+      "description" : "Description for product 93",
+      "price" : 113.46,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 187,
+    "quantity" : 187,
+    "total" : 4334.66,
+    "product" : {
+      "id" : 19,
+      "reference" : "Pdae4849-5aa2-46c6-9553-19eee81442b2",
+      "userId" : 1,
+      "name" : "Product 19",
+      "description" : "Description for product 19",
+      "price" : 23.18,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 188,
+    "quantity" : 188,
+    "total" : 12156.08,
+    "product" : {
+      "id" : 53,
+      "reference" : "P94ff798-688d-4859-b240-a4b9ce5a451a",
+      "userId" : 6,
+      "name" : "Product 53",
+      "description" : "Description for product 53",
+      "price" : 64.66,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 189,
+    "quantity" : 189,
+    "total" : 19829.88,
+    "product" : {
+      "id" : 86,
+      "reference" : "Pa519727-b7ff-428e-96bf-02e700eb8eb4",
+      "userId" : 4,
+      "name" : "Product 86",
+      "description" : "Description for product 86",
+      "price" : 104.92,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 190,
+    "quantity" : 190,
+    "total" : 17848.60,
+    "product" : {
+      "id" : 77,
+      "reference" : "Pdb693f0-d565-4d1f-af6a-b5ff272c4388",
+      "userId" : 4,
+      "name" : "Product 77",
+      "description" : "Description for product 77",
+      "price" : 93.94,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 39,
+  "reference" : "D4b25bcc-430c-4f58-b0f4-ac6ac92f2e6a",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 60727.94,
+  "userId" : 21,
+  "orderDetails" : [ {
+    "id" : 191,
+    "quantity" : 191,
+    "total" : 16777.44,
+    "product" : {
+      "id" : 72,
+      "reference" : "P9cc9bd4-9ccc-44b6-9c5e-80deedeff617",
+      "userId" : 2,
+      "name" : "Product 72",
+      "description" : "Description for product 72",
+      "price" : 87.84,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 192,
+    "quantity" : 192,
+    "total" : 7027.20,
+    "product" : {
+      "id" : 30,
+      "reference" : "Pface5fc-5179-4810-9bd0-fb384c060550",
+      "userId" : 9,
+      "name" : "Product 30",
+      "description" : "Description for product 30",
+      "price" : 36.60,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 193,
+    "quantity" : 193,
+    "total" : 11302.08,
+    "product" : {
+      "id" : 48,
+      "reference" : "P0e1a7dd-26f3-485e-991e-605e44c10421",
+      "userId" : 10,
+      "name" : "Product 48",
+      "description" : "Description for product 48",
+      "price" : 58.56,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 194,
+    "quantity" : 194,
+    "total" : 13964.12,
+    "product" : {
+      "id" : 59,
+      "reference" : "P9fb613c-4b8c-4546-8233-a6896d634c94",
+      "userId" : 3,
+      "name" : "Product 59",
+      "description" : "Description for product 59",
+      "price" : 71.98,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 195,
+    "quantity" : 195,
+    "total" : 11657.10,
+    "product" : {
+      "id" : 49,
+      "reference" : "Pa6a8050-7643-4ee1-98b6-0eadeda3613d",
+      "userId" : 10,
+      "name" : "Product 49",
+      "description" : "Description for product 49",
+      "price" : 59.78,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  } ]
+}, {
+  "id" : 40,
+  "reference" : "D926525f-4ff4-4497-8862-f6ef6b8d7fdb",
+  "creationDate" : "2024-01-18",
+  "receivedDate" : "2024-01-18",
+  "total" : 48857.34,
+  "userId" : 36,
+  "orderDetails" : [ {
+    "id" : 196,
+    "quantity" : 196,
+    "total" : 1434.72,
+    "product" : {
+      "id" : 6,
+      "reference" : "Pbe31c34-1610-44e6-b476-e9ab85171ee2",
+      "userId" : 9,
+      "name" : "Product 6",
+      "description" : "Description for product 6",
+      "price" : 7.32,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 197,
+    "quantity" : 197,
+    "total" : 13459.04,
+    "product" : {
+      "id" : 56,
+      "reference" : "Pd8d0c99-c5e1-4b70-8711-0006bf8cd212",
+      "userId" : 1,
+      "name" : "Product 56",
+      "description" : "Description for product 56",
+      "price" : 68.32,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
+    "id" : 198,
+    "quantity" : 198,
+    "total" : 8213.04,
+    "product" : {
+      "id" : 34,
+      "reference" : "P9c64273-157b-429d-a8f7-f9d384d7c93e",
+      "userId" : 3,
+      "name" : "Product 34",
+      "description" : "Description for product 34",
+      "price" : 41.48,
+      "quantity" : 900,
+      "deleted" : false
+    }
+  }, {
     "id" : 199,
     "quantity" : 199,
-    "total" : 21607.42,
+    "total" : 22578.54,
     "product" : {
-      "id" : 89,
-      "reference" : "P3b3f139-4915-4cbd-b7e0-7293496caac1",
-      "userId" : 2,
-      "name" : "Product 89",
-      "description" : "Description for product 89",
-      "price" : 108.58,
+      "id" : 93,
+      "reference" : "Paff02e1-5122-435a-86e4-eac9a8be39b1",
+      "userId" : 5,
+      "name" : "Product 93",
+      "description" : "Description for product 93",
+      "price" : 113.46,
       "quantity" : 900,
       "deleted" : false
     }
   }, {
     "id" : 200,
     "quantity" : 200,
-    "total" : 19032.00,
+    "total" : 3172.00,
     "product" : {
-      "id" : 78,
-      "reference" : "Pa6b0b10-2356-46ba-aac7-cf66224a8c3f",
-      "userId" : 2,
-      "name" : "Product 78",
-      "description" : "Description for product 78",
-      "price" : 95.16,
+      "id" : 13,
+      "reference" : "Pafa9c05-7791-4a9e-be8a-9c69a136bea7",
+      "userId" : 5,
+      "name" : "Product 13",
+      "description" : "Description for product 13",
+      "price" : 15.86,
       "quantity" : 900,
       "deleted" : false
     }
