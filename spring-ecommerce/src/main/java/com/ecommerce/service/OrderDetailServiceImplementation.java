@@ -214,10 +214,10 @@ public class OrderDetailServiceImplementation implements IOrderDetailsService {
     }
 
     private Integer getTotalProductQuantity(Product product) {
-        long count = productList.stream()
+        return productList.stream()
                 .filter(p -> p.getId().equals(product.getId()))
-                .count();
-        return (int) count;
+                .mapToInt(Product::getQuantity)
+                .sum();
     }
 
     private Product addProductToList(Product product, Integer productQuantity) {

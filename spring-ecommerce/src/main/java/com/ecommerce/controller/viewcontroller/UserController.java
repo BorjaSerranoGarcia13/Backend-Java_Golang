@@ -65,7 +65,7 @@ public class UserController {
 
     @PostMapping(UserWebEndpointRoutes.AUTHENTICATE)
     public String authenticateUser(@RequestParam("username") String username,
-                                   @RequestParam("password") String password, HttpServletRequest request) {
+                                   @RequestParam("password") String password) {
         apiUserController.login(username, password);
 
         if (apiUserController.isAdmin()) {

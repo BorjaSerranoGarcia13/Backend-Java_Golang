@@ -44,7 +44,7 @@ public class ApiProductController {
         return iProductService.convertProductToDto(iProductService.findProductsByReference(reference));
     }
 
-    @GetMapping(ApiProductEndpointRoutes.API_PRODUCTS_SEARCH_BY_NAME_OR_REFERENCE)
+    @PostMapping(ApiProductEndpointRoutes.API_PRODUCTS_SEARCH_BY_NAME_OR_REFERENCE)
     public List<ProductDto> searchProductsByNameOrReference(@RequestParam String searchTerm,
                                                             @RequestParam String searchType) {
         return iProductService.convertProductToDto(iProductService.searchProductsByNameOrReference(searchTerm,

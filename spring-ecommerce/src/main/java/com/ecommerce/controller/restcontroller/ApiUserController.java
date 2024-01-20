@@ -65,7 +65,7 @@ public class ApiUserController {
     }
 
     @GetMapping(ApiUserEndpointRoutes.API_USER_TOKEN_EXPIRE)
-    public long getTokenExpirationDate() {
-        return iUserService.getTokenExpirationDateInMinutes();
+    public String getTokenExpirationDate() {
+        return "Token expiration date: " + iUserService.getTokenExpirationDateInMinutes() + " minutes";
     }
 }

@@ -33,12 +33,13 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "", "/home/**", "/vendor/**", "/css/**", "/images/**").permitAll()
+                        .requestMatchers("/", "/home/**", "/vendor/**", "/css/**", "/images/**").permitAll()
                         .requestMatchers(UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE,
                                 UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE, UserWebEndpointRoutes.SAVE,
                                 HomeControllerWebEndpointRoutes.HOME, HomeControllerWebEndpointRoutes.PRODUCT_BY_ID,
                                 HomeControllerWebEndpointRoutes.PRODUCT_SEARCH).permitAll()
-                        .requestMatchers("/api/**").permitAll()
+                        .requestMatchers("/api/users/login", "/api/users/logout").permitAll()
+                        .requestMatchers("/api/**").hasRole("ADMIN")
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers(HomeControllerWebEndpointRoutes.PURCHASE_CONFIRM,
                                 UserWebEndpointRoutes.PURCHASE_DETAILS, UserWebEndpointRoutes.PURCHASES,

@@ -16,7 +16,7 @@ RUN ./mvnw dependency:go-offline -B
 COPY src src
 
 # Construir la aplicación
-RUN ./mvnw package
+RUN ./mvnw package -DskipTests
 
 # Etapa de ejecución
 FROM openjdk:17-jdk

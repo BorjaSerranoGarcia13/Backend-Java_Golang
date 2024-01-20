@@ -26,14 +26,6 @@ public class User implements UserDetails {
     private String phoneNumber;
 
     private List<SimpleGrantedAuthority> authorities;
-    @Transient
-    private boolean enabled;
-    @Transient
-    private boolean credentialsNonExpired;
-    @Transient
-    private boolean accountNonExpired;
-    @Transient
-    private boolean accountNonLocked;
 
     public User() {
     }
@@ -54,36 +46,21 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void setAccountNonExpired(boolean accountNonExpired) {
-        this.accountNonExpired = accountNonExpired;
-    }
-
     @Override
     public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    public void setAccountNonLocked(boolean accountNonLocked) {
-        this.accountNonLocked = accountNonLocked;
+        return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-        this.credentialsNonExpired = credentialsNonExpired;
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return false;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     public Integer getId() {
         return id;

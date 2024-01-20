@@ -13,13 +13,14 @@ import org.springframework.security.authentication.InternalAuthenticationService
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import static com.ecommerce.constants.messages.ExceptionHandlerMessages.*;
 
-@RestControllerAdvice
+@ControllerAdvice("com.ecommerce.controller.restcontroller")
 public class ApiGlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(ApiGlobalExceptionHandler.class);
 

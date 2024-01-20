@@ -45,7 +45,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         }
 
         List<String> apiRoutesWithoutAuthentication = List.of(ApiUserEndpointRoutes.API_USER_LOGIN,
-                ApiUserEndpointRoutes.API_USER_LOGOUT, ApiUserEndpointRoutes.API_USER_CREATE);
+                ApiUserEndpointRoutes.API_USER_LOGOUT);
 
         List<String> viewRoutesWithoutAuthentication = List.of(UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE,
                 UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE, UserWebEndpointRoutes.SAVE);
@@ -61,7 +61,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                     @NonNull FilterChain chain) throws ServletException, IOException {
         try {
             String token = extractTokenFromCookie(request);
-            String path = request.getRequestURI();
             if (token != null && jwtUtil.validateToken(token)) {
                 String username = jwtUtil.extractUsername(token);
                 User user = (User) this.userDetailsService.loadUserByUsername(username);
@@ -73,6 +72,11 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                             .map(SimpleGrantedAuthority::new)
                             .collect(Collectors.toList());
 
+                    String path = request.getRequestURI();
+                    if (path.startsWith("/api/") && !roles.contains("ROLE_ADMIN")) {
+                        throw new AuthenticationException("Unauthorized access. Please log in as an ADMIN.");
+                    }
+                    System.out.println("JwtRequestFilter.doFilterInternal");
                     CustomAuthenticationToken auth = new CustomAuthenticationToken(username, userIdFromToken,
                             authorities);
                     SecurityContextHolder.getContext().setAuthentication(auth);

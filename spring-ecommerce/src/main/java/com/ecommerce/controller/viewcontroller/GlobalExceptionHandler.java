@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import static com.ecommerce.constants.messages.ExceptionHandlerMessages.*;
 import static com.ecommerce.constants.view.ViewConstants.ERROR_VIEW;
 
-@ControllerAdvice
+@ControllerAdvice("com.ecommerce.controller.viewcontroller")
 public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
