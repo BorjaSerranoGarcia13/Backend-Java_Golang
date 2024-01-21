@@ -1040,7 +1040,16 @@ Deletes a specific product.
 -----------
 
 ## Insomnia
-// Aquí va la descripción de Insomnia
+This project includes an Insomnia export file, which contains all the predefined HTTP requests for interacting with the API.
+
+To use it, follow these steps:
+
+1. Install [Insomnia](https://insomnia.rest/download) if you haven't already.
+2. Open Insomnia and select "Import/Export" in the menu.
+3. Select "Import Data" > "From File".
+4. Navigate to the `insomnia-export.json` file in the `api-config` directory of this project and click "Open".
+
+You should now see all the predefined HTTP requests in Insomnia, ready to be used.
 -----------
 
 ## Swagger
