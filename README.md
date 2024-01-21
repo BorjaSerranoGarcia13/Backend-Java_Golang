@@ -1,2 +1,2 @@
-# Backend-Java_Golang
-The repository for backend development using Java and Golang languages.
+# Backend-Java
+The repository for backend development using Java.
