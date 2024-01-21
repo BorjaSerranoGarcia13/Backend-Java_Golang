@@ -15,43 +15,27 @@ The application includes:
 - Execution in Docker containers.
 - File Uploads.
 - Insomnia files.
-
-  ---------------
-
-# Introduction
-
-Spring Ecommerce is a prototype of an e-commerce application developed with Java and Spring Boot. It uses Maven as a project management tool and also includes JavaScript for certain client-side functionalities.
+---------------
 
 ## Contents
-### Controllers
-- [HomeController](#home-controller)
-- [UserController](#user-controller)
-- [AdminController](#admin-controller)
-- [ProductController](#product-controller)
 
 ### RestApi
 - [Products](#api-products)
 - [Users](#api-users)
 - [Orders](#api-orders)
 - [Order Details](#api-order-details)
+- 
+### Controllers
+- [HomeController](#home-controller)
+- [UserController](#user-controller)
+- [AdminController](#admin-controller)
+- [ProductController](#product-controller)
 
 ### Config
 - [Docker](#docker)
 - [Insomnia](#insomnia)
-- [Auth JWT](#auth-jwt)
 - [Swagger](#swagger)
-
-## Home Controller
-// Aquí va la descripción del AdminController
-
-## User Controller
-// Aquí va la descripción del HomeController
-
-## Admin Controller
-// Aquí va la descripción del UserController
-
-## Product Controller
-// Aquí va la descripción del ProductController
+-----------
 
 ## API Products
 ### **Get all products**
@@ -834,15 +818,230 @@ Remove a product from the cart.
 ```
 200 OK
 ```
+----------------
+
+## HomeController
+
+The `HomeController` handles web requests related to the home page and shopping cart operations.
+
+### Home
+Displays the home page with all available products.
+#### Request
+```
+[GET] http://localhost:8080
+```
+
+### Show Product by ID
+Displays the details of a specific product.
+#### Request
+```
+[GET] http://localhost:8080/product/{id}
+```
+
+### Add product to cart
+Adds a product to the user's shopping cart.
+#### Request
+```
+[POST] http://localhost:8080/add-to-cart
+```
+
+### Show cart
+Displays the user's shopping cart.
+#### Request
+```
+[GET] http://localhost:8080/cart
+```
+
+### Delete product from cart
+Removes a product from the user's shopping cart.
+#### Request
+```
+[POST] http://localhost:8080/delete-cart-product/{productId}
+```
+
+### Confirm purchase and sabe order details
+Confirms the purchase and saves the order details.
+#### Request
+```
+[POST] http://localhost:8080/purchase-confirm
+```
+
+### Order Summary
+Displays the user's order summary.
+#### Request
+```
+[GET] http://localhost:8080/order-summary
+```
+
+### Search Product
+Searches for products by name or reference.
+#### Request
+```
+[POST] http://localhost:8080/product-search
+```
+
+##### Please replace `{id}` and `{productId}` with the corresponding product ID.
+-----------
+
+## User Controller
+
+The `UserController` handles web requests related to user management.
+
+### Create user
+Displays the user creation page.
+#### Request
+```
+[GET] http://localhost:8080/user/create
+```
+
+### Save user
+Saves a new user.
+#### Request
+```
+[POST] http://localhost:8080/user/save
+```
+
+### Login user
+Displays the user login page.
+#### Request
+```
+[GET] http://localhost:8080/user/login
+```
+
+### Authenticate user
+Authenticates a user.
+#### Request
+```
+[POST] http://localhost:8080/user/authenticate
+```
+
+### Logout user
+Logs out a user.
+#### Request
+```
+[POST] http://localhost:8080/user/logout
+```
+
+### Purchases of user
+Displays the purchases of a user.
+#### Request
+```
+[GET] http://localhost:8080/user/purchases
+```
+
+### Purchase details of user
+Displays the details of a specific purchase.
+#### Request
+```
+[GET] http://localhost:8080/user/purchase-details/{id}
+```
+
+##### Please replace `{id}` with the corresponding purchase ID.
+----------
+
+## Admin Controller
+The `AdminController` handles web requests related to product management, orders, and users.
+
+### Home View
+Displays the admin home page with all available products.
+#### Request
+```
+[GET] http://localhost:8080/admin
+```
+
+### Product Home View
+Displays the details of a specific product.
+#### Request
+```
+[GET] http://localhost:8080/admin/product/{id}
+```
+
+### Products View
+Displays all available products.
+#### Request
+```
+[GET] http://localhost:8080admin/products
+```
+
+### Orders View
+Displays all the orders placed.
+#### Request
+```
+[GET] http://localhost:8080/admin/orders
+```
+
+### Order Details View
+Displays the details of a specific order.
+#### Request
+```
+[GET] http://localhost:8080/admin/order/{id}
+```
+
+### Users View
+Displays all registered users.
+#### Request
+```
+[GET] http://localhost:8080/admin/users
+```
+
+### Delete User
+Deletes a specific user.
+#### Request
+```
+[POST] http://localhost:8080/admin/user/delete/{id}
+```
+
+##### Please replace `{id}` with the corresponding product or order ID.
+------------
+
+## Product Controller
+The `ProductController` handles web requests related to product management.
+
+### Create product
+Displays the product creation page.
+#### Request
+```
+[GET] http://localhost:8080/product/create
+```
+
+### Edit product
+Displays the product editing page for a specific product.
+#### Request
+```
+[GET] http://localhost:8080/product/edit/{id}
+```
+
+### Save product
+Saves a new product.
+#### Request
+```
+[POST] http://localhost:8080/product/save
+```
+
+### Update product
+Updates an existing product.
+#### Request
+```
+[POST] http://localhost:8080/product/update
+```
+
+### Delete Product
+Deletes a specific product.
+#### Request
+```
+[POST] http://localhost:8080/product/delete/{id}
+```
+
+##### Please replace `{id}` with the corresponding product ID.
+-------------------
 
 ## Docker
 // Aquí va la descripción de Docker
+-----------
 
 ## Insomnia
 // Aquí va la descripción de Insomnia
-
-## Auth JWT
-// Aquí va la descripción de Auth JWT
+-----------
 
 ## Swagger
 To access the Swagger documentation through the user interface, you can navigate to the following URL in your browser:
