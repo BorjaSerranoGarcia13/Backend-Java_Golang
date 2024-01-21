@@ -8,6 +8,8 @@ import com.ecommerce.dto.ProductDto;
 import com.ecommerce.dto.UserDto;
 import com.ecommerce.security.JwtUtil;
 import com.ecommerce.utils.CookieUtil;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -32,7 +34,6 @@ public class HomeController {
 
     @Autowired
     private JwtUtil jwtUtil;
-
 
     public HomeController(ApiProductController apiProductController,
                           ApiOrderDetailsController apiOrderDetailsController,
@@ -134,4 +135,3 @@ public class HomeController {
         return USER_HOME_VIEW;
     }
 }
-

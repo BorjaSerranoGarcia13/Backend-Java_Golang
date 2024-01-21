@@ -2,22 +2,30 @@ package com.ecommerce.model;
 
 import com.ecommerce.constants.messages.OrderDetailsExceptionMessages;
 import com.ecommerce.exception.OrderDetailsException;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "orderDetails")
+@Schema(description = "Order details entity")
 public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Unique identifier of the order detail", example = "1")
     private Integer id;
+
+    @Schema(description = "Quantity of the product in the order", example = "2")
     private Integer quantity;
+
     @Column(precision = 10, scale = 2)
+    @Schema(description = "Total price of the order detail", example = "200.00")
     private BigDecimal total;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "product_id")
+    @Schema(description = "Product associated with the order detail")
     private Product product;
 
     public OrderDetails() {

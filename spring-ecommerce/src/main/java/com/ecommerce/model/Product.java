@@ -3,6 +3,7 @@ package com.ecommerce.model;
 
 import com.ecommerce.constants.messages.ProductExceptionMessages;
 import com.ecommerce.exception.ProductException;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -12,20 +13,35 @@ import static com.ecommerce.utils.ReferenceGeneratorUtil.PRODUCT_PREFIX;
 
 @Entity
 @Table(name = "products", indexes = @Index(name = "index_reference", columnList = "reference", unique = true))
+@Schema(description = "Product entity")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Unique identifier of the product", example = "1")
     private Integer id;
+
     @Column(unique = true)
+    @Schema(description = "Reference of the product", example = "PROD123")
     private String reference;
+
+    @Schema(description = "User ID associated with the product", example = "1")
     private Integer userId;
+
+    @Schema(description = "Name of the product", example = "Product Name")
     private String name;
+
+    @Schema(description = "Description of the product", example = "This is a product description")
     private String description;
+
     @Column(precision = 10, scale = 2)
+    @Schema(description = "Price of the product", example = "100.00")
     private BigDecimal price;
+
+    @Schema(description = "Quantity of the product in stock", example = "10")
     private Integer quantity;
 
     @Column(name = "deleted")
+    @Schema(description = "Is the product deleted", example = "false")
     private boolean isDeleted = false;
 
     public Product() {

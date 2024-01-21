@@ -2,6 +2,7 @@ package com.ecommerce.model;
 
 import com.ecommerce.constants.messages.OrderExceptionMessages;
 import com.ecommerce.exception.OrderException;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -10,22 +11,37 @@ import java.util.List;
 
 import static com.ecommerce.utils.ReferenceGeneratorUtil.ORDER_PREFIX;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Entity
 @Table(name = "orders", indexes = @Index(name = "index_reference", columnList = "reference", unique = true))
+@Schema(description = "Order entity")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Unique identifier of the order", example = "1")
     private Integer id;
+
     @Column(unique = true)
+    @Schema(description = "Reference of the order", example = "ORD123")
     private String reference;
+
+    @Schema(description = "Creation date of the order", example = "2022-01-01T00:00:00.000+00:00")
     private Date creationDate;
+
+    @Schema(description = "Received date of the order", example = "2022-01-02T00:00:00.000+00:00")
     private Date receivedDate;
+
     @Column(precision = 10, scale = 2)
+    @Schema(description = "Total amount of the order", example = "100.00")
     private BigDecimal total;
+
+    @Schema(description = "User ID associated with the order", example = "1")
     private Integer userId;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "order_id")
+    @Schema(description = "Details of the order")
     private List<OrderDetails> orderDetails;
 
     public Order() {

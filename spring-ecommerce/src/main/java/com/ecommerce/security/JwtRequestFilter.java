@@ -40,12 +40,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        if (path.contains("/vendor") || path.contains("/css") || path.contains("/images")) {
+        if (path.contains("/vendor") || path.contains("/css") || path.contains("/images") ||
+                path.contains("/swagger-ui") || path.contains("/api-docs")) {
             return true;
         }
 
         List<String> apiRoutesWithoutAuthentication = List.of(ApiUserEndpointRoutes.API_USER_LOGIN,
-                ApiUserEndpointRoutes.API_USER_LOGOUT);
+                ApiUserEndpointRoutes.API_USER_LOGOUT, ApiUserEndpointRoutes.API_USER_CREATE);
 
         List<String> viewRoutesWithoutAuthentication = List.of(UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE,
                 UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE, UserWebEndpointRoutes.SAVE);

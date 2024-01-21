@@ -3,6 +3,7 @@ package com.ecommerce.model;
 import com.ecommerce.config.SimpleGrantedAuthority;
 import com.ecommerce.constants.messages.UserExceptionMessages;
 import com.ecommerce.exception.UserException;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,18 +12,32 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+@Schema(description = "User entity")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Unique identifier of the user", example = "1")
     private Integer id;
+
+    @Schema(description = "Name of the user", example = "User name")
     private String name;
+
     @Column(unique = true)
+    @Schema(description = "Username of the user", example = "username1")
     private String username;
+
+    @Schema(description = "Password of the user", example = "123")
     private String password;
+
     @Column(unique = true)
+    @Schema(description = "Email of the user", example = "username1@example.com")
     private String email;
+
+    @Schema(description = "Address of the user", example = "123 Main St")
     private String address;
+
     @Column(unique = true)
+    @Schema(description = "Phone number of the user", example = "1234567890")
     private String phoneNumber;
 
     private List<SimpleGrantedAuthority> authorities;

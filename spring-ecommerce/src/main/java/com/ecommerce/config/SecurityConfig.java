@@ -2,6 +2,7 @@ package com.ecommerce.config;
 
 import com.ecommerce.constants.endpoints.web.HomeControllerWebEndpointRoutes;
 import com.ecommerce.constants.endpoints.web.UserWebEndpointRoutes;
+import com.ecommerce.constants.security.SecurityConst;
 import com.ecommerce.security.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
+
+import static com.ecommerce.constants.security.SecurityConst.*;
 
 @Component
 public class SecurityConfig {
@@ -33,17 +36,10 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/home/**", "/vendor/**", "/css/**", "/images/**").permitAll()
-                        .requestMatchers(UserWebEndpointRoutes.LOGIN, UserWebEndpointRoutes.AUTHENTICATE,
-                                UserWebEndpointRoutes.LOGOUT, UserWebEndpointRoutes.CREATE, UserWebEndpointRoutes.SAVE,
-                                HomeControllerWebEndpointRoutes.HOME, HomeControllerWebEndpointRoutes.PRODUCT_BY_ID,
-                                HomeControllerWebEndpointRoutes.PRODUCT_SEARCH).permitAll()
-                        .requestMatchers("/api/users/login", "/api/users/logout").permitAll()
-                        .requestMatchers("/api/**").hasRole("ADMIN")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers(HomeControllerWebEndpointRoutes.PURCHASE_CONFIRM,
-                                UserWebEndpointRoutes.PURCHASE_DETAILS, UserWebEndpointRoutes.PURCHASES,
-                                HomeControllerWebEndpointRoutes.ORDER_SUMMARY).authenticated()
+                        .requestMatchers(PERMIT_ALL_ENDPOINT_LIST.toArray(new String[0])).permitAll()
+                        .requestMatchers(ADMIN_ENDPOINT_LIST.toArray(new String[0])).hasRole("ADMIN")
+                        .requestMatchers(AUTHENTICATED_ENDPOINT_LIST.toArray(new String[0])).authenticated()
+                        .anyRequest().permitAll()
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage(UserWebEndpointRoutes.LOGIN)
