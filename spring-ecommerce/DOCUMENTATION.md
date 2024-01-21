@@ -820,7 +820,7 @@ Remove a product from the cart.
 ```
 ----------------
 
-## HomeController
+## Home Controller
 
 The `HomeController` handles web requests related to the home page and shopping cart operations.
 
