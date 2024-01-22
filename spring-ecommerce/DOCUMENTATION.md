@@ -830,6 +830,7 @@ Displays the home page with all available products.
 ```
 [GET] http://localhost:8080
 ```
+![](images/documentation/home-1.png)
 
 ### Show Product by ID
 Displays the details of a specific product.
@@ -837,6 +838,7 @@ Displays the details of a specific product.
 ```
 [GET] http://localhost:8080/product/{id}
 ```
+![](images/documentation/home-2.png)
 
 ### Add product to cart
 Adds a product to the user's shopping cart.
@@ -851,6 +853,7 @@ Displays the user's shopping cart.
 ```
 [GET] http://localhost:8080/cart
 ```
+![](images/documentation/home-3.png)
 
 ### Delete product from cart
 Removes a product from the user's shopping cart.
@@ -872,6 +875,7 @@ Displays the user's order summary.
 ```
 [GET] http://localhost:8080/order-summary
 ```
+![](images/documentation/home-4.png)
 
 ### Search Product
 Searches for products by name or reference.
@@ -879,6 +883,7 @@ Searches for products by name or reference.
 ```
 [POST] http://localhost:8080/product-search
 ```
+![](images/documentation/home-5.png)
 
 ##### Please replace `{id}` and `{productId}` with the corresponding product ID.
 -----------
@@ -893,6 +898,7 @@ Displays the user creation page.
 ```
 [GET] http://localhost:8080/user/create
 ```
+![](images/documentation/user-1.png)
 
 ### Save user
 Saves a new user.
@@ -907,6 +913,7 @@ Displays the user login page.
 ```
 [GET] http://localhost:8080/user/login
 ```
+![](images/documentation/user-2.png)
 
 ### Authenticate user
 Authenticates a user.
@@ -921,6 +928,7 @@ Logs out a user.
 ```
 [POST] http://localhost:8080/user/logout
 ```
+![](images/documentation/user-3.png)
 
 ### Purchases of user
 Displays the purchases of a user.
@@ -928,6 +936,7 @@ Displays the purchases of a user.
 ```
 [GET] http://localhost:8080/user/purchases
 ```
+![](images/documentation/user-4.png)
 
 ### Purchase details of user
 Displays the details of a specific purchase.
@@ -935,6 +944,7 @@ Displays the details of a specific purchase.
 ```
 [GET] http://localhost:8080/user/purchase-details/{id}
 ```
+![](images/documentation/user-5.png)
 
 ##### Please replace `{id}` with the corresponding purchase ID.
 ----------
@@ -948,6 +958,7 @@ Displays the admin home page with all available products.
 ```
 [GET] http://localhost:8080/admin
 ```
+![](images/documentation/admin-1.png)
 
 ### Product Home View
 Displays the details of a specific product.
@@ -955,6 +966,7 @@ Displays the details of a specific product.
 ```
 [GET] http://localhost:8080/admin/product/{id}
 ```
+![](images/documentation/admin-2.png)
 
 ### Products View
 Displays all available products.
@@ -962,6 +974,7 @@ Displays all available products.
 ```
 [GET] http://localhost:8080admin/products
 ```
+![](images/documentation/admin-3.png)
 
 ### Orders View
 Displays all the orders placed.
@@ -969,6 +982,7 @@ Displays all the orders placed.
 ```
 [GET] http://localhost:8080/admin/orders
 ```
+![](images/documentation/admin-4.png)
 
 ### Order Details View
 Displays the details of a specific order.
@@ -976,6 +990,7 @@ Displays the details of a specific order.
 ```
 [GET] http://localhost:8080/admin/order/{id}
 ```
+![](images/documentation/admin-5.png)
 
 ### Users View
 Displays all registered users.
@@ -983,6 +998,7 @@ Displays all registered users.
 ```
 [GET] http://localhost:8080/admin/users
 ```
+![](images/documentation/admin-6.png)
 
 ### Delete User
 Deletes a specific user.
@@ -1003,6 +1019,7 @@ Displays the product creation page.
 ```
 [GET] http://localhost:8080/product/create
 ```
+![](images/documentation/product-1.png)
 
 ### Edit product
 Displays the product editing page for a specific product.
@@ -1010,6 +1027,7 @@ Displays the product editing page for a specific product.
 ```
 [GET] http://localhost:8080/product/edit/{id}
 ```
+![](images/documentation/product-2.png)
 
 ### Save product
 Saves a new product.
@@ -1031,6 +1049,7 @@ Deletes a specific product.
 ```
 [POST] http://localhost:8080/product/delete/{id}
 ```
+![](images/documentation/product-4.png)
 
 ##### Please replace `{id}` with the corresponding product ID.
 -------------------
