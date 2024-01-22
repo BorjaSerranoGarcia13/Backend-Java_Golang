@@ -18,6 +18,7 @@ This project is implemented with the following technologies:
 - Maven: Maven is used as the build tool for this project.
 - Jackson: Used for JSON object mapping.
 - JWT: JSON Web Tokens are used for securely transmitting information between parties as a JSON object.
+- Docker: Docker is used to create, deploy, and run applications by using containers. In this project, Docker is used to run the database and the application in separate containers, ensuring that the application runs the same regardless of the environment.
 
 ## Installation
 
