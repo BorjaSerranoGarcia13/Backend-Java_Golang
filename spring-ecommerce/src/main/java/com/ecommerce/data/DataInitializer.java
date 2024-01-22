@@ -49,7 +49,6 @@ public class DataInitializer implements CommandLineRunner {
         String userJsonPath = "src/main/resources/data/user.json";
         String productJsonPath = "src/main/resources/data/product.json";
         String orderJsonPath = "src/main/resources/data/order.json";
-        String orderDetailsJsonPath = "src/main/resources/data/orderDetails.json";
 
         // Load users from user.json
         InputStream inputStream = new FileInputStream(userJsonPath);
