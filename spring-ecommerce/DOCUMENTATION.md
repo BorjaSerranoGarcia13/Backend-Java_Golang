@@ -24,7 +24,7 @@ The application includes:
 - [Users](#api-users)
 - [Orders](#api-orders)
 - [Order Details](#api-order-details)
-- 
+  
 ### Controllers
 - [HomeController](#home-controller)
 - [UserController](#user-controller)
