@@ -1,26 +1,30 @@
-# Imagen base
-FROM openjdk:17-jdk as build
+FROM openjdk:17-jdk-buster as build
 
-# Directorio de trabajo
 WORKDIR /workspace/app
 
-# Copiar el archivo pom.xml
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
+COPY wait-for-db.sh .
+COPY src/main/resources/data/ src/main/resources/data/
 
-# Descargar dependencias
+RUN chmod +x wait-for-db.sh
+
 RUN ./mvnw dependency:go-offline -B
 
-# Copiar el resto del código fuente
 COPY src src
-
-# Construir la aplicación
 RUN ./mvnw package -DskipTests
 
-# Etapa de ejecución
-FROM openjdk:17-jdk
+FROM openjdk:17-jdk-buster
+
+RUN apt-get update && apt-get install -y default-mysql-client
+
 VOLUME /tmp
 COPY --from=build /workspace/app/target/spring-ecommerce-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /workspace/app/wait-for-db.sh wait-for-db.sh
+COPY --from=build /workspace/app/src/main/resources/data/ /app/src/main/resources/data/
+
+RUN chmod +x wait-for-db.sh
+
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["./wait-for-db.sh", "db", "java","-jar","/app.jar"]

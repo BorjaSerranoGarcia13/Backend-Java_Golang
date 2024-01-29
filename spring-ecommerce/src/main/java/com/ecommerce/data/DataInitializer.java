@@ -41,14 +41,14 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        dataGenerator.generateDataAndWriteToJson();
+        //dataGenerator.generateDataAndWriteToJson();
         initializeData();
     }
 
     public void initializeData() throws IOException {
-        String userJsonPath = "src/main/resources/data/user.json";
-        String productJsonPath = "src/main/resources/data/product.json";
-        String orderJsonPath = "src/main/resources/data/order.json";
+        String userJsonPath = "/app/src/main/resources/data/user.json";
+        String productJsonPath = "/app/src/main/resources/data/product.json";
+        String orderJsonPath = "/app/src/main/resources/data/order.json";
 
         // Load users from user.json
         InputStream inputStream = new FileInputStream(userJsonPath);
