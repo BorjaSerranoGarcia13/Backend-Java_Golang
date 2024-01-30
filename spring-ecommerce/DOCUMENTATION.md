@@ -1055,7 +1055,26 @@ Deletes a specific product.
 -------------------
 
 ## Docker
-// Aquí va la descripción de Docker
+In this project, we use Docker and Docker Compose to simplify the deployment process and ensure consistent behavior across different environments.
+
+Docker is a platform that allows us to "containerize" our application, which means packaging the application along with all its related configuration files, libraries, and dependencies required for it to run. This ensures that the application will run the same, regardless of the environment it is running in.
+
+Docker Compose is a tool for defining and running multi-container Docker applications. With Compose, we use a YAML file (docker-compose.yml) to configure our application's services, and then create and start all the services from this configuration.
+
+In our `docker-compose.yml` file, we define two services:
+
+1. `app`: This is our main application, built using the Dockerfile in the project root. It runs on port 8080 and depends on the `db` service being available.
+
+2. `db`: This is a MySQL database, running on port 3306. The database is initialized with a root password and a database named 'ecommerce'.
+
+To run the application, you'll need to have Docker and Docker Compose installed on your machine. Once you have those installed, follow these steps:
+
+1. Make sure you have Docker and Docker Compose installed. You can check by running `docker --version`.
+2. Open your terminal. Navigate to the project directory (the directory containing the `docker-compose.yml` file).
+3. Run the command `docker-compose up`.
+ 
+##### This will start all the services defined in the `docker-compose.yml` file. Docker Compose will pull the necessary images (if they're not already locally available), build your services, and then start them.
+##### Now, the application and all its services should be running. You can access the application at `http://localhost:8080`.
 -----------
 
 ## Insomnia
