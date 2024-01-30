@@ -26,11 +26,11 @@ This project is implemented with the following technologies:
 Follow these steps to install and run the project:
 
 1. Clone the repository: `git clone https://github.com/BorjaSerranoGarcia13/backend-java.git`
-2. Make sure you have Docker installed. You can check by running `docker --version`.
-3. Navigate to the project directory: `cd backend-java.git`.
-4. Execute the `run-docker` bash script: `bash run-docker.sh`. This script sets up the necessary Docker containers for the application.
-5. Start all services with Docker: `docker-compose up`.
-
+2. Make sure you have Docker and Docker Compose installed. You can check by running `docker --version`.
+3. Open your terminal. Navigate to the project directory (the directory containing the `docker-compose.yml` file).
+5. Run the command `docker-compose up`.
+ 
+This will start all the services defined in the `docker-compose.yml` file. Docker Compose will pull the necessary images (if they're not already locally available), build your services, and then start them.
 Now, the application and all its services should be running. You can access the application at `http://localhost:8080`.
 
 ## Usage
