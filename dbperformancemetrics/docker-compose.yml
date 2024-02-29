@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mongodb_service:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: PERFORMANCE_DATABASE
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d
+
+  oracle_db_service:
+    image: oracleinanutshell/oracle-xe-11g
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_SID: XE
+      ORACLE_PWD: oracle
+    volumes:
+      - oracle_db_data:/ORCL
+      - ./oracle-init:/opt/oracle/scripts/startup
+
+volumes:
+  mongodb_data:
+  oracle_db_data:
