@@ -4,18 +4,31 @@ import com.bs.dbperformancemetrics.model.OracleUser;
 import com.bs.dbperformancemetrics.repository.oracle.jpa.OracleUserJPARepository;
 import com.bs.dbperformancemetrics.service.IUserService;
 import com.bs.dbperformancemetrics.utils.UserValidation;
+import org.hibernate.Session;
+import org.hibernate.engine.spi.EntityKey;
+import org.hibernate.stat.Statistics;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OracleUserJPAServiceImp implements IUserService<OracleUser, Long> {
     private final OracleUserJPARepository repository;
 
-    public OracleUserJPAServiceImp(OracleUserJPARepository repository) {
+    @PersistenceContext
+    private final EntityManager entityManager;
+
+    public OracleUserJPAServiceImp(OracleUserJPARepository repository, EntityManager entityManager) {
         this.repository = repository;
+        this.entityManager = entityManager;
     }
 
     // CREATE
@@ -23,27 +36,29 @@ public class OracleUserJPAServiceImp implements IUserService<OracleUser, Long> {
     @Override
     @Transactional
     public void insert(OracleUser user) {
-        save(user);
+        UserValidation.validateUserCreation(user);
+        entityManager.persist(createCopyOfUser(user));
     }
 
     @Override
     @Transactional
     public void insertAll(List<OracleUser> users) {
-        saveAll(users);
+        UserValidation.validateUsersCreation(users);
+        entityManager.persist(createCopyOfUserList(users));
     }
 
     @Override
     @Transactional
     public void save(OracleUser user) {
         UserValidation.validateUserCreation(user);
-        repository.save(user);
+        repository.save(createCopyOfUser(user));
     }
 
     @Override
     @Transactional
     public void saveAll(List<OracleUser> users) {
         UserValidation.validateUsersCreation(users);
-        repository.saveAll(users);
+        repository.saveAll(createCopyOfUserList(users));
     }
 
     // READ
@@ -68,7 +83,7 @@ public class OracleUserJPAServiceImp implements IUserService<OracleUser, Long> {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
 
-        return repository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("User with username " + username + " not found"));
+        return repository.findByUsername(username).orElse(null);
     }
 
     @Override
@@ -94,68 +109,63 @@ public class OracleUserJPAServiceImp implements IUserService<OracleUser, Long> {
 
     @Override
     @Transactional
+    public void updateAll(List<OracleUser> users) {
+        UserValidation.validateUsers(users);
+        saveAll(createCopyOfUserList(users));
+    }
+
+    @Override
+    @Transactional
     public void update(OracleUser user) {
+        UserValidation.validateUser(user);
+
+        repository.findById(user.getId())
+                .orElseThrow(() -> new IllegalArgumentException("User with ID " + user.getId() + " not found"));
+
         save(user);
     }
 
     @Override
     @Transactional
-    public void updateAll(List<OracleUser> users) {
-        saveAll(users);
-    }
-
-    // DELETE
-
-    @Override
-    @Transactional
-    public void deleteById(Long id) {
-        if (id == null || id <= 0) {
-            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
-        }
-
-        repository.deleteById(id);
-    }
-
-    @Override
-    @Transactional
-    public void deleteAll() {
-        repository.deleteAll();
-    }
-
-    @Override
-    @Transactional
-    public void changeUserName(Long userId, String newName) {
-        if (userId == null || userId <= 0) {
-            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
-        }
-        if (newName == null || newName.isEmpty()) {
-            throw new IllegalArgumentException("New name cannot be null or empty");
-        }
-
-        OracleUser user = repository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
-
-        user.setName(newName);
-
-        repository.save(user);
-    }
-
-    @Override
-    @Transactional
-    public void changePassword(Long userId, String newPassword) {
-        if (userId == null || userId <= 0) {
-            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
+    public void updatePasswordByUsername(String username, String newPassword) {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("User username cannot be null or empty");
         }
         if (newPassword == null || newPassword.isEmpty()) {
             throw new IllegalArgumentException("New password cannot be null or empty");
         }
 
-        OracleUser user = repository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
+        OracleUser user = repository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User with username " + username + " not found"));
 
         user.setPassword(newPassword);
 
+        UserValidation.validateUser(user);
+
         repository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public void updatePasswordByName(String name, String newPassword) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("User name cannot be null or empty");
+        }
+        if (newPassword == null || newPassword.isEmpty()) {
+            throw new IllegalArgumentException("New password cannot be null or empty");
+        }
+
+        List<OracleUser> users = repository.findByName(name);
+
+        if (users.isEmpty()) {
+            throw new IllegalArgumentException("User with name " + name + " not found");
+        }
+
+        users.forEach(user -> user.setPassword(newPassword));
+
+        UserValidation.validateUsers(users);
+
+        repository.saveAll(users);
     }
 
     @Override
@@ -188,6 +198,57 @@ public class OracleUserJPAServiceImp implements IUserService<OracleUser, Long> {
         user.removeFriend(friendId);
 
         repository.save(user);
+    }
+
+    // DELETE
+
+    @Override
+    @Transactional
+    public void deleteAll() {
+        repository.deleteAllInBatch();
+    }
+
+    @Override
+    @Transactional
+    public void deleteById(Long id) {
+        if (id == null || id <= 0) {
+            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
+        }
+
+        repository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteByUsername(String username) {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("User username cannot be null or empty");
+        }
+
+        repository.deleteByUsername(username);
+    }
+
+    @Override
+    @Transactional
+    public void deleteByName(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("User name cannot be null or empty");
+        }
+
+        repository.deleteByName(name);
+    }
+
+    @Override
+    public OracleUser createCopyOfUser(OracleUser originalUser) {
+        UserValidation.validateUser(originalUser);
+        return new OracleUser(originalUser);
+    }
+
+    @Override
+    public List<OracleUser> createCopyOfUserList(List<OracleUser> originalList) {
+        return originalList.parallelStream()
+                .map(OracleUser::new)
+                .collect(Collectors.toList());
     }
 
 }

@@ -4,13 +4,16 @@ import com.bs.dbperformancemetrics.service.mongoDB.driver.MongoDBTemplatePerform
 import com.bs.dbperformancemetrics.service.mongoDB.mongo.MongoDBMongoPerformanceService;
 import com.bs.dbperformancemetrics.service.oracle.jdbc.OracleJDBCPerformanceService;
 import com.bs.dbperformancemetrics.service.oracle.jpa.OracleJPAPerformanceService;
+import com.bs.dbperformancemetrics.service.performance.IDatabasePerformanceService;
 import com.bs.dbperformancemetrics.service.performance.result.PerformanceResult;
+import com.bs.dbperformancemetrics.service.performance.result.PerformanceResultGroup;
 import com.bs.dbperformancemetrics.service.performance.result.ResultFormatter;
 import com.bs.dbperformancemetrics.utils.Constants;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PerformanceUpdateService implements IPerformanceUpdateService {
@@ -38,7 +41,7 @@ public class PerformanceUpdateService implements IPerformanceUpdateService {
     }
 
     @Override
-    public String updateAllUsersEmptyCollection() {
+    public String updateAllUsers() {
 
         List<PerformanceResult> databaseDetailsAndExecutionTimes = new ArrayList<>();
 
@@ -51,24 +54,79 @@ public class PerformanceUpdateService implements IPerformanceUpdateService {
         databaseDetailsAndExecutionTimes.add(mongoDBTemplatePerformanceService.updateAllUsers());
 
         return resultFormatter.formatForAllResultString(databaseDetailsAndExecutionTimes,
-                "Updating all users in the database", Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA);
+                "Performs a update operation to store a complete user record, and calculates the average execution time.",
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA);
+
     }
 
     @Override
-    public String updateAllUsersFullCollection() {
+    public String updateUserById() {
+        List<PerformanceResult> databaseDetailsAndExecutionTimes = new ArrayList<>();
 
-        return null;
+        databaseDetailsAndExecutionTimes.add(oracleJPAPerformanceService.updateUserById());
+
+        databaseDetailsAndExecutionTimes.add(oracleJDBCPerformanceService.updateUserById());
+
+        databaseDetailsAndExecutionTimes.add(mongoDBMongoPerformanceService.updateUserById());
+
+        databaseDetailsAndExecutionTimes.add(mongoDBTemplatePerformanceService.updateUserById());
+
+        return resultFormatter.formatForAllResultString(databaseDetailsAndExecutionTimes,
+                "Performs a update operation to store a single user record by ID at different positions (first, middle, last), and calculates the average execution time.",
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA + 1);
     }
 
     @Override
-    public String updateUserFullCollection() {
-        return null;
+    public String updateUserByIndexedField() {
+        List<PerformanceResult> databaseDetailsAndExecutionTimes = new ArrayList<>();
+
+        databaseDetailsAndExecutionTimes.add(oracleJPAPerformanceService.updateUserByIndexedField());
+
+        databaseDetailsAndExecutionTimes.add(oracleJDBCPerformanceService.updateUserByIndexedField());
+
+        databaseDetailsAndExecutionTimes.add(mongoDBMongoPerformanceService.updateUserByIndexedField());
+
+        databaseDetailsAndExecutionTimes.add(mongoDBTemplatePerformanceService.updateUserByIndexedField());
+
+        return resultFormatter.formatForAllResultString(databaseDetailsAndExecutionTimes,
+                "Performs a update operation to store a single user record by indexed field at different positions (first, middle, last), and calculates the average execution time.",
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA + 1);
     }
 
     @Override
-    public String compareUpdateMethods() {
+    public String updateUserByNonIndexedField() {
+        List<PerformanceResult> databaseDetailsAndExecutionTimes = new ArrayList<>();
 
-        return null;
+        databaseDetailsAndExecutionTimes.add(oracleJPAPerformanceService.updateUserByNonIndexedField());
+
+        databaseDetailsAndExecutionTimes.add(oracleJDBCPerformanceService.updateUserByNonIndexedField());
+
+        databaseDetailsAndExecutionTimes.add(mongoDBMongoPerformanceService.updateUserByNonIndexedField());
+
+        databaseDetailsAndExecutionTimes.add(mongoDBTemplatePerformanceService.updateUserByNonIndexedField());
+
+        return resultFormatter.formatForAllResultString(databaseDetailsAndExecutionTimes,
+                "Performs a update operation to store a single user record by non-indexed field at different positions (first, middle, last), and calculates the average execution time.",
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA + 1);
+    }
+
+    @Override
+    public String compareUpsertUpdate() {
+
+        List<IDatabasePerformanceService> services = List.of(
+                oracleJPAPerformanceService,
+                oracleJDBCPerformanceService,
+                mongoDBMongoPerformanceService,
+                mongoDBTemplatePerformanceService
+        );
+
+        List<PerformanceResultGroup> performanceResultGroups = services.stream()
+                .map(service -> new PerformanceResultGroup(service.compareUpsertUpdate()))
+                .collect(Collectors.toList());
+
+        return resultFormatter.formatForSpecificResultString(performanceResultGroups,
+                "Performs a comparison of upsert versus insert operations for user updating in the database, and calculates the average execution time.",
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA);
     }
 
 }

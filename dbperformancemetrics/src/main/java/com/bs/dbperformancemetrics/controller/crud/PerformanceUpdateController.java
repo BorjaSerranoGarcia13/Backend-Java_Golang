@@ -17,27 +17,33 @@ public class PerformanceUpdateController {
         this.performanceUpdateService = performanceUpdateService;
     }
 
-    @PutMapping("/updateAllUsersEmptyCollection")
-    public ResponseEntity<String> updateAllUsersEmptyCollection() {
-        String result = performanceUpdateService.updateAllUsersEmptyCollection();
+    @PutMapping("/updateAllUsers")
+    public ResponseEntity<String> updateAllUsers() {
+        String result = performanceUpdateService.updateAllUsers();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PutMapping("/updateAllUsersFullCollection")
-    public ResponseEntity<String> updateAllUsersFullCollection() {
-        String result = performanceUpdateService.updateAllUsersFullCollection();
+    @PutMapping("/updateUserById")
+    public ResponseEntity<String> updateUserById() {
+        String result = performanceUpdateService.updateUserById();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PutMapping("/updateUserFullCollection")
-    public ResponseEntity<String> updateUserFullCollection() {
-        String result = performanceUpdateService.updateUserFullCollection();
+    @PutMapping("/updateUserByIndexedField")
+    public ResponseEntity<String> updateUserByIndexedField() {
+        String result = performanceUpdateService.updateUserByIndexedField();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PutMapping("/compareUpdateMethods")
-    public ResponseEntity<String> compareUpdateMethods() {
-        String result = performanceUpdateService.compareUpdateMethods();
+    @PutMapping("/updateUserByNonIndexedField")
+    public ResponseEntity<String> updateUserByNonIndexedField() {
+        String result = performanceUpdateService.updateUserByNonIndexedField();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @PutMapping("/compareUpsertUpdate")
+    public ResponseEntity<String> compareUpsertUpdate() {
+        String result = performanceUpdateService.compareUpsertUpdate();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

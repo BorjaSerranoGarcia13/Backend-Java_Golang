@@ -2,12 +2,14 @@ package com.bs.dbperformancemetrics.service.performance.crud.update;
 
 public interface IPerformanceUpdateService {
 
-    String updateAllUsersEmptyCollection();
+    String updateAllUsers();
 
-    String updateAllUsersFullCollection();
+    String updateUserById();
 
-    String updateUserFullCollection();
+    String updateUserByIndexedField();
 
-    // esto debe comparar entre update y upsert
-    String compareUpdateMethods();
+    String updateUserByNonIndexedField();
+
+    String compareUpsertUpdate();
+
 }

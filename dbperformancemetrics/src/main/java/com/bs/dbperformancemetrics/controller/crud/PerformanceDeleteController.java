@@ -23,6 +23,12 @@ public class PerformanceDeleteController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @DeleteMapping("/deleteUserById")
+    public ResponseEntity<String> deleteUserById() {
+        String result = performanceDeleteService.deleteUserById();
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
     @DeleteMapping("/deleteUserByIndexedField")
     public ResponseEntity<String> deleteUserByIndexedField() {
         String result = performanceDeleteService.deleteUserByIndexedField();
@@ -35,15 +41,9 @@ public class PerformanceDeleteController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteUserFieldByIndexedField")
-    public ResponseEntity<String> deleteUserFieldByIndexedField() {
-        String result = performanceDeleteService.deleteUserFieldByIndexedField();
-        return new ResponseEntity<>(result, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/compareDeleteMethods")
-    public ResponseEntity<String> compareDeleteMethods() {
-        String result = performanceDeleteService.compareDeleteMethods();
+    @DeleteMapping("/compareDeleteIndexAndNonIndex")
+    public ResponseEntity<String> compareDeleteIndexAndNonIndex() {
+        String result = performanceDeleteService.compareDeleteIndexAndNonIndex();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

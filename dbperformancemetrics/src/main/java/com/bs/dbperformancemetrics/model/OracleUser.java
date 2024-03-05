@@ -8,18 +8,30 @@ import java.util.List;
 @Table(name = "ORACLE_USER",
         indexes = {@Index(name = "index_username", columnList = "username", unique = true)})
 public class OracleUser implements IUser<Long> {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user_id")
+    @SequenceGenerator(name = "seq_user_id", sequenceName = "seq_user_id", allocationSize = 1)
     private Long id;
 
     private String name;
+
     private String username;
+
     private String password;
 
     @ElementCollection
     private List<Long> friendIds;
 
     public OracleUser() {
+    }
+
+    public OracleUser(OracleUser user) {
+        this.id = user.getId();
+        this.name = user.getName();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.friendIds = user.getFriends();
     }
 
     public OracleUser(String name, String username, String password) {

@@ -54,8 +54,8 @@ public class PerformanceCreateService implements IPerformanceCreateService {
         databaseDetailsAndExecutionTimes.add(mongoDBTemplatePerformanceService.saveUsers(Constants.NUMBER_OF_DATA));
 
         return resultFormatter.formatForAllResultString(databaseDetailsAndExecutionTimes,
-                "Performs a save operation to store a single user record in a empty database, and calculates the average execution time.",
-                Constants.NUMBER_OF_ITERATIONS + 1, Constants.NUMBER_OF_DATA);
+                "Performs a save operation to store a complete user record in a empty database, and calculates the average execution time.",
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA);
     }
 
     @Override
@@ -63,23 +63,38 @@ public class PerformanceCreateService implements IPerformanceCreateService {
 
         List<PerformanceResult> databaseDetailsAndExecutionTimes = new ArrayList<>();
 
-        databaseDetailsAndExecutionTimes.add(oracleJPAPerformanceService.saveUser());
+        long startTime = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
 
-        databaseDetailsAndExecutionTimes.add(oracleJDBCPerformanceService.saveUser());
+        startTime = System.currentTimeMillis();
 
+        startTime = System.currentTimeMillis();
+        //databaseDetailsAndExecutionTimes.add(oracleJPAPerformanceService.saveUser());
+        endTime = System.currentTimeMillis();
+        System.out.println("JPA TOTAL: " + (endTime - startTime) / 1000.0 + " segundos");
+
+        startTime = System.currentTimeMillis();
+        //databaseDetailsAndExecutionTimes.add(oracleJDBCPerformanceService.saveUser());
+        endTime = System.currentTimeMillis();
+        System.out.println("JDBC TOTAL: " + (endTime - startTime) / 1000.0 + " segundos");
+
+        startTime = System.currentTimeMillis();
         databaseDetailsAndExecutionTimes.add(mongoDBMongoPerformanceService.saveUser());
+        endTime = System.currentTimeMillis();
+        System.out.println("mongo: " + (endTime - startTime) / 1000.0 + " segundos");
 
-        databaseDetailsAndExecutionTimes.add(mongoDBTemplatePerformanceService.saveUser());
+        startTime = System.currentTimeMillis();
+        //databaseDetailsAndExecutionTimes.add(mongoDBTemplatePerformanceService.saveUser());
+        endTime = System.currentTimeMillis();
+        System.out.println("template: " + (endTime - startTime) / 1000.0 + " segundos");
 
         return resultFormatter.formatForAllResultString(databaseDetailsAndExecutionTimes,
                 "Performs a save operation to store a single user record in a full database, and calculates the average execution time.",
-                Constants.NUMBER_OF_ITERATIONS + 1, Constants.NUMBER_OF_DATA);
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA + 1);
     }
 
     @Override
     public String compareUpsertInsert() {
-
-        int numberOfData = Constants.NUMBER_OF_DATA / 2;
 
         List<IDatabasePerformanceService> services = List.of(
                 oracleJPAPerformanceService,
@@ -89,11 +104,11 @@ public class PerformanceCreateService implements IPerformanceCreateService {
         );
 
         List<PerformanceResultGroup> performanceResultGroups = services.stream()
-                .map(service -> new PerformanceResultGroup(service.compareUpsertInsert(numberOfData)))
+                .map(service -> new PerformanceResultGroup(service.compareUpsertInsert()))
                 .collect(Collectors.toList());
 
         return resultFormatter.formatForSpecificResultString(performanceResultGroups,
-                "Performs a comparison of upsert and insert operations for user saving in the database, and calculates the average execution time.",
-                Constants.NUMBER_OF_ITERATIONS, numberOfData);
+                "Performs a comparison of upsert versus insert operations for user saving in the database, and calculates the average execution time.",
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA);
     }
 }

@@ -11,7 +11,9 @@ import com.bs.dbperformancemetrics.utils.PerformanceMeasurementUtils;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import static com.bs.dbperformancemetrics.utils.PerformanceMeasurementUtils.measureExecutionTime;
@@ -50,14 +52,14 @@ public class OracleJDBCPerformanceService implements IDatabasePerformanceService
 
     @Override
     public void resetDatabase() {
-        config.resetSequence();
+        config.resetAndCreateIDSequence();
     }
 
     @Override
     public void seedDatabase() {
         final int startUserId = 1;
-        List<OracleUser> oracleUsers = userUploader.generateRandomUsers(Constants.NUMBER_OF_DATA, startUserId);
-        userService.saveAll(oracleUsers);
+        List<OracleUser> users = userUploader.generateRandomUsers(Constants.NUMBER_OF_DATA, startUserId);
+        userService.insertAll(users);
     }
 
     @Override
@@ -75,11 +77,12 @@ public class OracleJDBCPerformanceService implements IDatabasePerformanceService
         final long executionTime = measureExecutionTime(() -> {
             prepareEmptyDatabase();
             resetDatabase();
+
         }, () -> {
-            userService.saveAll(users);
+            userService.insertAll(users);
         });
 
-        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Upsert", executionTime));
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Insert", executionTime));
     }
 
     @Override
@@ -93,18 +96,18 @@ public class OracleJDBCPerformanceService implements IDatabasePerformanceService
         final long executionTime = measureExecutionTime(() -> {
             prepareEmptyDatabase();
             resetDatabase();
-            userService.saveAll(users);
+            userService.insertAll(users);
         }, () -> {
-            userService.save(addUser);
+            userService.insert(addUser);
         });
 
-        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Upsert", executionTime));
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Insert", executionTime));
     }
 
     @Override
-    public List<PerformanceResult> compareUpsertInsert(int numberOfData) {
+    public List<PerformanceResult> compareUpsertInsert() {
         final int startUserId = 1;
-        List<OracleUser> users = userUploader.generateRandomUsers(numberOfData, startUserId);
+        List<OracleUser> users = userUploader.generateRandomUsers(Constants.NUMBER_OF_DATA, startUserId);
 
         final long executionTimeUpsert = measureExecutionTime(() -> {
             prepareEmptyDatabase();
@@ -235,17 +238,115 @@ public class OracleJDBCPerformanceService implements IDatabasePerformanceService
 
     @Override
     public PerformanceResult updateAllUsers() {
-        Supplier<List<OracleUser>> supplier = () -> {
-            initializeDatabase();
-            List<OracleUser> oracleUsers = userService.findAll();
-            oracleUsers.forEach(user -> user.setName("Updated"));
-            return oracleUsers;
-        };
 
-        final long executionTime = measureExecutionTime(supplier, userService::saveAll);
+        initializeDatabase();
+
+        List<OracleUser> users = userService.findAll();
+
+        List<OracleUser> updatedUsers = new ArrayList<>(users);
+        updatedUsers.forEach(user -> user.setName("updatedName"));
+
+        final long executionTime = measureExecutionTime(() -> {
+            userService.saveAll(users);
+        }, () -> {
+            userService.updateAll(updatedUsers);
+        });
 
         return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Update", executionTime));
+    }
 
+    @Override
+    public PerformanceResult updateUserById() {
+
+        initializeDatabase();
+
+        List<OracleUser> selectedUsers = List.of(
+                userService.findById(1L),
+                userService.findById(Constants.NUMBER_OF_DATA / 2L),
+                userService.findById((long) Constants.NUMBER_OF_DATA)
+        );
+
+        List<OracleUser> updatedUsers = new ArrayList<>(selectedUsers);
+        updatedUsers.forEach(user -> user.setName("updatedName"));
+
+        final long executionTime = measureExecutionTime(() -> {
+            userService.saveAll(selectedUsers);
+        }, () -> {
+            updatedUsers.forEach(userService::update);
+        });
+
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Update", executionTime));
+    }
+
+    @Override
+    public PerformanceResult updateUserByIndexedField() {
+
+        initializeDatabase();
+
+        List<OracleUser> selectedUsers = List.of(
+                userService.findById(1L),
+                userService.findById(Constants.NUMBER_OF_DATA / 2L),
+                userService.findById((long) Constants.NUMBER_OF_DATA)
+        );
+
+        final long executionTime = measureExecutionTime(() -> {
+            userService.saveAll(selectedUsers);
+        }, () -> {
+            selectedUsers.forEach(user ->
+                    userService.updatePasswordByUsername(user.getUsername(), "updatedPassword")
+            );
+        });
+
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Update", executionTime));
+    }
+
+    @Override
+    public PerformanceResult updateUserByNonIndexedField() {
+
+        initializeDatabase();
+
+        List<OracleUser> selectedUsers = List.of(
+                userService.findById(1L),
+                userService.findById(Constants.NUMBER_OF_DATA / 2L),
+                userService.findById((long) Constants.NUMBER_OF_DATA)
+        );
+
+        final long executionTime = measureExecutionTime(() -> {
+            userService.saveAll(selectedUsers);
+        }, () -> {
+            selectedUsers.forEach(user ->
+                    userService.updatePasswordByName(user.getName(), "updatedPassword")
+            );
+        });
+
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Update", executionTime));
+    }
+
+    @Override
+    public List<PerformanceResult> compareUpsertUpdate() {
+
+        initializeDatabase();
+
+        List<OracleUser> users = userService.findAll();
+
+        List<OracleUser> updatedUsers = new ArrayList<>(users);
+        updatedUsers.forEach(user -> user.setName("updatedName"));
+
+        final long executionTimeUpsert = measureExecutionTime(() -> {
+            userService.saveAll(users);
+        }, () -> {
+            userService.saveAll(updatedUsers);
+        });
+
+        final long executionTimeUpdate = measureExecutionTime(() -> {
+            userService.saveAll(users);
+        }, () -> {
+            userService.updateAll(updatedUsers);
+        });
+
+        return performanceResultModifier.modifyPerformanceResults(List.of(
+                performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Upsert", executionTimeUpsert),
+                performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Update", executionTimeUpdate)));
     }
 
     @Override
@@ -256,7 +357,94 @@ public class OracleJDBCPerformanceService implements IDatabasePerformanceService
         });
 
         return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Delete", executionTime));
-
     }
+
+    @Override
+    public PerformanceResult deleteUserById() {
+
+        final int startUserId = 1;
+        List<OracleUser> newUsers = userUploader.generateRandomUsers(Constants.NUMBER_OF_DATA / 2, startUserId);
+
+        Supplier<List<Long>> selectedUsersSupplier = () -> {
+            prepareEmptyDatabase();
+            resetDatabase();
+            userService.saveAll(newUsers);
+
+            List<OracleUser> users = userService.findAll();
+
+            return List.of(
+                    users.get(0).getId(),
+                    users.get(users.size() / 2).getId(),
+                    users.get(users.size() - 1).getId()
+            );
+        };
+
+        Consumer<List<Long>> stringListConsumer = list -> {
+            list.forEach(userService::deleteById);
+        };
+
+        final long executionTime = measureExecutionTime(selectedUsersSupplier, stringListConsumer);
+
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Delete", executionTime));
+    }
+
+    @Override
+    public PerformanceResult deleteUserByUsername() {
+
+        final int startUserId = 1;
+        List<OracleUser> newUsers = userUploader.generateRandomUsers(Constants.NUMBER_OF_DATA / 2, startUserId);
+
+        Supplier<List<String>> selectedUsersSupplier = () -> {
+            prepareEmptyDatabase();
+            resetDatabase();
+            userService.saveAll(newUsers);
+
+            List<OracleUser> users = userService.findAll();
+
+            return List.of(
+                    users.get(0).getUsername(),
+                    users.get(users.size() / 2).getUsername(),
+                    users.get(users.size() - 1).getUsername()
+            );
+        };
+
+        Consumer<List<String>> stringListConsumer = list -> {
+            list.forEach(userService::deleteByUsername);
+        };
+
+        final long executionTime = measureExecutionTime(selectedUsersSupplier, stringListConsumer);
+
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Delete By Idx", executionTime));
+    }
+
+    @Override
+    public PerformanceResult deleteUserByName() {
+
+        final int startUserId = 1;
+        List<OracleUser> newUsers = userUploader.generateRandomUsers(Constants.NUMBER_OF_DATA / 2, startUserId);
+
+        Supplier<List<String>> selectedUsersSupplier = () -> {
+            prepareEmptyDatabase();
+            resetDatabase();
+            userService.saveAll(newUsers);
+
+            List<OracleUser> users = userService.findAll();
+
+            return List.of(
+                    users.get(0).getName(),
+                    users.get(users.size() / 2).getName(),
+                    users.get(users.size() - 1).getName()
+            );
+        };
+
+        Consumer<List<String>> stringListConsumer = list -> {
+            list.forEach(userService::deleteByName);
+        };
+
+        final long executionTime = measureExecutionTime(selectedUsersSupplier, stringListConsumer);
+
+        return performanceResultModifier.modifyPerformanceResult(performanceResultModifier.generatePerformanceResultString(getDatabaseDetails(), "Delete By N-Idx", executionTime));
+    }
+
 
 }

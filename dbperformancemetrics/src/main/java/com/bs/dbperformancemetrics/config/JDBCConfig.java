@@ -20,7 +20,12 @@ public class JDBCConfig {
     @PostConstruct
     public void init() {
         deleteAllTableContents();
-        resetSequence();
+    }
+
+    @Transactional
+    public void createIDSequence() {
+        String sql = "CREATE SEQUENCE seq_user_id MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 50";
+        jdbcTemplate.execute(sql);
     }
 
     @Transactional
@@ -29,8 +34,10 @@ public class JDBCConfig {
     }
 
     @Transactional
-    public void resetSequence() {
-        jdbcTemplate.update("DROP SEQUENCE HIBERNATE_SEQUENCE");
-        jdbcTemplate.update("CREATE SEQUENCE HIBERNATE_SEQUENCE START WITH 1");
+    public void resetAndCreateIDSequence() {
+        String dropSql = "BEGIN EXECUTE IMMEDIATE 'DROP SEQUENCE seq_user_id'; EXCEPTION WHEN OTHERS THEN IF SQLCODE != -2289 THEN RAISE; END IF; END;";
+        jdbcTemplate.execute(dropSql);
+        String createSql = "CREATE SEQUENCE seq_user_id MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 50";
+        jdbcTemplate.execute(createSql);
     }
 }

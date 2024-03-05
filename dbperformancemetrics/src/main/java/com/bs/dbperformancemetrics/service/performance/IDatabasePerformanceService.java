@@ -20,7 +20,7 @@ public interface IDatabasePerformanceService {
 
     PerformanceResult saveUser();
 
-    List<PerformanceResult> compareUpsertInsert(int numberOfData);
+    List<PerformanceResult> compareUpsertInsert();
 
     PerformanceResult findAllUsers();
 
@@ -34,6 +34,20 @@ public interface IDatabasePerformanceService {
 
     PerformanceResult updateAllUsers();
 
+    PerformanceResult updateUserById();
+
+    PerformanceResult updateUserByIndexedField();
+
+    PerformanceResult updateUserByNonIndexedField();
+
+    List<PerformanceResult> compareUpsertUpdate();
+
     PerformanceResult deleteAllUsers();
+
+    PerformanceResult deleteUserById();
+
+    PerformanceResult deleteUserByUsername();
+
+    PerformanceResult deleteUserByName();
 
 }

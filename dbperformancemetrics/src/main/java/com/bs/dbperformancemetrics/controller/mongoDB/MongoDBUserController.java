@@ -40,16 +40,6 @@ public class MongoDBUserController {
         mongoDBUserService.deleteById(id);
     }
 
-    @PatchMapping("/{userId}/name")
-    public void changeUserName(@PathVariable String userId, @RequestBody String newName) {
-        mongoDBUserService.changeUserName(userId, newName);
-    }
-
-    @PatchMapping("/{userId}/password")
-    public void changePassword(@PathVariable String userId, @RequestBody String newName) {
-        mongoDBUserService.changePassword(userId, newName);
-    }
-
     @PostMapping("/{userId}/friend")
     public void addFriend(@PathVariable String userId, @RequestBody String friendId) {
         mongoDBUserService.addFriend(userId, friendId);

@@ -24,4 +24,5 @@ public interface IUser<ID> {
     void addFriend(ID friend);
 
     void removeFriend(ID friend);
+
 }

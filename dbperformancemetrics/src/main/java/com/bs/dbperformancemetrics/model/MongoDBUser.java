@@ -9,16 +9,28 @@ import java.util.List;
 
 @Document(collection = "mongoDBUser")
 public class MongoDBUser implements IUser<String> {
+
     @Id
     private String id;
 
     private String name;
+
     @Indexed(unique = true)
     private String username;
+
     private String password;
+
     private List<String> friendIds;
 
     public MongoDBUser() {
+    }
+
+    public MongoDBUser(MongoDBUser user) {
+        this.id = user.getId();
+        this.name = user.getName();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.friendIds = user.getFriends();
     }
 
     public MongoDBUser(String name, String username, String password) {

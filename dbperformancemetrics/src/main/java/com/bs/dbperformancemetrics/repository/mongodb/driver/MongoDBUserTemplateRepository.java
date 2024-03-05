@@ -2,6 +2,7 @@ package com.bs.dbperformancemetrics.repository.mongodb.driver;
 
 import com.bs.dbperformancemetrics.model.MongoDBUser;
 import com.bs.dbperformancemetrics.repository.BaseRepository;
+import com.google.common.collect.Lists;
 import com.mongodb.client.model.UpdateOneModel;
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.model.Updates;
@@ -43,26 +44,35 @@ public class MongoDBUserTemplateRepository implements BaseRepository<MongoDBUser
 
     @Override
     public void saveAll(List<MongoDBUser> users) {
+        int batchSize = 1000;
+
+        List<List<MongoDBUser>> batches = Lists.partition(users, batchSize);
+
         List<WriteModel<Document>> bulkUpsertOperations = new ArrayList<>();
         UpdateOptions updateOptions = new UpdateOptions().upsert(true);
+        Document queryDocument = new Document();
 
-        for (MongoDBUser user : users) {
-            Document queryDocument = new Document();
-            queryDocument.put("_username", user.getUsername());
+        for (List<MongoDBUser> batch : batches) {
+            bulkUpsertOperations.clear();
 
-            bulkUpsertOperations.add(new UpdateOneModel<>(
-                    queryDocument,
-                    Updates.combine(
-                            Updates.set("name", user.getName()),
-                            Updates.set("username", user.getUsername()),
-                            Updates.set("password", user.getPassword()),
-                            Updates.set("friends", user.getFriends())
-                    ),
-                    updateOptions
-            ));
+            for (MongoDBUser user : batch) {
+                queryDocument.clear();
+                queryDocument.put("username", user.getUsername());
+
+                bulkUpsertOperations.add(new UpdateOneModel<>(
+                        queryDocument,
+                        Updates.combine(
+                                Updates.set("name", user.getName()),
+                                Updates.set("username", user.getUsername()),
+                                Updates.set("password", user.getPassword()),
+                                Updates.set("friends", user.getFriends())
+                        ),
+                        updateOptions
+                ));
+            }
+
+            mongoTemplate.getCollection(mongoTemplate.getCollectionName(MongoDBUser.class)).bulkWrite(bulkUpsertOperations);
         }
-
-        mongoTemplate.getCollection(mongoTemplate.getCollectionName(MongoDBUser.class)).bulkWrite(bulkUpsertOperations);
     }
 
     @Override
@@ -102,7 +112,6 @@ public class MongoDBUserTemplateRepository implements BaseRepository<MongoDBUser
         update.set("name", user.getName());
         update.set("username", user.getUsername());
         update.set("password", user.getPassword());
-        update.set("friends", user.getFriends());
         mongoTemplate.updateFirst(query, update, MongoDBUser.class);
     }
 
@@ -112,20 +121,24 @@ public class MongoDBUserTemplateRepository implements BaseRepository<MongoDBUser
 
         for (MongoDBUser user : users) {
             Document queryDocument = new Document();
-            queryDocument.put("_id", user.getId());
+            queryDocument.put("id", user.getId());
 
             bulkOperations.add(new UpdateOneModel<>(
                     queryDocument,
                     Updates.combine(
                             Updates.set("name", user.getName()),
                             Updates.set("username", user.getUsername()),
-                            Updates.set("password", user.getPassword()),
-                            Updates.set("friends", user.getFriends())
+                            Updates.set("password", user.getPassword())
                     )
             ));
         }
 
         mongoTemplate.getCollection(mongoTemplate.getCollectionName(MongoDBUser.class)).bulkWrite(bulkOperations);
+    }
+
+    @Override
+    public void deleteAll() {
+        mongoTemplate.remove(new Query(), MongoDBUser.class);
     }
 
     @Override
@@ -136,7 +149,17 @@ public class MongoDBUserTemplateRepository implements BaseRepository<MongoDBUser
     }
 
     @Override
-    public void deleteAll() {
-        mongoTemplate.remove(new Query(), MongoDBUser.class);
+    public void deleteByUsername(String username) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("username").is(username));
+        mongoTemplate.remove(query, MongoDBUser.class);
     }
+
+    @Override
+    public void deleteByName(String name) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("name").is(name));
+        mongoTemplate.remove(query, MongoDBUser.class);
+    }
+
 }

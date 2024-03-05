@@ -2,7 +2,10 @@ package com.bs.dbperformancemetrics.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.lang.NonNull;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -26,8 +29,8 @@ public class JPAConfig {
     public void init() {
         transactionTemplate.execute(new TransactionCallbackWithoutResult() {
             @Override
-            protected void doInTransactionWithoutResult(TransactionStatus status) {
-                deleteAllTableContents();
+            protected void doInTransactionWithoutResult(@NonNull TransactionStatus status) {
+
             }
         });
     }
@@ -35,14 +38,19 @@ public class JPAConfig {
     @Transactional
     public void deleteAllTableContents() {
         entityManager.createNativeQuery("DELETE FROM ORACLE_USER").executeUpdate();
-        resetSequence();
     }
 
     @Transactional
-    public void resetSequence() {
-        entityManager.createNativeQuery("DROP SEQUENCE HIBERNATE_SEQUENCE").executeUpdate();
-        entityManager.createNativeQuery("CREATE SEQUENCE HIBERNATE_SEQUENCE START WITH 1").executeUpdate();
+    public void resetAndCreateIDSequence() {
+        String dropSql = "BEGIN EXECUTE IMMEDIATE 'DROP SEQUENCE seq_user_id'; EXCEPTION WHEN OTHERS THEN IF SQLCODE != -2289 THEN RAISE; END IF; END;";
+        entityManager.createNativeQuery(dropSql).executeUpdate();
+        String createSql = "CREATE SEQUENCE seq_user_id MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 1000";
+        entityManager.createNativeQuery(createSql).executeUpdate();
+    }
+
+    @Transactional
+    public void createIDSequence() {
+        entityManager.createNativeQuery("CREATE SEQUENCE seq_user_id MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 1000").executeUpdate();
     }
 
 }
-

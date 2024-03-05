@@ -5,13 +5,13 @@ import java.util.Optional;
 
 public interface BaseRepository<T, ID> {
 
-    void insert(T t);
-
     void insertAll(List<T> t);
 
-    void save(T t);
+    void insert(T t);
 
     void saveAll(List<T> t);
+
+    void save(T t);
 
     List<T> findAll();
 
@@ -23,11 +23,15 @@ public interface BaseRepository<T, ID> {
 
     Optional<String> findPasswordByUsername(String username);
 
+    void updateAll(List<T> t);
+
     void update(T t);
 
-    void updateAll(List<T> t);
+    void deleteAll();
 
     void deleteById(ID id);
 
-    void deleteAll();
+    void deleteByUsername(String username);
+
+    void deleteByName(String name);
 }

@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
@@ -19,6 +20,47 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     private final JdbcTemplate jdbcTemplate;
 
+    final static String INSERT_SQL = "INSERT INTO ORACLE_USER (id, name, username, password) VALUES (?, ?, ?, ?)";
+
+    final static String INSERT_ALL_SQL = "INSERT INTO ORACLE_USER (id, name, username, password) VALUES (?, ?, ?, ?)";
+
+    final static String SAVE_SQL = "MERGE INTO ORACLE_USER u USING (SELECT ? AS id, ? AS name, ? AS username, ? AS password FROM dual) incoming "
+                                   + "ON (u.id = incoming.id) "
+                                   + "WHEN MATCHED THEN UPDATE SET u.name = incoming.name, u.username = incoming.username, u.password = incoming.password "
+                                   + "WHEN NOT MATCHED THEN INSERT (id, name, username, password) VALUES (incoming.id, incoming.name, incoming.username, incoming.password)";
+
+    final static String SAVE_ALL_SQL = "MERGE INTO ORACLE_USER u USING (SELECT ? AS id, ? AS name, ? AS username, ? AS password FROM dual) incoming "
+                                       + "ON (u.id = incoming.id) "
+                                       + "WHEN MATCHED THEN UPDATE SET u.name = incoming.name, u.username = incoming.username, u.password = incoming.password "
+                                       + "WHEN NOT MATCHED THEN INSERT (id, name, username, password) VALUES (incoming.id, incoming.name, incoming.username, incoming.password)";
+
+
+    final static String DELETE_BY_NAME_SQL = "DELETE FROM ORACLE_USER WHERE name = ?";
+
+    final static String DELETE_BY_USERNAME_SQL = "DELETE FROM ORACLE_USER WHERE username = ?";
+
+    final static String DELETE_BY_ID_SQL = "DELETE FROM ORACLE_USER WHERE id = ?";
+
+    final static String DELETE_ALL_SQL = "DELETE FROM ORACLE_USER";
+
+    final static String UPDATE_ALL_SQL = "UPDATE ORACLE_USER SET name = ?, username = ?, password = ? WHERE id = ?";
+
+    final static String UPDATE_BY_ID_SQL = "UPDATE ORACLE_USER SET name = ?, username = ?, password = ? WHERE id = ?";
+
+    final static String FIND_PASSWORD_BU_USERNAME_SQL = "SELECT password FROM ORACLE_USER WHERE username = ?";
+
+    final static String FIND_BY_NAME_SQL = "SELECT * FROM ORACLE_USER WHERE name = ?";
+
+    final static String FIND_BY_USERNAME_SQL = "SELECT * FROM ORACLE_USER WHERE username = ?";
+
+    final static String FIND_BY_ID_SQL = "SELECT * FROM ORACLE_USER WHERE id = ?";
+
+    final static String FIND_ALL_SQL = "SELECT * FROM ORACLE_USER ORDER BY id ASC";
+
+
+    final static String GENERATE_ID_SQL = "SELECT COALESCE(MAX(id), 0) + 1 FROM ORACLE_USER";
+
+
     @Autowired
     public OracleUserJDBCRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -26,95 +68,99 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     @Override
     public void insert(OracleUser user) {
-        String sql = "INSERT INTO ORACLE_USER (id, name, username, password) VALUES (?, ?, ?, ?)";
-
-        jdbcTemplate.update(sql, generateId(), user.getName(), user.getUsername(), user.getPassword());
+        jdbcTemplate.update(INSERT_SQL, generateId(),user.getName(), user.getUsername(), user.getPassword());
     }
 
     @Override
     public void insertAll(List<OracleUser> users) {
-        String sql = "INSERT INTO ORACLE_USER (id, name, username, password) VALUES (?, ?, ?, ?)";
+
+        final int batchSize = 1000;
 
         long maxId = generateId();
 
-        jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
-            @Override
-            public void setValues(PreparedStatement ps, int i) throws SQLException {
-                OracleUser user = users.get(i);
+        for (int i = 0; i < users.size(); i += batchSize) {
+            int index = i;
 
-                if (user.getId() == null) {
-                    user.setId(maxId + i);
+            final List<OracleUser> batch = users.subList(i, Math.min(users.size(), i + batchSize));
+
+            jdbcTemplate.batchUpdate(INSERT_ALL_SQL, new BatchPreparedStatementSetter() {
+                @Override
+                public void setValues(@NonNull PreparedStatement ps, int j) throws SQLException {
+                    OracleUser user = batch.get(j);
+
+                    if (user.getId() == null) {
+                        user.setId(maxId + index + j);
+                    }
+
+                    ps.setLong(1, user.getId());
+                    ps.setString(2, user.getName());
+                    ps.setString(3, user.getUsername());
+                    ps.setString(4, user.getPassword());
                 }
 
-                ps.setLong(1, user.getId());
-                ps.setString(2, user.getName());
-                ps.setString(3, user.getUsername());
-                ps.setString(4, user.getPassword());
-            }
-
-            @Override
-            public int getBatchSize() {
-                return users.size();
-            }
-        });
+                @Override
+                public int getBatchSize() {
+                    return batch.size();
+                }
+            });
+        }
     }
 
     @Override
     public void save(OracleUser user) {
-        String sql = "MERGE INTO ORACLE_USER u USING (SELECT ? AS id, ? AS name, ? AS username, ? AS password FROM dual) incoming "
-                     + "ON (u.id = incoming.id) "
-                     + "WHEN MATCHED THEN UPDATE SET u.name = incoming.name, u.username = incoming.username, u.password = incoming.password "
-                     + "WHEN NOT MATCHED THEN INSERT (id, name, username, password) VALUES (incoming.id, incoming.name, incoming.username, incoming.password)";
 
         if (user.getId() == null) {
             user.setId(generateId());
         }
 
-        jdbcTemplate.update(sql, user.getId(), user.getName(), user.getUsername(), user.getPassword());
+        jdbcTemplate.update(SAVE_SQL, user.getId(), user.getName(), user.getUsername(), user.getPassword());
     }
 
     @Override
     public void saveAll(List<OracleUser> users) {
-        String sql = "MERGE INTO ORACLE_USER u USING (SELECT ? AS id, ? AS name, ? AS username, ? AS password FROM dual) incoming "
-                     + "ON (u.id = incoming.id) "
-                     + "WHEN MATCHED THEN UPDATE SET u.name = incoming.name, u.username = incoming.username, u.password = incoming.password "
-                     + "WHEN NOT MATCHED THEN INSERT (id, name, username, password) VALUES (incoming.id, incoming.name, incoming.username, incoming.password)";
+
+        final int batchSize = 1000;
 
         long maxId = generateId();
 
-        jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
-            @Override
-            public void setValues(PreparedStatement ps, int i) throws SQLException {
-                OracleUser user = users.get(i);
+        for (int i = 0; i < users.size(); i += batchSize) {
+            int index = i;
 
-                if (user.getId() == null) {
-                    user.setId(maxId + i);
+            final List<OracleUser> batch = users.subList(i, Math.min(users.size(), i + batchSize));
+
+            jdbcTemplate.batchUpdate(SAVE_ALL_SQL, new BatchPreparedStatementSetter() {
+                @Override
+                public void setValues(@NonNull PreparedStatement ps, int j) throws SQLException {
+                    OracleUser user = batch.get(j);
+
+                    if (user.getId() == null) {
+                        user.setId(maxId + index + j);
+                    }
+
+                    ps.setLong(1, user.getId());
+                    ps.setString(2, user.getName());
+                    ps.setString(3, user.getUsername());
+                    ps.setString(4, user.getPassword());
                 }
 
-                ps.setLong(1, user.getId());
-                ps.setString(2, user.getName());
-                ps.setString(3, user.getUsername());
-                ps.setString(4, user.getPassword());
-            }
-
-            @Override
-            public int getBatchSize() {
-                return users.size();
-            }
-        });
+                @Override
+                public int getBatchSize() {
+                    return batch.size();
+                }
+            });
+        }
     }
 
     @Override
     public List<OracleUser> findAll() {
-        String sql = "SELECT * FROM ORACLE_USER ORDER BY id ASC";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(OracleUser.class));
+        return jdbcTemplate.query(FIND_ALL_SQL, new BeanPropertyRowMapper<>(OracleUser.class));
     }
 
     @Override
     public Optional<OracleUser> findById(Long id) {
-        String sql = "SELECT * FROM ORACLE_USER WHERE id = ?";
+
         try {
-            OracleUser user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(OracleUser.class), id);
+            OracleUser user = jdbcTemplate.queryForObject(FIND_BY_ID_SQL, new BeanPropertyRowMapper<>(OracleUser.class), id);
             return Optional.ofNullable(user);
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
@@ -123,9 +169,8 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     @Override
     public Optional<OracleUser> findByUsername(String username) {
-        String sql = "SELECT * FROM ORACLE_USER WHERE username = ?";
         try {
-            OracleUser user = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(OracleUser.class), username);
+            OracleUser user = jdbcTemplate.queryForObject(FIND_BY_USERNAME_SQL, new BeanPropertyRowMapper<>(OracleUser.class), username);
             return Optional.ofNullable(user);
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
@@ -134,15 +179,14 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     @Override
     public List<OracleUser> findByName(String name) {
-        String sql = "SELECT * FROM ORACLE_USER WHERE name = ?";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(OracleUser.class), name);
+        return jdbcTemplate.query(FIND_BY_NAME_SQL, new BeanPropertyRowMapper<>(OracleUser.class), name);
     }
 
     @Override
     public Optional<String> findPasswordByUsername(String username) {
-        String sql = "SELECT password FROM ORACLE_USER WHERE username = ?";
+
         try {
-            String password = jdbcTemplate.queryForObject(sql, (rs, rowNum) -> rs.getString(1), username);
+            String password = jdbcTemplate.queryForObject(FIND_PASSWORD_BU_USERNAME_SQL, (rs, rowNum) -> rs.getString(1), username);
             return Optional.ofNullable(password);
         } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
@@ -151,15 +195,12 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     @Override
     public void update(OracleUser user) {
-        String sql = "UPDATE ORACLE_USER SET name = ?, username = ?, password = ? WHERE id = ?";
-        jdbcTemplate.update(sql, user.getName(), user.getUsername(), user.getPassword(), user.getId());
+        jdbcTemplate.update(UPDATE_BY_ID_SQL, user.getName(), user.getUsername(), user.getPassword(), user.getId());
     }
 
     @Override
     public void updateAll(List<OracleUser> users) {
-        String sql = "UPDATE ORACLE_USER SET name = ?, username = ?, password = ? WHERE id = ?";
-
-        jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
+        jdbcTemplate.batchUpdate(UPDATE_ALL_SQL, new BatchPreparedStatementSetter() {
             @Override
             public void setValues(PreparedStatement ps, int i) throws SQLException {
                 OracleUser user = users.get(i);
@@ -178,18 +219,25 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     @Override
     public void deleteAll() {
-        String sql = "DELETE FROM ORACLE_USER";
-        jdbcTemplate.update(sql);
+        jdbcTemplate.update(DELETE_ALL_SQL);
     }
 
     @Override
     public void deleteById(Long id) {
-        String sql = "DELETE FROM ORACLE_USER WHERE id = ?";
-        jdbcTemplate.update(sql, id);
+        jdbcTemplate.update(DELETE_BY_ID_SQL, id);
     }
 
-    private Long generateId() {
-        String sql = "SELECT COALESCE(MAX(id), 0) + 1 FROM ORACLE_USER";
-        return jdbcTemplate.queryForObject(sql, Long.class);
+    @Override
+    public void deleteByUsername(String username) {
+        jdbcTemplate.update(DELETE_BY_USERNAME_SQL, username);
+    }
+
+    @Override
+    public void deleteByName(String name) {
+        jdbcTemplate.update(DELETE_BY_NAME_SQL, name);
+    }
+
+    private synchronized Long generateId() {
+        return jdbcTemplate.queryForObject(GENERATE_ID_SQL, Long.class);
     }
 }

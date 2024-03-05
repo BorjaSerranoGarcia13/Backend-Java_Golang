@@ -40,16 +40,6 @@ public class OracleUserController {
         oracleUserService.deleteById(id);
     }
 
-    @PatchMapping("/user/{userId}/name")
-    public void changeUserName(@PathVariable Long userId, @RequestBody String newName) {
-        oracleUserService.changeUserName(userId, newName);
-    }
-
-    @PatchMapping("/user/{userId}/password")
-    public void changePassword(@PathVariable Long userId, @RequestBody String newPassword) {
-        oracleUserService.changePassword(userId, newPassword);
-    }
-
     @PostMapping("/user/{userId}/friend")
     public void addFriend(@PathVariable Long userId, @RequestBody Long friendId) {
         oracleUserService.addFriend(userId, friendId);

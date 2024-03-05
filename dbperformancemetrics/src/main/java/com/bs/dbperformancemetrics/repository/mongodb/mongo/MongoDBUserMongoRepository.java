@@ -18,5 +18,8 @@ public interface MongoDBUserMongoRepository extends MongoRepository<MongoDBUser,
     @Query(value = "{ 'username' : ?0 }", fields = "{ 'password' : 1 }")
     Optional<String> findPasswordByUsername(String username);
 
+    void deleteByUsername(String username);
+
+    void deleteByName(String name);
 
 }

@@ -2,6 +2,7 @@ package com.bs.dbperformancemetrics.repository.oracle.jpa;
 
 import com.bs.dbperformancemetrics.model.OracleUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,9 @@ public interface OracleUserJPARepository extends JpaRepository<OracleUser, Long>
 
     @Query("SELECT u.password as password FROM OracleUser u WHERE u.username = :username")
     Optional<String> findPasswordByUsername(@Param("username") String username);
+
+    void deleteByUsername(String username);
+
+    void deleteByName(String name);
 
 }

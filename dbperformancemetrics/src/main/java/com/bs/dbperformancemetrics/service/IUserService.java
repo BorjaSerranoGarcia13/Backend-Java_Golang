@@ -24,19 +24,27 @@ public interface IUserService<T extends IUser<ID>, ID> {
 
     String findPasswordByUsername(String username);
 
-    void update(T t);
-
     void updateAll(List<T> t);
 
-    void deleteById(ID id);
+    void update(T t);
+
+    void updatePasswordByUsername(String username, String newPassword);
+
+    void updatePasswordByName(String name, String newPassword);
 
     void deleteAll();
 
-    void changeUserName(ID userId, String newName);
+    void deleteById(ID id);
 
-    void changePassword(ID userId, String newPassword);
+    void deleteByUsername(String username);
+
+    void deleteByName(String name);
 
     void addFriend(ID userId, ID friendId);
 
     void removeFriend(ID userId, ID friendId);
+
+    T createCopyOfUser(T originalUser);
+
+    List<T> createCopyOfUserList(List<T> originalList);
 }
