@@ -1085,7 +1085,7 @@ To use it, follow these steps:
 1. Install [Insomnia](https://insomnia.rest/download) if you haven't already.
 2. Open Insomnia and select "Import/Export" in the menu.
 3. Select "Import Data" > "From File".
-4. Navigate to the `insomnia-export.json` file in the `api-config` directory of this project and click "Open".
+4. Navigate to the `insomnia-export.json` file in the `insomnia` directory of this project and click "Open".
 
 You should now see all the predefined HTTP requests in Insomnia, ready to be used.
 -----------
