@@ -1,22 +1,27 @@
-package com.bs.dbperformancemetrics.service.oracle.jdbc;
+package com.bs.dbperformancemetrics.service.databse.oracle.jpa;
 
 import com.bs.dbperformancemetrics.model.OracleUser;
-import com.bs.dbperformancemetrics.repository.oracle.jdbc.OracleUserJDBCRepository;
+import com.bs.dbperformancemetrics.repository.oracle.jpa.OracleUserJPARepository;
 import com.bs.dbperformancemetrics.service.IUserService;
 import com.bs.dbperformancemetrics.utils.UserValidation;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> {
+public class OracleUserJPAServiceImp implements IUserService<OracleUser, Long> {
+    private final OracleUserJPARepository repository;
 
-    private final OracleUserJDBCRepository repository;
+    @PersistenceContext
+    private final EntityManager entityManager;
 
-    public OracleUserJDBCServiceImp(OracleUserJDBCRepository repository) {
+    public OracleUserJPAServiceImp(OracleUserJPARepository repository, EntityManager entityManager) {
         this.repository = repository;
+        this.entityManager = entityManager;
     }
 
     // CREATE
@@ -25,14 +30,28 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
     @Transactional
     public void insert(OracleUser user) {
         UserValidation.validateUserCreation(user);
-        repository.insert(createCopyOfUser(user));
+        entityManager.persist(createCopyOfUser(user));
     }
 
     @Override
     @Transactional
     public void insertAll(List<OracleUser> users) {
         UserValidation.validateUsersCreation(users);
-        repository.insertAll(users);
+        int batchSize = 1000;
+        int i = 0;
+
+        for (OracleUser user : users) {
+            entityManager.persist(createCopyOfUser(user));
+            i++;
+            if (i % batchSize == 0) {
+                entityManager.flush();
+                entityManager.clear();
+            }
+        }
+        if (i % batchSize != 0) {
+            entityManager.flush();
+            entityManager.clear();
+        }
     }
 
     @Override
@@ -47,22 +66,22 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
     public void saveAll(List<OracleUser> users) {
         UserValidation.validateUsersCreation(users);
         repository.saveAll(createCopyOfUserList(users));
+        entityManager.clear();
     }
 
     // READ
-
-    @Override
-    public List<OracleUser> findAll() {
-        return repository.findAll();
-    }
 
     @Override
     public OracleUser findById(Long id) {
         if (id == null || id <= 0) {
             throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
         }
-
         return repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<OracleUser> findAll() {
+        return repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     @Override
@@ -71,7 +90,7 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
 
-        return repository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("User with username " + username + " not found"));
+        return repository.findByUsername(username).orElse(null);
     }
 
     @Override
@@ -99,7 +118,7 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
     @Transactional
     public void updateAll(List<OracleUser> users) {
         UserValidation.validateUsers(users);
-        repository.updateAll(createCopyOfUserList(users));
+        saveAll(createCopyOfUserList(users));
     }
 
     @Override
@@ -107,10 +126,10 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
     public void update(OracleUser user) {
         UserValidation.validateUser(user);
 
-        OracleUser updatedUser = repository.findById(user.getId())
+        repository.findById(user.getId())
                 .orElseThrow(() -> new IllegalArgumentException("User with ID " + user.getId() + " not found"));
 
-        repository.update(updatedUser);
+        save(user);
     }
 
     @Override
@@ -130,7 +149,7 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
 
         UserValidation.validateUser(user);
 
-        repository.update(user);
+        repository.save(user);
     }
 
     @Override
@@ -144,6 +163,7 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
         }
 
         List<OracleUser> users = repository.findByName(name);
+
         if (users.isEmpty()) {
             throw new IllegalArgumentException("User with name " + name + " not found");
         }
@@ -152,7 +172,39 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
 
         UserValidation.validateUsers(users);
 
-        repository.updateAll(users);
+        repository.saveAll(users);
+    }
+
+    @Override
+    @Transactional
+    public void addFriend(Long userId, Long friendId) {
+        if (userId == null || userId <= 0) {
+            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
+        }
+        if (friendId == null || friendId <= 0) {
+            throw new IllegalArgumentException("Friend ID cannot be null or less than or equal to zero");
+        }
+        if (userId.equals(friendId)) {
+            throw new IllegalArgumentException("User ID and friend ID cannot be the same");
+        }
+
+        OracleUser user = repository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
+
+        user.addFriendId(friendId);
+
+        repository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public void removeFriend(Long userId, Long friendId) {
+        OracleUser user = repository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
+
+        user.removeFriendId(friendId);
+
+        repository.save(user);
     }
 
     // DELETE
@@ -160,7 +212,7 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
     @Override
     @Transactional
     public void deleteAll() {
-        repository.deleteAll();
+        repository.deleteAllInBatch();
     }
 
     @Override
@@ -194,38 +246,6 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
     }
 
     @Override
-    @Transactional
-    public void addFriend(Long userId, Long friendId) {
-        if (userId == null || userId <= 0) {
-            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
-        }
-        if (friendId == null || friendId <= 0) {
-            throw new IllegalArgumentException("Friend ID cannot be null or less than or equal to zero");
-        }
-        if (userId.equals(friendId)) {
-            throw new IllegalArgumentException("User ID and friend ID cannot be the same");
-        }
-
-        OracleUser user = repository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
-
-        user.addFriend(friendId);
-
-        repository.save(user);
-    }
-
-    @Override
-    @Transactional
-    public void removeFriend(Long userId, Long friendId) {
-        OracleUser user = repository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
-
-        user.removeFriend(friendId);
-
-        repository.save(user);
-    }
-
-    @Override
     public OracleUser createCopyOfUser(OracleUser originalUser) {
         return new OracleUser(originalUser);
     }
@@ -234,7 +254,7 @@ public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> 
     public List<OracleUser> createCopyOfUserList(List<OracleUser> originalList) {
         return originalList.parallelStream()
                 .map(OracleUser::new)
-                .collect(Collectors.toList());
+                .toList();
     }
 
 }

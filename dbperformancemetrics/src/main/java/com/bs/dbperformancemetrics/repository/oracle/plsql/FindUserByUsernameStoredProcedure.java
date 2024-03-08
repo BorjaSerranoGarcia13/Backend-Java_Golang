@@ -16,9 +16,8 @@ import java.util.List;
 import java.util.Map;
 
 public class FindUserByUsernameStoredProcedure extends BaseStoredProcedure {
-
     public FindUserByUsernameStoredProcedure(DataSource dataSource) {
-        super(dataSource, "FIND_USER_BY_USERNAME"); // esto especifica la consulta
+        super(dataSource, "FIND_USER_BY_USERNAME");
     }
 
     @Override
@@ -26,7 +25,6 @@ public class FindUserByUsernameStoredProcedure extends BaseStoredProcedure {
         declareParameter(new SqlParameter("username", Types.VARCHAR));
         declareParameter(new SqlReturnResultSet("user", new UserRowMapper()));
     }
-
     public OracleUser execute(String username) {
         Map<String, Object> results = super.execute(username);
         List<?> tempList = (List<?>) results.get("user");
@@ -35,7 +33,6 @@ public class FindUserByUsernameStoredProcedure extends BaseStoredProcedure {
         }
         return (OracleUser) tempList.get(0);
     }
-
     private static final class UserRowMapper implements RowMapper<OracleUser> {
         public OracleUser mapRow(ResultSet rs, int rowNum) throws SQLException {
             OracleUser user = new OracleUser();
@@ -47,9 +44,9 @@ public class FindUserByUsernameStoredProcedure extends BaseStoredProcedure {
             Array friendsArray = rs.getArray("friends");
             if (friendsArray != null) {
                 Long[] friends = (Long[]) friendsArray.getArray();
-                user.setFriends(Arrays.asList(friends));
+                user.setFriendIds(Arrays.asList(friends));
             } else {
-                user.setFriends(new ArrayList<>());
+                user.setFriendIds(new ArrayList<>());
             }
 
             return user;

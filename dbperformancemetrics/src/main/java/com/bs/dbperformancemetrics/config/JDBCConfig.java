@@ -24,7 +24,7 @@ public class JDBCConfig {
 
     @Transactional
     public void createIDSequence() {
-        String sql = "CREATE SEQUENCE seq_user_id MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 50";
+        String sql = "CREATE SEQUENCE SEQ_USER_ID MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 1000";
         jdbcTemplate.execute(sql);
     }
 
@@ -35,9 +35,9 @@ public class JDBCConfig {
 
     @Transactional
     public void resetAndCreateIDSequence() {
-        String dropSql = "BEGIN EXECUTE IMMEDIATE 'DROP SEQUENCE seq_user_id'; EXCEPTION WHEN OTHERS THEN IF SQLCODE != -2289 THEN RAISE; END IF; END;";
+        String dropSql = "BEGIN EXECUTE IMMEDIATE 'DROP SEQUENCE SEQ_USER_ID'; EXCEPTION WHEN OTHERS THEN IF SQLCODE != -2289 THEN RAISE; END IF; END;";
         jdbcTemplate.execute(dropSql);
-        String createSql = "CREATE SEQUENCE seq_user_id MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 50";
+        String createSql = "CREATE SEQUENCE SEQ_USER_ID MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 1000";
         jdbcTemplate.execute(createSql);
     }
 }

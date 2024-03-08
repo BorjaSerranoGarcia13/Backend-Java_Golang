@@ -1,9 +1,9 @@
 package com.bs.dbperformancemetrics.service.performance.crud.update;
 
-import com.bs.dbperformancemetrics.service.mongoDB.driver.MongoDBTemplatePerformanceService;
-import com.bs.dbperformancemetrics.service.mongoDB.mongo.MongoDBMongoPerformanceService;
-import com.bs.dbperformancemetrics.service.oracle.jdbc.OracleJDBCPerformanceService;
-import com.bs.dbperformancemetrics.service.oracle.jpa.OracleJPAPerformanceService;
+import com.bs.dbperformancemetrics.service.databse.mongoDB.driver.MongoDBTemplatePerformanceService;
+import com.bs.dbperformancemetrics.service.databse.mongoDB.mongo.MongoDBMongoPerformanceService;
+import com.bs.dbperformancemetrics.service.databse.oracle.jdbc.OracleJDBCPerformanceService;
+import com.bs.dbperformancemetrics.service.databse.oracle.jpa.OracleJPAPerformanceService;
 import com.bs.dbperformancemetrics.service.performance.IDatabasePerformanceService;
 import com.bs.dbperformancemetrics.service.performance.result.PerformanceResult;
 import com.bs.dbperformancemetrics.service.performance.result.PerformanceResultGroup;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class PerformanceUpdateService implements IPerformanceUpdateService {
@@ -55,7 +54,7 @@ public class PerformanceUpdateService implements IPerformanceUpdateService {
 
         return resultFormatter.formatForAllResultString(databaseDetailsAndExecutionTimes,
                 "Performs a update operation to store a complete user record, and calculates the average execution time.",
-                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA);
+                Constants.NUMBER_OF_ITERATIONS, Constants.NUMBER_OF_DATA / 2);
 
     }
 
@@ -122,7 +121,7 @@ public class PerformanceUpdateService implements IPerformanceUpdateService {
 
         List<PerformanceResultGroup> performanceResultGroups = services.stream()
                 .map(service -> new PerformanceResultGroup(service.compareUpsertUpdate()))
-                .collect(Collectors.toList());
+                .toList();
 
         return resultFormatter.formatForSpecificResultString(performanceResultGroups,
                 "Performs a comparison of upsert versus insert operations for user updating in the database, and calculates the average execution time.",

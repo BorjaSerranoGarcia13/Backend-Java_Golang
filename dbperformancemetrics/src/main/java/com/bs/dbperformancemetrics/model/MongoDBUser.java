@@ -30,7 +30,7 @@ public class MongoDBUser implements IUser<String> {
         this.name = user.getName();
         this.username = user.getUsername();
         this.password = user.getPassword();
-        this.friendIds = user.getFriends();
+        this.friendIds = user.getFriendIds();
     }
 
     public MongoDBUser(String name, String username, String password) {
@@ -61,7 +61,7 @@ public class MongoDBUser implements IUser<String> {
     }
 
     @Override
-    public List<String> getFriends() {
+    public List<String> getFriendIds() {
         return friendIds;
     }
 
@@ -90,7 +90,7 @@ public class MongoDBUser implements IUser<String> {
     }
 
     @Override
-    public void setFriends(List<String> friendIds) {
+    public void setFriendIds(List<String> friendIds) {
         if (friendIds == null) {
             throw new IllegalArgumentException("Friends list cannot be null");
         }
@@ -103,7 +103,7 @@ public class MongoDBUser implements IUser<String> {
     }
 
     @Override
-    public void addFriend(String friendId) {
+    public void addFriendId(String friendId) {
         if (friendId == null || friendId.isEmpty()) {
             throw new IllegalArgumentException("Friend ID cannot be null or empty");
         }
@@ -111,7 +111,7 @@ public class MongoDBUser implements IUser<String> {
     }
 
     @Override
-    public void removeFriend(String friendId) {
+    public void removeFriendId(String friendId) {
         if (friendId == null || friendId.isEmpty()) {
             throw new IllegalArgumentException("Friend ID cannot be null or empty");
         }

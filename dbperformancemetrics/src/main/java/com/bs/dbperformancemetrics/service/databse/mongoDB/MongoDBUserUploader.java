@@ -1,8 +1,8 @@
-package com.bs.dbperformancemetrics.service.mongoDB;
+package com.bs.dbperformancemetrics.service.databse.mongoDB;
 
 import com.bs.dbperformancemetrics.model.MongoDBUser;
 import com.bs.dbperformancemetrics.service.DatabaseUserJsonUploader;
-import com.bs.dbperformancemetrics.service.mongoDB.mongo.MongoDBUserMongoServiceImp;
+import com.bs.dbperformancemetrics.service.databse.mongoDB.mongo.MongoDBUserMongoServiceImp;
 import com.bs.dbperformancemetrics.utils.RandomUserGenerator;
 import com.bs.dbperformancemetrics.utils.UserJsonCreator;
 import com.fasterxml.jackson.core.type.TypeReference;

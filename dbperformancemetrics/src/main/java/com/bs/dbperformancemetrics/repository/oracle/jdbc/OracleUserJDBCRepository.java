@@ -57,7 +57,6 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     final static String FIND_ALL_SQL = "SELECT * FROM ORACLE_USER ORDER BY id ASC";
 
-
     final static String GENERATE_ID_SQL = "SELECT COALESCE(MAX(id), 0) + 1 FROM ORACLE_USER";
 
 
@@ -68,7 +67,7 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     @Override
     public void insert(OracleUser user) {
-        jdbcTemplate.update(INSERT_SQL, generateId(),user.getName(), user.getUsername(), user.getPassword());
+        jdbcTemplate.update(INSERT_SQL, generateId(), user.getName(), user.getUsername(), user.getPassword());
     }
 
     @Override
@@ -200,21 +199,36 @@ public class OracleUserJDBCRepository implements BaseRepository<OracleUser, Long
 
     @Override
     public void updateAll(List<OracleUser> users) {
-        jdbcTemplate.batchUpdate(UPDATE_ALL_SQL, new BatchPreparedStatementSetter() {
-            @Override
-            public void setValues(PreparedStatement ps, int i) throws SQLException {
-                OracleUser user = users.get(i);
-                ps.setString(1, user.getName());
-                ps.setString(2, user.getUsername());
-                ps.setString(3, user.getPassword());
-                ps.setLong(4, user.getId());
-            }
+        final int batchSize = 1000;
 
-            @Override
-            public int getBatchSize() {
-                return users.size();
-            }
-        });
+        long maxId = generateId();
+
+        for (int i = 0; i < users.size(); i += batchSize) {
+            int index = i;
+
+            final List<OracleUser> batch = users.subList(i, Math.min(users.size(), i + batchSize));
+
+            jdbcTemplate.batchUpdate(UPDATE_ALL_SQL, new BatchPreparedStatementSetter() {
+                @Override
+                public void setValues(@NonNull PreparedStatement ps, int j) throws SQLException {
+                    OracleUser user = batch.get(j);
+
+                    if (user.getId() == null) {
+                        user.setId(maxId + index + j);
+                    }
+
+                    ps.setString(1, user.getName());
+                    ps.setString(2, user.getUsername());
+                    ps.setString(3, user.getPassword());
+                    ps.setLong(4, user.getId());
+                }
+
+                @Override
+                public int getBatchSize() {
+                    return batch.size();
+                }
+            });
+        }
     }
 
     @Override

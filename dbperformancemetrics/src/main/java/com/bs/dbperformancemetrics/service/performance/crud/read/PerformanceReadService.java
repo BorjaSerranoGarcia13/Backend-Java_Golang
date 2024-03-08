@@ -1,9 +1,9 @@
 package com.bs.dbperformancemetrics.service.performance.crud.read;
 
-import com.bs.dbperformancemetrics.service.mongoDB.driver.MongoDBTemplatePerformanceService;
-import com.bs.dbperformancemetrics.service.mongoDB.mongo.MongoDBMongoPerformanceService;
-import com.bs.dbperformancemetrics.service.oracle.jdbc.OracleJDBCPerformanceService;
-import com.bs.dbperformancemetrics.service.oracle.jpa.OracleJPAPerformanceService;
+import com.bs.dbperformancemetrics.service.databse.mongoDB.driver.MongoDBTemplatePerformanceService;
+import com.bs.dbperformancemetrics.service.databse.mongoDB.mongo.MongoDBMongoPerformanceService;
+import com.bs.dbperformancemetrics.service.databse.oracle.jdbc.OracleJDBCPerformanceService;
+import com.bs.dbperformancemetrics.service.databse.oracle.jpa.OracleJPAPerformanceService;
 import com.bs.dbperformancemetrics.service.performance.IDatabasePerformanceService;
 import com.bs.dbperformancemetrics.service.performance.result.PerformanceResult;
 import com.bs.dbperformancemetrics.service.performance.result.PerformanceResultGroup;
@@ -126,7 +126,7 @@ public class PerformanceReadService implements IPerformanceReadService {
 
         List<PerformanceResultGroup> performanceResultGroups = services.stream()
                 .map(service -> new PerformanceResultGroup(service.compareReadIndexAndNonIndex()))
-                .collect(Collectors.toList());
+                .toList();
 
         return resultFormatter.formatForSpecificResultString(performanceResultGroups,
                 "Performs a comparison of read operations by indexed and non-indexed fields at different positions (first, middle, last) in the database, and calculates the average execution time.",

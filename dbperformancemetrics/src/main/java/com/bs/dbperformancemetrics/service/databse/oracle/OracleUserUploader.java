@@ -1,8 +1,8 @@
-package com.bs.dbperformancemetrics.service.oracle;
+package com.bs.dbperformancemetrics.service.databse.oracle;
 
 import com.bs.dbperformancemetrics.model.OracleUser;
 import com.bs.dbperformancemetrics.service.DatabaseUserJsonUploader;
-import com.bs.dbperformancemetrics.service.oracle.jpa.OracleUserJPAServiceImp;
+import com.bs.dbperformancemetrics.service.databse.oracle.jpa.OracleUserJPAServiceImp;
 import com.bs.dbperformancemetrics.utils.RandomUserGenerator;
 import com.bs.dbperformancemetrics.utils.UserJsonCreator;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -36,7 +36,7 @@ public class OracleUserUploader extends DatabaseUserJsonUploader<Long, OracleUse
         ObjectMapper mapper = new ObjectMapper();
         Path filePath = Paths.get(getJsonFilePath());
         if (!Files.exists(filePath)) {
-            throw new FileNotFoundException("File not found at " + filePath.toString());
+            throw new FileNotFoundException("File not found at " + filePath);
         }
         List<OracleUser> users = mapper.readValue(filePath.toFile(), new TypeReference<List<OracleUser>>() {
         });

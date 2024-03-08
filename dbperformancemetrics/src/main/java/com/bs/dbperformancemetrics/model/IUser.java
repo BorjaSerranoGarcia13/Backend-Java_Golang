@@ -11,7 +11,7 @@ public interface IUser<ID> {
 
     String getPassword();
 
-    List<ID> getFriends();
+    List<ID> getFriendIds();
 
     void setName(String name);
 
@@ -19,10 +19,10 @@ public interface IUser<ID> {
 
     void setPassword(String password);
 
-    void setFriends(List<ID> friends);
+    void setFriendIds(List<ID> friends);
 
-    void addFriend(ID friend);
+    void addFriendId(ID friend);
 
-    void removeFriend(ID friend);
+    void removeFriendId(ID friend);
 
 }

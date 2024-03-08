@@ -1,7 +1,7 @@
-package com.bs.dbperformancemetrics.service.mongoDB.mongo;
+package com.bs.dbperformancemetrics.service.databse.mongoDB.driver;
 
 import com.bs.dbperformancemetrics.model.MongoDBUser;
-import com.bs.dbperformancemetrics.repository.mongodb.mongo.MongoDBUserMongoRepository;
+import com.bs.dbperformancemetrics.repository.mongodb.driver.MongoDBUserTemplateRepository;
 import com.bs.dbperformancemetrics.service.IUserService;
 import com.bs.dbperformancemetrics.utils.UserValidation;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, String> {
+public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, String> {
+    private final MongoDBUserTemplateRepository repository;
 
-    private final MongoDBUserMongoRepository repository;
-
-    public MongoDBUserMongoServiceImp(MongoDBUserMongoRepository repository) {
+    public MongoDBUserTemplateServiceImp(MongoDBUserTemplateRepository repository) {
         this.repository = repository;
     }
 
@@ -31,7 +30,8 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
     @Override
     @Transactional
     public void insertAll(List<MongoDBUser> users) {
-        repository.insert(createCopyOfUserList(users));
+        UserValidation.validateUsersCreation(users);
+        repository.insertAll(createCopyOfUserList(users));
     }
 
     @Override
@@ -61,7 +61,8 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
             throw new IllegalArgumentException("User ID cannot be null or empty");
         }
 
-        return repository.findById(id).orElse(null);
+        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
+
     }
 
     @Override
@@ -97,8 +98,8 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
     @Override
     @Transactional
     public void updateAll(List<MongoDBUser> users) {
-        UserValidation.validateUsers(createCopyOfUserList(users));
-        saveAll(users);
+        UserValidation.validateUsers(users);
+        repository.updateAll(createCopyOfUserList(users));
     }
 
     @Override
@@ -109,7 +110,7 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
         MongoDBUser updatedUser = repository.findById(user.getId())
                 .orElseThrow(() -> new IllegalArgumentException("User with ID " + user.getId() + " not found"));
 
-        save(updatedUser);
+        repository.update(updatedUser);
     }
 
     @Override
@@ -129,7 +130,7 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
 
         UserValidation.validateUser(user);
 
-        repository.save(user);
+        repository.update(user);
     }
 
     @Override
@@ -142,16 +143,17 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
             throw new IllegalArgumentException("New password cannot be null or empty");
         }
 
-        List<MongoDBUser> users = repository.findByName(name);
-        if (users.isEmpty()) {
+        MongoDBUser user = repository.findByName(name).get(0);
+
+        if (user == null) {
             throw new IllegalArgumentException("User with name " + name + " not found");
         }
 
-        users.forEach(user -> user.setPassword(newPassword));
+        user.setPassword(newPassword);
 
-        UserValidation.validateUsers(users);
+        UserValidation.validateUser(user);
 
-        repository.saveAll(users);
+        repository.update(user);
     }
 
     // DELETE
@@ -208,7 +210,7 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
         MongoDBUser user = repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
 
-        user.addFriend(friendId);
+        user.addFriendId(friendId);
 
         repository.save(user);
     }
@@ -229,7 +231,7 @@ public class MongoDBUserMongoServiceImp implements IUserService<MongoDBUser, Str
         MongoDBUser user = repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
 
-        user.removeFriend(friendId);
+        user.removeFriendId(friendId);
 
         repository.save(user);
     }

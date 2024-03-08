@@ -10,8 +10,8 @@ import java.util.List;
 public class OracleUser implements IUser<Long> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user_id")
-    @SequenceGenerator(name = "seq_user_id", sequenceName = "seq_user_id", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_USER_ID")
+    @SequenceGenerator(name = "SEQ_USER_ID", sequenceName = "SEQ_USER_ID", allocationSize = 1)
     private Long id;
 
     private String name;
@@ -21,6 +21,7 @@ public class OracleUser implements IUser<Long> {
     private String password;
 
     @ElementCollection
+    @CollectionTable(name = "ORACLE_USER_FRIENDS")
     private List<Long> friendIds;
 
     public OracleUser() {
@@ -31,7 +32,7 @@ public class OracleUser implements IUser<Long> {
         this.name = user.getName();
         this.username = user.getUsername();
         this.password = user.getPassword();
-        this.friendIds = user.getFriends();
+        this.friendIds = user.getFriendIds();
     }
 
     public OracleUser(String name, String username, String password) {
@@ -62,7 +63,7 @@ public class OracleUser implements IUser<Long> {
     }
 
     @Override
-    public List<Long> getFriends() {
+    public List<Long> getFriendIds() {
         return friendIds;
     }
 
@@ -98,7 +99,7 @@ public class OracleUser implements IUser<Long> {
     }
 
     @Override
-    public void setFriends(List<Long> friendIds) {
+    public void setFriendIds(List<Long> friendIds) {
         if (friendIds == null) {
             throw new IllegalArgumentException("Friends list cannot be null");
         }
@@ -111,7 +112,7 @@ public class OracleUser implements IUser<Long> {
     }
 
     @Override
-    public void addFriend(Long friendId) {
+    public void addFriendId(Long friendId) {
         if (friendId == null || friendId <= 0) {
             throw new IllegalArgumentException("Friend ID cannot be null or less than or equal to zero");
         }
@@ -119,7 +120,7 @@ public class OracleUser implements IUser<Long> {
     }
 
     @Override
-    public void removeFriend(Long friendId) {
+    public void removeFriendId(Long friendId) {
         if (friendId == null || friendId <= 0) {
             throw new IllegalArgumentException("Friend ID cannot be null or less than or equal to zero");
         }

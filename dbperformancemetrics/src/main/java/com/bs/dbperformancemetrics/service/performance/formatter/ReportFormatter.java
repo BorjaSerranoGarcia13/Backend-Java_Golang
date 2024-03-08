@@ -77,10 +77,8 @@ public class ReportFormatter {
         }
 
         return performancesByPosition.entrySet().parallelStream()
-                .map(entry -> {
-                    return String.format("%s\n%s%s\n", entry.getKey().toUpperCase(),
-                            findBestPerformingDatabase(entry.getValue().getFirst()), findWorstPerformingDatabase(entry.getValue().getSecond()));
-                })
+                .map(entry -> String.format("%s\n%s%s\n", entry.getKey().toUpperCase(),
+                        findBestPerformingDatabase(entry.getValue().getFirst()), findWorstPerformingDatabase(entry.getValue().getSecond())))
                 .collect(Collectors.joining());
     }
 

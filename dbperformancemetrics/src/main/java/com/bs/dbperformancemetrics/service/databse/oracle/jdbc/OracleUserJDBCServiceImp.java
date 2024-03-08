@@ -1,8 +1,7 @@
-package com.bs.dbperformancemetrics.service.mongoDB.driver;
+package com.bs.dbperformancemetrics.service.databse.oracle.jdbc;
 
-import com.bs.dbperformancemetrics.model.MongoDBUser;
 import com.bs.dbperformancemetrics.model.OracleUser;
-import com.bs.dbperformancemetrics.repository.mongodb.driver.MongoDBUserTemplateRepository;
+import com.bs.dbperformancemetrics.repository.oracle.jdbc.OracleUserJDBCRepository;
 import com.bs.dbperformancemetrics.service.IUserService;
 import com.bs.dbperformancemetrics.utils.UserValidation;
 import org.springframework.stereotype.Service;
@@ -12,10 +11,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, String> {
-    private final MongoDBUserTemplateRepository repository;
+public class OracleUserJDBCServiceImp implements IUserService<OracleUser, Long> {
 
-    public MongoDBUserTemplateServiceImp(MongoDBUserTemplateRepository repository) {
+    private final OracleUserJDBCRepository repository;
+
+    public OracleUserJDBCServiceImp(OracleUserJDBCRepository repository) {
         this.repository = repository;
     }
 
@@ -23,28 +23,28 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
 
     @Override
     @Transactional
-    public void insert(MongoDBUser user) {
+    public void insert(OracleUser user) {
         UserValidation.validateUserCreation(user);
         repository.insert(createCopyOfUser(user));
     }
 
     @Override
     @Transactional
-    public void insertAll(List<MongoDBUser> users) {
+    public void insertAll(List<OracleUser> users) {
         UserValidation.validateUsersCreation(users);
-        repository.insertAll(createCopyOfUserList(users));
+        repository.insertAll(users);
     }
 
     @Override
     @Transactional
-    public void save(MongoDBUser user) {
+    public void save(OracleUser user) {
         UserValidation.validateUserCreation(user);
         repository.save(createCopyOfUser(user));
     }
 
     @Override
     @Transactional
-    public void saveAll(List<MongoDBUser> users) {
+    public void saveAll(List<OracleUser> users) {
         UserValidation.validateUsersCreation(users);
         repository.saveAll(createCopyOfUserList(users));
     }
@@ -52,22 +52,21 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
     // READ
 
     @Override
-    public List<MongoDBUser> findAll() {
+    public List<OracleUser> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public MongoDBUser findById(String id) {
-        if (id == null || id.isEmpty()) {
-            throw new IllegalArgumentException("User ID cannot be null or empty");
+    public OracleUser findById(Long id) {
+        if (id == null || id <= 0) {
+            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
         }
 
-        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
-
+        return repository.findById(id).orElse(null);
     }
 
     @Override
-    public MongoDBUser findByUsername(String username) {
+    public OracleUser findByUsername(String username) {
         if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
@@ -76,12 +75,12 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
     }
 
     @Override
-    public List<MongoDBUser> findByName(String name) {
+    public List<OracleUser> findByName(String name) {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
 
-        List<MongoDBUser> users = repository.findByName(name);
+        List<OracleUser> users = repository.findByName(name);
         return users.isEmpty() ? null : users;
     }
 
@@ -98,17 +97,17 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
 
     @Override
     @Transactional
-    public void updateAll(List<MongoDBUser> users) {
+    public void updateAll(List<OracleUser> users) {
         UserValidation.validateUsers(users);
         repository.updateAll(createCopyOfUserList(users));
     }
 
     @Override
     @Transactional
-    public void update(MongoDBUser user) {
+    public void update(OracleUser user) {
         UserValidation.validateUser(user);
 
-        MongoDBUser updatedUser = repository.findById(user.getId())
+        OracleUser updatedUser = repository.findById(user.getId())
                 .orElseThrow(() -> new IllegalArgumentException("User with ID " + user.getId() + " not found"));
 
         repository.update(updatedUser);
@@ -118,13 +117,13 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
     @Transactional
     public void updatePasswordByUsername(String username, String newPassword) {
         if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("User name cannot be null or empty");
+            throw new IllegalArgumentException("User username cannot be null or empty");
         }
         if (newPassword == null || newPassword.isEmpty()) {
             throw new IllegalArgumentException("New password cannot be null or empty");
         }
 
-        MongoDBUser user = repository.findByUsername(username)
+        OracleUser user = repository.findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("User with username " + username + " not found"));
 
         user.setPassword(newPassword);
@@ -144,8 +143,7 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
             throw new IllegalArgumentException("New password cannot be null or empty");
         }
 
-        List<MongoDBUser> users = repository.findByName(name);
-
+        List<OracleUser> users = repository.findByName(name);
         if (users.isEmpty()) {
             throw new IllegalArgumentException("User with name " + name + " not found");
         }
@@ -164,12 +162,12 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
     public void deleteAll() {
         repository.deleteAll();
     }
-    
+
     @Override
     @Transactional
-    public void deleteById(String id) {
-        if (id == null || id.isEmpty()) {
-            throw new IllegalArgumentException("User ID cannot be null or empty");
+    public void deleteById(Long id) {
+        if (id == null || id <= 0) {
+            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
         }
 
         repository.deleteById(id);
@@ -197,55 +195,45 @@ public class MongoDBUserTemplateServiceImp implements IUserService<MongoDBUser, 
 
     @Override
     @Transactional
-    public void addFriend(String id, String friendId) {
-        if (id == null || id.isEmpty()) {
-            throw new IllegalArgumentException("User ID cannot be null or empty");
+    public void addFriend(Long userId, Long friendId) {
+        if (userId == null || userId <= 0) {
+            throw new IllegalArgumentException("User ID cannot be null or less than or equal to zero");
         }
-        if (friendId == null || friendId.isEmpty()) {
-            throw new IllegalArgumentException("Friend ID cannot be null or empty");
+        if (friendId == null || friendId <= 0) {
+            throw new IllegalArgumentException("Friend ID cannot be null or less than or equal to zero");
         }
-        if (id.equals(friendId)) {
-            throw new IllegalArgumentException("User cannot remove itself from the friends list");
+        if (userId.equals(friendId)) {
+            throw new IllegalArgumentException("User ID and friend ID cannot be the same");
         }
 
-        MongoDBUser user = repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
+        OracleUser user = repository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
 
-        user.addFriend(friendId);
+        user.addFriendId(friendId);
 
         repository.save(user);
     }
 
     @Override
     @Transactional
-    public void removeFriend(String id, String friendId) {
-        if (id == null || id.isEmpty()) {
-            throw new IllegalArgumentException("User ID cannot be null or empty");
-        }
-        if (friendId == null || friendId.isEmpty()) {
-            throw new IllegalArgumentException("Friend ID cannot be null or empty");
-        }
-        if (id.equals(friendId)) {
-            throw new IllegalArgumentException("User cannot remove itself from the friends list");
-        }
+    public void removeFriend(Long userId, Long friendId) {
+        OracleUser user = repository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User with id " + userId + " not found"));
 
-        MongoDBUser user = repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("User with id " + id + " not found"));
-
-        user.removeFriend(friendId);
+        user.removeFriendId(friendId);
 
         repository.save(user);
     }
 
     @Override
-    public MongoDBUser createCopyOfUser(MongoDBUser originalUser) {
-        return new MongoDBUser(originalUser);
+    public OracleUser createCopyOfUser(OracleUser originalUser) {
+        return new OracleUser(originalUser);
     }
 
     @Override
-    public List<MongoDBUser> createCopyOfUserList(List<MongoDBUser> originalList) {
+    public List<OracleUser> createCopyOfUserList(List<OracleUser> originalList) {
         return originalList.parallelStream()
-                .map(MongoDBUser::new)
+                .map(OracleUser::new)
                 .collect(Collectors.toList());
     }
 

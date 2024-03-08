@@ -2,19 +2,13 @@ package com.bs.dbperformancemetrics.repository.mongodb.driver;
 
 import com.bs.dbperformancemetrics.model.MongoDBUser;
 import com.bs.dbperformancemetrics.repository.BaseRepository;
-import com.google.common.collect.Lists;
-import com.mongodb.client.model.UpdateOneModel;
-import com.mongodb.client.model.UpdateOptions;
-import com.mongodb.client.model.Updates;
-import com.mongodb.client.model.WriteModel;
-import org.bson.Document;
+import org.springframework.data.mongodb.core.BulkOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,34 +38,8 @@ public class MongoDBUserTemplateRepository implements BaseRepository<MongoDBUser
 
     @Override
     public void saveAll(List<MongoDBUser> users) {
-        int batchSize = 1000;
-
-        List<List<MongoDBUser>> batches = Lists.partition(users, batchSize);
-
-        List<WriteModel<Document>> bulkUpsertOperations = new ArrayList<>();
-        UpdateOptions updateOptions = new UpdateOptions().upsert(true);
-        Document queryDocument = new Document();
-
-        for (List<MongoDBUser> batch : batches) {
-            bulkUpsertOperations.clear();
-
-            for (MongoDBUser user : batch) {
-                queryDocument.clear();
-                queryDocument.put("username", user.getUsername());
-
-                bulkUpsertOperations.add(new UpdateOneModel<>(
-                        queryDocument,
-                        Updates.combine(
-                                Updates.set("name", user.getName()),
-                                Updates.set("username", user.getUsername()),
-                                Updates.set("password", user.getPassword()),
-                                Updates.set("friends", user.getFriends())
-                        ),
-                        updateOptions
-                ));
-            }
-
-            mongoTemplate.getCollection(mongoTemplate.getCollectionName(MongoDBUser.class)).bulkWrite(bulkUpsertOperations);
+        for (MongoDBUser user : users) {
+            mongoTemplate.save(user);
         }
     }
 
@@ -117,23 +85,19 @@ public class MongoDBUserTemplateRepository implements BaseRepository<MongoDBUser
 
     @Override
     public void updateAll(List<MongoDBUser> users) {
-        List<WriteModel<Document>> bulkOperations = new ArrayList<>();
+        BulkOperations bulkOps = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, MongoDBUser.class);
 
         for (MongoDBUser user : users) {
-            Document queryDocument = new Document();
-            queryDocument.put("id", user.getId());
+            Query query = Query.query(Criteria.where("_id").is(user.getId()));
+            Update update = new Update()
+                    .set("name", user.getName())
+                    .set("username", user.getUsername())
+                    .set("password", user.getPassword());
 
-            bulkOperations.add(new UpdateOneModel<>(
-                    queryDocument,
-                    Updates.combine(
-                            Updates.set("name", user.getName()),
-                            Updates.set("username", user.getUsername()),
-                            Updates.set("password", user.getPassword())
-                    )
-            ));
+            bulkOps.updateOne(query, update);
         }
 
-        mongoTemplate.getCollection(mongoTemplate.getCollectionName(MongoDBUser.class)).bulkWrite(bulkOperations);
+        bulkOps.execute();
     }
 
     @Override
@@ -144,7 +108,7 @@ public class MongoDBUserTemplateRepository implements BaseRepository<MongoDBUser
     @Override
     public void deleteById(String id) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("id").is(id));
+        query.addCriteria(Criteria.where("_id").is(id));
         mongoTemplate.remove(query, MongoDBUser.class);
     }
 

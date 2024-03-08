@@ -8,7 +8,6 @@ services:
       MONGO_INITDB_DATABASE: PERFORMANCE_DATABASE
     volumes:
       - mongodb_data:/data/db
-      - ./mongo-init:/docker-entrypoint-initdb.d
 
   oracle_db_service:
     image: oracleinanutshell/oracle-xe-11g
@@ -19,7 +18,6 @@ services:
       ORACLE_PWD: oracle
     volumes:
       - oracle_db_data:/ORCL
-      - ./oracle-init:/opt/oracle/scripts/startup
 
 volumes:
   mongodb_data:

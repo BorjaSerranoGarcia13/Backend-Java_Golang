@@ -2,7 +2,6 @@ package com.bs.dbperformancemetrics.repository.oracle.jpa;
 
 import com.bs.dbperformancemetrics.model.OracleUser;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -23,5 +22,8 @@ public interface OracleUserJPARepository extends JpaRepository<OracleUser, Long>
     void deleteByUsername(String username);
 
     void deleteByName(String name);
+
+    @Query(value = "SELECT MAX(u.id) FROM OracleUser u", nativeQuery = true)
+    Optional<Long> findMaxId();
 
 }

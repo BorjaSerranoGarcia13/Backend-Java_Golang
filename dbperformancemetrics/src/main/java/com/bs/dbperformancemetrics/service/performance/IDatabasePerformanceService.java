@@ -50,4 +50,6 @@ public interface IDatabasePerformanceService {
 
     PerformanceResult deleteUserByName();
 
+    List<PerformanceResult> compareDeleteIndexAndNonIndex();
+
 }
