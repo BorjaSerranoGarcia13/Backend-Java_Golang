@@ -1,8 +1,6 @@
-# Ecommerce
+# DB Performance Metrics
 --------------
 # Introduction
-
-The introduction to the documentation for this project could be as follows:
 
 This project is a Java application developed with the Spring Boot framework and managed with Maven. Its primary objective is to conduct performance testing on two different databases: MongoDB and Oracle. For each database, CRUD (Create, Read, Update, Delete) operations have been optimized to achieve the best possible results.
 
