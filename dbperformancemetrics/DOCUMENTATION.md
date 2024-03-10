@@ -52,9 +52,7 @@ Performs a save operation to store a complete user record in a empty database, a
 [GET] http://localhost:8080/api/v1/performance/saveAllUsersEmptyCollection
 ```
 #### Response
-```
 ![](src/main/resources/docu/1.png)
-```
 
 ### **Save User Full Collection**
 Performs a save operation to store a single user record in a full database, and calculates the average execution time.
@@ -63,9 +61,7 @@ Performs a save operation to store a single user record in a full database, and 
 [GET] http://localhost:8080/api/v1/performance/saveUserFullCollection
 ```
 #### Response
-```
 ![](src/main/resources/docu/2.png)
-```
 
 ### **Compare Upsert Insert**
 Performs a comparison of upsert versus insert operations for user saving in the database, and calculates the average execution time.
@@ -74,9 +70,7 @@ Performs a comparison of upsert versus insert operations for user saving in the 
 [GET] http://localhost:8080/api/v1/performance/compareUpsertInsert
 ```
 #### Response
-```
 ![](src/main/resources/docu/3.png)
-```
 
 ## Read Controller
 
@@ -87,9 +81,7 @@ Performs a read operation to retrieve all users record by a non-indexed field at
 [GET] http://localhost:8080/api/v1/performance/findAllUsers
 ```
 #### Response
-```
 ![](src/main/resources/docu/4.png)
-```
 
 ### **Find User By Indexed Field **
 Performs a read operation to retrieve a complete user record by a indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -98,9 +90,7 @@ Performs a read operation to retrieve a complete user record by a indexed field 
 [GET] http://localhost:8080/api/v1/performance/findUserByIndexedField
 ```
 #### Response
-```
 ![](src/main/resources/docu/5.png)
-```
 
 ### **Find User By Non Indexed Field **
 Performs a read operation to retrieve a complete user record by a non-indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -109,9 +99,7 @@ Performs a read operation to retrieve a complete user record by a non-indexed fi
 [GET] http://localhost:8080/api/v1/performance/findUserByNonIndexedField
 ```
 #### Response
-```
 ![](src/main/resources/docu/6.png)
-```
 
 ### **Find User Field By Indexed Field **
 Performs a read operation to retrieve a complete user record by a indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -120,9 +108,8 @@ Performs a read operation to retrieve a complete user record by a indexed field 
 [GET] http://localhost:8080/api/v1/performance/findUserFieldByIndexedField
 ```
 #### Response
-```
 ![](src/main/resources/docu/7.png)
-```
+
 
 ### **Compare Read Index And Non Index **
 Performs a comparison of read operations by indexed and non-indexed fields at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -131,9 +118,7 @@ Performs a comparison of read operations by indexed and non-indexed fields at di
 [GET] http://localhost:8080/api/v1/performance/compareReadIndexAndNonIndex
 ```
 #### Response
-```
 ![](src/main/resources/docu/8.png)
-```
 
 ## Update Controller
 
@@ -144,9 +129,7 @@ Performs a update operation to store a complete user record, and calculates the 
 [GET] http://localhost:8080/api/v1/performance/updateAllUsers
 ```
 #### Response
-```
 ![](src/main/resources/docu/9.png)
-```
 
 ### **Update User By Id **
 Performs a update operation to store a single user record by ID at different positions (first, middle, last), and calculates the average execution time.
@@ -155,9 +138,7 @@ Performs a update operation to store a single user record by ID at different pos
 [GET] http://localhost:8080/api/v1/performance/updateUserById
 ```
 #### Response
-```
 ![](src/main/resources/docu/10.png)
-```
 
 ### **Update User By Indexed Field **
 Performs a update operation to store a single user record by indexed field at different positions (first, middle, last), and calculates the average execution time.
@@ -166,9 +147,7 @@ Performs a update operation to store a single user record by indexed field at di
 [GET] http://localhost:8080/api/v1/performance/updateUserByIndexedField
 ```
 #### Response
-```
 ![](src/main/resources/docu/11.png)
-```
 
 ### **Update User By Non Indexed Field **
 Performs a update operation to store a single user record by non-indexed field at different positions (first, middle, last), and calculates the average execution time.
@@ -177,9 +156,7 @@ Performs a update operation to store a single user record by non-indexed field a
 [GET] http://localhost:8080/api/v1/performance/updateUserByNonIndexedField
 ```
 #### Response
-```
 ![](src/main/resources/docu/12.png)
-```
 
 ### **Compare Upsert Update **
 Performs a comparison of upsert versus insert operations for user updating in the database, and calculates the average execution time.
@@ -188,9 +165,7 @@ Performs a comparison of upsert versus insert operations for user updating in th
 [GET] http://localhost:8080/api/v1/performance/compareUpsertUpdate
 ```
 #### Response
-```
 ![](src/main/resources/docu/13.png)
-```
 
 ## Delete Controller
 
@@ -201,9 +176,7 @@ Performs a delete operation to remove a complete user record in a full database,
 [GET] http://localhost:8080/api/v1/performance/deleteAllUsers
 ```
 #### Response
-```
 ![](src/main/resources/docu/14.png)
-```
 
 ### **Delete User By Id **
 Performs a delete operation to remove a complete user record by ID at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -212,9 +185,7 @@ Performs a delete operation to remove a complete user record by ID at different 
 [GET] http://localhost:8080/api/v1/performance/deleteUserById
 ```
 #### Response
-```
 ![](src/main/resources/docu/15.png)
-```
 
 ### **Delete User By Indexed Field **
 Performs a delete operation to remove a complete user record by a indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -223,9 +194,7 @@ Performs a delete operation to remove a complete user record by a indexed field 
 [GET] http://localhost:8080/api/v1/performance/deleteUserByIndexedField
 ```
 #### Response
-```
 ![](src/main/resources/docu/16.png)
-```
 
 ### **Delete User By Non Indexed Field **
 Performs a delete operation to remove a complete user record by a non-indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -234,9 +203,7 @@ Performs a delete operation to remove a complete user record by a non-indexed fi
 [GET] http://localhost:8080/api/v1/performance/deleteUserByNonIndexedField
 ```
 #### Response
-```
 ![](src/main/resources/docu/17.png)
-```
 
 ### **Compare Delete Index And Non Index **
 Performs a comparison of delete operations by indexed and non-indexed fields at different positions (first, middle, last) in the database, and calculates the average execution time.
@@ -245,9 +212,7 @@ Performs a comparison of delete operations by indexed and non-indexed fields at 
 [GET] http://localhost:8080/api/v1/performance/compareDeleteIndexAndNonIndex
 ```
 #### Response
-```
 ![](src/main/resources/docu/18.png)
-```
 
 -------------------
 
