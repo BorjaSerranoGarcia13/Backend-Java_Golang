@@ -48,30 +48,4 @@ public class JPAConfig {
         entityManager.createNativeQuery(createSql).executeUpdate();
     }
 
-    @Transactional
-    public void createIDSequence() {
-        entityManager.createNativeQuery("CREATE SEQUENCE seq_user_id MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 1000").executeUpdate();
-    }
-
-    @Transactional
-    public void dropIDSequence() {
-        entityManager.createNativeQuery("DROP SEQUENCE seq_user_id").executeUpdate();
-    }
-
-    @Transactional
-    public void printActiveSequences() {
-        String sql = "SELECT sequence_name, min_value, max_value, increment_by, last_number FROM user_sequences";
-        Query query = entityManager.createNativeQuery(sql);
-        List<Object[]> sequences = query.getResultList();
-
-        for (Object[] sequence : sequences) {
-            System.out.println("Sequence Name: " + sequence[0]);
-            System.out.println("Min Value: " + sequence[1]);
-            System.out.println("Max Value: " + sequence[2]);
-            System.out.println("Increment By: " + sequence[3]);
-            System.out.println("Last Number: " + sequence[4]);
-            System.out.println("-----------------------------");
-        }
-    }
-
 }
