@@ -74,7 +74,7 @@ Performs a comparison of upsert versus insert operations for user saving in the 
 
 ## Read Controller
 
-### **Find All Users **
+### **Find All Users**
 Performs a read operation to retrieve all users record by a non-indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -83,7 +83,7 @@ Performs a read operation to retrieve all users record by a non-indexed field at
 #### Response
 ![](src/main/resources/docu/4.png)
 
-### **Find User By Indexed Field **
+### **Find User By Indexed Field**
 Performs a read operation to retrieve a complete user record by a indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -92,7 +92,7 @@ Performs a read operation to retrieve a complete user record by a indexed field 
 #### Response
 ![](src/main/resources/docu/5.png)
 
-### **Find User By Non Indexed Field **
+### **Find User By Non Indexed Field**
 Performs a read operation to retrieve a complete user record by a non-indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -101,7 +101,7 @@ Performs a read operation to retrieve a complete user record by a non-indexed fi
 #### Response
 ![](src/main/resources/docu/6.png)
 
-### **Find User Field By Indexed Field **
+### **Find User Field By Indexed Field**
 Performs a read operation to retrieve a complete user record by a indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -111,7 +111,7 @@ Performs a read operation to retrieve a complete user record by a indexed field 
 ![](src/main/resources/docu/7.png)
 
 
-### **Compare Read Index And Non Index **
+### **Compare Read Index And Non Index**
 Performs a comparison of read operations by indexed and non-indexed fields at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -122,7 +122,7 @@ Performs a comparison of read operations by indexed and non-indexed fields at di
 
 ## Update Controller
 
-### **Update All Users **
+### **Update All Users**
 Performs a update operation to store a complete user record, and calculates the average execution time.
 #### Request
 ```
@@ -131,7 +131,7 @@ Performs a update operation to store a complete user record, and calculates the 
 #### Response
 ![](src/main/resources/docu/9.png)
 
-### **Update User By Id **
+### **Update User By Id**
 Performs a update operation to store a single user record by ID at different positions (first, middle, last), and calculates the average execution time.
 #### Request
 ```
@@ -140,7 +140,7 @@ Performs a update operation to store a single user record by ID at different pos
 #### Response
 ![](src/main/resources/docu/10.png)
 
-### **Update User By Indexed Field **
+### **Update User By Indexed Field**
 Performs a update operation to store a single user record by indexed field at different positions (first, middle, last), and calculates the average execution time.
 #### Request
 ```
@@ -149,7 +149,7 @@ Performs a update operation to store a single user record by indexed field at di
 #### Response
 ![](src/main/resources/docu/11.png)
 
-### **Update User By Non Indexed Field **
+### **Update User By Non Indexed Field**
 Performs a update operation to store a single user record by non-indexed field at different positions (first, middle, last), and calculates the average execution time.
 #### Request
 ```
@@ -158,7 +158,7 @@ Performs a update operation to store a single user record by non-indexed field a
 #### Response
 ![](src/main/resources/docu/12.png)
 
-### **Compare Upsert Update **
+### **Compare Upsert Update**
 Performs a comparison of upsert versus insert operations for user updating in the database, and calculates the average execution time.
 #### Request
 ```
@@ -169,7 +169,7 @@ Performs a comparison of upsert versus insert operations for user updating in th
 
 ## Delete Controller
 
-### **Delete All Users **
+### **Delete All Users**
 Performs a delete operation to remove a complete user record in a full database, and calculates the average execution time.
 #### Request
 ```
@@ -178,7 +178,7 @@ Performs a delete operation to remove a complete user record in a full database,
 #### Response
 ![](src/main/resources/docu/14.png)
 
-### **Delete User By Id **
+### **Delete User By Id**
 Performs a delete operation to remove a complete user record by ID at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -187,7 +187,7 @@ Performs a delete operation to remove a complete user record by ID at different 
 #### Response
 ![](src/main/resources/docu/15.png)
 
-### **Delete User By Indexed Field **
+### **Delete User By Indexed Field**
 Performs a delete operation to remove a complete user record by a indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -196,7 +196,7 @@ Performs a delete operation to remove a complete user record by a indexed field 
 #### Response
 ![](src/main/resources/docu/16.png)
 
-### **Delete User By Non Indexed Field **
+### **Delete User By Non Indexed Field**
 Performs a delete operation to remove a complete user record by a non-indexed field at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
@@ -205,7 +205,7 @@ Performs a delete operation to remove a complete user record by a non-indexed fi
 #### Response
 ![](src/main/resources/docu/17.png)
 
-### **Compare Delete Index And Non Index **
+### **Compare Delete Index And Non Index**
 Performs a comparison of delete operations by indexed and non-indexed fields at different positions (first, middle, last) in the database, and calculates the average execution time.
 #### Request
 ```
